@@ -2,7 +2,9 @@
 
 ## Sobre o projeto
 
-O NutriPlanner é uma plataforma web que simplifica o processo de planejamento de dietas para profissionais de saúde, substituindo as planilhas convencionais por uma abordagem prática e organizada.
+O Nutriplanner é um projeto feito para profissionais da área de nutrição e educação física, desenvolvido pelos discentes que cursam a disciplina de Requisitos de Software da Universidade de Brasília (UnB).
+
+O NutriPlanner é uma plataforma web com o objetivo de simplificar o processo de planejamento de dietas para profissionais de saúde, substituindo as planilhas e processos convencionais por uma abordagem prática, organizada e mais eficiente.
 
 ## Equipe
 

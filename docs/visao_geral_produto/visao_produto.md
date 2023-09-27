@@ -2,6 +2,7 @@
 - **Problema:**
     - A oportunidade identificada foi uma atividade de **consultoria** de nutrição e musculação. A negócio em questão envolve um grande número de clientes e necessita de **organização** em vários aspectos, como as datas de retorno do cliente para acompanhamento de seu progresso, plano contratado (trimestral ou semestral), dentre outros.
     - Nota-se que, devido à falta de funcionários e à falta de um software que atenda o seu negócio, o cliente fica com toda a responsabilidade de estruturar essas informações para si, tendo que usar soluções próprias para suas necessidades, como Excel ou mesmo uma agenda física. Logo, percebe-se que uma **solução em software** pensada especificamente para o cliente facilitaria muito o seu ambiente de trabalho.
+    - ![imagem_ishikawa](assets/images/Ishikawa.jpeg)
 
 - **Declaração de Posição do Produto:**
     - O produto a ser desenvolvido será um software voltado para o **gerenciamento** de um negócio de consultoria de nutrição e musculação, permitindo que o usuário cadastre clientes e todas as informações relevantes a respeito do mesmo, como dieta, treinamento e suplementação recomendadas, além de lembrar o profissional de datas importantes, a exemplo, retorno do cliente para nova consulta de acompanhamento (e permitir controle da realização dessas mesmas consultas).
@@ -23,6 +24,14 @@
 
 - **Objetivos do Produto:**
     - O objetivo central desse produto é **ajudar** profissionais da área de saúde que precisam **organizar** dietas para seus clientes de forma **prática** e organizada, ao contrário de métodos convencionais, como planilhas e agendas. 
+
+- **Tecnologias utilizadas:**
+
+| Tecnologia | Propósito |
+| :--------: |  :--------: |
+| **Front-end** | Foi escolhido o framework **React.Js**,  que é utilizado para construção de interfaces de usuário em páginas web. |
+| **Back-end** | O **Node.js** é um ambiente de execução do código JavaScript com o objetivo de criar servidores. |
+| **Banco de Dados** | Foi escolhido o **MongoDB** é um sistema gerenciador de banco de dados orientado a documentos. |
 
 - **Ferramentas utilizadas:**
 

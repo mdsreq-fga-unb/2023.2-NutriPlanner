@@ -6,7 +6,9 @@ O **NutriPlanner** é uma plataforma web com o objetivo de simplificar o process
 
 ## Equipe
 
-### Integrantes 
+Nossa equipe é formada por diferentes estudantes do curso de Engenharia de Software da Universidade de Brasília (UnB), que possuem diferentes experiências e habilidades, mas que estão unidos com o objetivo de desenvolver um produto de qualidade.
+
+## Integrantes 
 
 <center>
 

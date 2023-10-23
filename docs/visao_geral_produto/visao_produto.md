@@ -25,7 +25,13 @@
 | Nosso produto | Organiza informações diretamente em emails e calendários, como o gmail e o google agenda. |
 
 ##  Objetivos do Produto:
-- O objetivo central desse produto é **ajudar** profissionais da área de saúde que precisam **organizar** dietas para seus clientes de forma **prática** e organizada, ao contrário de métodos convencionais, como planilhas e agendas. 
+
+Esse produto será desenvolvido para **ajudar** profissionais da área de saúde, que muitas vezes perdem tempo realizando as dietas e treinos manualmente em planilhas.
+1. O objetivo principal desse produto é a geração de dietas/treinos e o seu envio por e-mail para os pacientes;
+2. Outro objetivo seria o cadastro do paciente na plataforma, o nutricionista terá liberdade de alterar as informações desse paciente ou se preferir excluir;
+3. Também, o sistema apresentará funções de envio de e-mails, como e-mail para agendar consultas, ou quando for o aniversário do paciente ele receberá um e-mail de parabenização.
+
+Estes objetivos permitirão que o produto seja capaz de atender às necessidades dos profissionais de saúde de maneira eficaz e eficiente.
 
 ##  Tecnologias utilizadas:
 

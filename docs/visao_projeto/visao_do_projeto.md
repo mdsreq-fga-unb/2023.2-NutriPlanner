@@ -28,14 +28,16 @@
 
 ##  Matriz de Comunicação:
 
-- fica decidido que, semanalmente haverá reuniões entre a equipe para **acompanhamento** das atividades que estão sendo executadas, para maior lisura e eficiencia do processo, assim como semanalmente a confecção das Atas de reunião que são de responsabilidade do **líder** da equipe. Para contato com o cliente, faremos reuniões quinzenais.
+Foi decidido que, semanalmente, serão realizadas reuniões entre os integrantes da equipe para acompanhamento das atividades que estão sendo executadas. Atas de reunião serão confeccionadas pelo líder da equipe com a mesma periodicidade.
+
+Em acordo com o cliente, o contato com o mesmo ocorrerá de forma assíncrona pelo WhatsApp. Vale notar que ele se prontificou para participar de reuniões com a equipe de desenvolvimento uma vez por semana, caso seja necessário, pelo Google Meets.
 
 | Descrição | Área / Envolvidos | Periodicidade| Produtos Gerados |
 | --- | --- | --- | --- |
-| - Acompanhamento de atividades em desenvolvimento | - Equipe | - Semanal | - Kanban no github projects |
-| - Reuniões Gerais | - Equipe | - Semanal | - Ata de reunião |
-| - Alinhamento com Cliente | - Equipe / Cliente | - Quinzenal | - Relatório de Considerações do cliente |
-| - Validação do Professor | - Equipe / Professor | - Mensal | - Ata de reunião/apresentação com Feedbacks |
+| Acompanhamento de atividades em desenvolvimento | Equipe | Semanal | Kanban no GitHub Projects |
+| Reuniões Gerais | Equipe | Semanal | Ata de reunião |
+| Alinhamento com Cliente | Equipe / Cliente | Semanal | Relatório de Considerações do Cliente |
+| Situação do Projeto | Equipe / Professor | Pontos de Controle | Ata de reunião, apresentação com feedbacks |
 
 ##  Gerenciamento de Riscos:
     
@@ -63,3 +65,4 @@ Dentre os riscos enfrentados na missão 1 estão:
 | 23/09/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.1 | Adição dos primeiros dois ciclos de planejamento e adição de imagens |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.2 | Alteração nos índices de replanejamento, e aumento da descrição das ações para contigência |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 24/10/2023 | 1.3 | Alteração na matriz de comunicação |  [Mateus Fidelis](https://github.com/MatsFidelis)  

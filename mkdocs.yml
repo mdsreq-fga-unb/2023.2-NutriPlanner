@@ -21,13 +21,20 @@ extra_css:
 
 nav:
   - Início: index.md
-  - Visão geral do Produto: visao_geral_produto/visao_produto.md
-  - Visão do Projeto: visao_projeto/visao_do_projeto.md
-  - Desenvolvimento do Software:
+  - Visão do Produto e projeto:
+    - Visão do produto: visao_geral_produto/visao_produto.md
+    - Visão do Projeto: visao_projeto/visao_do_projeto.md
     - Processo de Desenvolvimento: processo_desenvolvimento/processo.md
-  - Requisitos de Software :
-    - Lições Aprendidas:
-      - Unidade 1: licoes_aprendidas/licoes_01.md
-  - Material + Vídeos:
+##  - Entrega do Produto: 
+##  - Backlog do Produto: produto/backlog/backlog_safe.md
+  - Entregas das unidades:
+    - Unidade 1:
+      - Lições Aprendidas: licoes_aprendidas/licoes_01.md
+      - Visão do Produto: visao_geral_produto/slide_01.md
+      - Visão do Processo: visao_geral_produto/slide_02.md
+    - Unidade 2:
+      - Lições Aprendidas: licoes_aprendidas/licoes_02.md
+      - Apresentação backlog: visao_projeto/slide_01.md
+      - VeriVal -> Equipe "Tanás": docs_separados/verival_tanas.md
     - Refências: referencias/referencias.md
     - Vídeos: videos/videos.md

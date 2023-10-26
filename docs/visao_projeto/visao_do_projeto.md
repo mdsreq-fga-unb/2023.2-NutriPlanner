@@ -15,27 +15,41 @@
 | Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Lucas | Todos |
 | Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Millena | Todos |
 | Cliente | Fornecer feedbacks para a equipe de desenvolvimento sobre o que está sendo desenvolvido, elicitar requisitos do produto | Leonardo | ... |
-| GitPages | Atualizar o escopo do gitpages, validar as entregas | Mateus Fidelis | Todos |
+| Analista de Requisitos | Definir e comunicar os requisitos do produto de forma clara e precisa à equipe. | Mateus Fidelis | Todos |
 
 ##  Planejamento das Fases e/ou Iterações do Projeto:
 - Nosso ciclo de vida será iterativo/incremental, havendo duas entregas, uma **inicial** com o cliente e outra segundo o plano de ensino, ao **final** do semestre com o professor. Sendo que nesse meio tempo teremos alguns **pontos de controle** para verificar se o andamento do desenvolvimento está conforme o esperado, nosso cronograma segue o seguinte planejamento:
 
-| Ciclo | Produto (Entrega) | Data Início | Data Fim |
-| --- | --- | --- | --- |
-| Ciclo 1 | Github Pages / Video da nossa metodologia | 29/08/23 | 29/09/23 |
-| Ciclo 2 | Planejamento do Projeto | 11/09/23 | 18/09/23 |
-| ... | ... | ... | ... |
+<center>
+
+| Ciclo | Atividades realizadas | Entrega | Data Início | Data Fim |
+|:-----:|:---|:-----:|:-----:|:----:|
+| Ciclo 1 | **Análise** <br> Definição do projeto <br> Definição da abordagem de ESW <br> Organização e Planejamento do Projeto | GitHub Pages | 05/09/23 | 28/09/23 |
+| Ciclo 2 | **Design** <br> Estruturação de backlog: <br> - Elicitação e descoberta <br> - Análise e consenso <br> - Declaração <br> - Verificação e Validação <br> Organização e Atualização do backlog | Proposição de MVP  | 29/09/23 | 26/10/23 |
+| Ciclo 3 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do protótipo de média fidelidade <br> Desenvolvimento do produto | | 27/10/23 | 23/11/23 |
+| Ciclo 4 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do produto |Entrega do Mínimo Produto Viável | 24/11/23 | 14/12/23 |
+
+</center>
+
+Vale citar que teremos reuniões de validação com o cliente e com o professor ao longo do projeto. Também teremos pontos de controle para verificar se o andamento do desenvolvimento está conforme o esperado, a serem realizados nas seguintes datas:
+
+- Ponto de Controle 1 (Professor): 14/11/23
+- Ponto de Controle 2 (Professor): 05/12/23
+ 
+É importante dizer ainda que após as entregas para o professor, serão realizados ajustes para a entrega final ao cliente.
 
 ##  Matriz de Comunicação:
 
-- fica decidido que, semanalmente haverá reuniões entre a equipe para **acompanhamento** das atividades que estão sendo executadas, para maior lisura e eficiencia do processo, assim como semanalmente a confecção das Atas de reunião que são de responsabilidade do **líder** da equipe. Para contato com o cliente, faremos reuniões quinzenais.
+Foi decidido que, semanalmente, serão realizadas reuniões entre os integrantes da equipe para acompanhamento das atividades que estão sendo executadas. Atas de reunião serão confeccionadas pelo líder da equipe com a mesma periodicidade.
+
+Em acordo com o cliente, o contato com o mesmo ocorrerá de forma assíncrona pelo WhatsApp. Vale notar que ele se prontificou para participar de reuniões com a equipe de desenvolvimento uma vez por semana, caso seja necessário, pelo Google Meets.
 
 | Descrição | Área / Envolvidos | Periodicidade| Produtos Gerados |
 | --- | --- | --- | --- |
-| - Acompanhamento de atividades em desenvolvimento | - Equipe | - Semanal | - Kanban no github projects |
-| - Reuniões Gerais | - Equipe | - Semanal | - Ata de reunião |
-| - Alinhamento com Cliente | - Equipe / Cliente | - Quinzenal | - Relatório de Considerações do cliente |
-| - Validação do Professor | - Equipe / Professor | - Mensal | - Ata de reunião/apresentação com Feedbacks |
+| Acompanhamento de atividades em desenvolvimento | Equipe | Semanal | Kanban no GitHub Projects |
+| Reuniões Gerais | Equipe | Semanal | Ata de reunião |
+| Alinhamento com Cliente | Equipe / Cliente | Semanal | Relatório de Considerações do Cliente |
+| Situação do Projeto | Equipe / Professor | Pontos de Controle | Ata de reunião, apresentação com feedbacks |
 
 ##  Gerenciamento de Riscos:
     
@@ -63,3 +77,5 @@ Dentre os riscos enfrentados na missão 1 estão:
 | 23/09/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.1 | Adição dos primeiros dois ciclos de planejamento e adição de imagens |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.2 | Alteração nos índices de replanejamento, e aumento da descrição das ações para contigência |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 24/10/2023 | 1.3 | Alteração na matriz de comunicação |  [Lucas Spinosa](https://github.com/LucasSpinosa)  
+| 25/10/2023 | 1.4 | Alteração nas atribuições  | [Mateus Fidelis](https://github.com/MatsFidelis)  |

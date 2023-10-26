@@ -25,7 +25,13 @@
 | Nosso produto | Organiza informações diretamente em emails e calendários, como o gmail e o google agenda. |
 
 ##  Objetivos do Produto:
-- O objetivo central desse produto é **ajudar** profissionais da área de saúde que precisam **organizar** dietas para seus clientes de forma **prática** e organizada, ao contrário de métodos convencionais, como planilhas e agendas. 
+
+Esse produto será desenvolvido para **ajudar** profissionais da área de saúde, que muitas vezes perdem tempo realizando as dietas e treinos manualmente em planilhas.
+1. O objetivo principal desse produto é a geração de dietas/treinos e o seu envio por e-mail para os pacientes;
+2. Outro objetivo seria o cadastro do paciente na plataforma, o nutricionista terá liberdade de alterar as informações desse paciente ou se preferir excluir;
+3. Também, o sistema apresentará funções de envio de e-mails, como e-mail para agendar consultas, ou quando for o aniversário do paciente ele receberá um e-mail de parabenização.
+
+Estes objetivos permitirão que o produto seja capaz de atender às necessidades dos profissionais de saúde de maneira eficaz e eficiente.
 
 ##  Tecnologias utilizadas:
 
@@ -39,7 +45,8 @@
 
 | | Ferramenta | Propósito |
 | :--------: | :--------: | :--------: |
-|  <img src="../assets/images/logo_whatsapp.png" width="50" style="border-radius: 50%" />  | Whatsapp | Comunicação assíncrona entre o time |
+|  <img src="../assets/images/logo_whatsapp.png" width="50" style="border-radius: 50%" />  | WhatsApp | Comunicação assíncrona entre o time e com o cliente |
+|  <img src="../assets/images/logo_meets.png" width="50" style="border-radius: 50%" />  | Google Meets | Reuniões síncronas com o cliente |
 |  <img src="../assets/images/logo_discord.png" width="50" style="border-radius: 50%" />  | Discord | Comunicações e registros de informações internas / Pareamentos |
 |  <img src="../assets/images/logo_drive.png" width="70" style="border-radius: 50%" />  | Google Drive | Armazenamento e manuseio de documentos |
 |  <img src="../assets/images/logo_github.png" width="50" style="border-radius: 50%" />  | Github | Repositórios de documentação e código do projeto |
@@ -52,3 +59,4 @@
 | 28/09/2023 | 1.1 | Adição de imagens e edição de textos  |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.2 | Alteração nos índices e na formatação da documentação  |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 24/10/2023 | 1.3 | Adição do diagrama de Ishikawa  |  [Maria Alice](https://github.com/Maliz30)|
+| 24/10/2023 | 1.4 | Adição do Google Meets em Ferramentas |  [Lucas Spinosa](https://github.com/LucasSpinosa)  |

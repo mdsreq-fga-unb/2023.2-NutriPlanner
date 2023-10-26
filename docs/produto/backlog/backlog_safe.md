@@ -4,6 +4,31 @@
 
 A gestão de requisitos é uma disciplina essencial do SAFe, que é um framework complexo de gestão de empresas. Ela é usada para definir o tema, épico, capacidade, funcionalidade e histórias de usuário do projeto.
 
+## Objetivos do projeto
+
+- **Objetivo Principal**: o sistema deve auxiliar um negócio de consultoria de nutrição, tanto na parte de administração dos pacientes (envios de mensagens por e-mail, dados pessoais) quanto na parte de administração de consultas (geração e envio de dietas e treinos, agendamento de consultas).
+
+- **Objetivos Específicos**: 
+    1. Cadastrar e administrar informações de pacientes no sistema;
+    2. Realizar o agendamento de consultas no sistema;
+    3. Gerar dietas pelo sistema;
+    4. Gerar treinos pelo sistema;
+    5. Enviar mensagens por e-mail aos pacientes cadastrados na plataforma usando a própria plataforma;
+
+### Relação entre objetivos e Funcionalidade
+    
+<center>
+
+| Objetivo | Funcionalidade relacionada |
+|:--------:|----------------------------|
+| A | F03, F04, F08|
+| B | F09 |
+| C | F04, F05 |
+| D | F04, F06 |
+| E | F07 |
+
+</center>
+
 ## Tema
 
 Gestão, análise e armazenamento de dados de pacientes para um consultório de Nutrição

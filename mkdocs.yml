@@ -25,8 +25,9 @@ nav:
     - Visão do produto: visao_geral_produto/visao_produto.md
     - Visão do Projeto: visao_projeto/visao_do_projeto.md
     - Processo de Desenvolvimento: processo_desenvolvimento/processo.md
-##  - Entrega do Produto: 
-##  - Backlog do Produto: produto/backlog/backlog_safe.md
+  - Entrega do Produto: 
+    - Proposta de MVP: produto/mvp/prop_mvp.md
+    - Backlog SAFe: produto/backlog/backlog_safe.md
   - Entregas das unidades:
     - Unidade 1:
       - Lições Aprendidas: licoes_aprendidas/licoes_01.md

@@ -20,11 +20,23 @@
 ##  Planejamento das Fases e/ou Iterações do Projeto:
 - Nosso ciclo de vida será iterativo/incremental, havendo duas entregas, uma **inicial** com o cliente e outra segundo o plano de ensino, ao **final** do semestre com o professor. Sendo que nesse meio tempo teremos alguns **pontos de controle** para verificar se o andamento do desenvolvimento está conforme o esperado, nosso cronograma segue o seguinte planejamento:
 
-| Ciclo | Produto (Entrega) | Data Início | Data Fim |
-| --- | --- | --- | --- |
-| Ciclo 1 | Github Pages / Video da nossa metodologia | 29/08/23 | 29/09/23 |
-| Ciclo 2 | Planejamento do Projeto | 11/09/23 | 18/09/23 |
-| ... | ... | ... | ... |
+<center>
+
+| Ciclo | Atividades realizadas | Entrega | Data Início | Data Fim |
+|:-----:|:---|:-----:|:-----:|:----:|
+| Ciclo 1 | **Análise** <br> Definição do projeto <br> Definição da abordagem de ESW <br> Organização e Planejamento do Projeto | GitHub Pages | 05/09/23 | 28/09/23 |
+| Ciclo 2 | **Design** <br> Estruturação de backlog: <br> - Elicitação e descoberta <br> - Análise e consenso <br> - Declaração <br> - Verificação e Validação <br> Organização e Atualização do backlog | Proposição de MVP  | 29/09/23 | 26/10/23 |
+| Ciclo 3 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do protótipo de média fidelidade <br> Desenvolvimento do produto | | 27/10/23 | 23/11/23 |
+| Ciclo 4 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do produto |Entrega do Mínimo Produto Viável | 24/11/23 | 14/12/23 |
+
+</center>
+
+Vale citar que teremos reuniões de validação com o cliente e com o professor ao longo do projeto. Também teremos pontos de controle para verificar se o andamento do desenvolvimento está conforme o esperado, a serem realizados nas seguintes datas:
+
+- Ponto de Controle 1 (Professor): 14/11/23
+- Ponto de Controle 2 (Professor): 05/12/23
+ 
+É importante dizer ainda que após as entregas para o professor, serão realizados ajustes para a entrega final ao cliente.
 
 ##  Matriz de Comunicação:
 

@@ -51,3 +51,4 @@
 | 23/09/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.1 | Adição de imagens e edição de textos  |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.2 | Alteração nos índices e na formatação da documentação  |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 24/10/2023 | 1.3 | Adição do diagrama de Ishikawa  |  [Maria Alice](https://github.com/Maliz30)|

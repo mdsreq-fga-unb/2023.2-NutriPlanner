@@ -40,3 +40,8 @@ O fato é: quando a nave aterrissou e as portas abriram, um novo e improvável g
 
 Lucas ficaria na parte de inteligência e em missões furtivas, juntamente com Leandro. Millena, com sua experiência em invasão de sistemas, poderia ajudar na quebra de criptografia de arquivos protegidos e invasão de sistemas do grupo Apache. Fidelis, sendo um estrategista, ajudaria com a organização e manutenção de toda a operação. Mateus e Arthur ajudariam em caso de conflito, dando suporte na linha de frente. Maria Alice, por sua vez, ajudaria em situações de diplomacia.
 
+##  Histórico de Versão:
+
+| **Data** | **Versão** | **Descrição** | **Autor** |
+| :--------: | :--------: | :--------:  | :--------: | 
+| 25/10/2023 | 1.0 | Inclusão da História no GitPages  | [Maria Alice](https://github.com/Maliz30)  |

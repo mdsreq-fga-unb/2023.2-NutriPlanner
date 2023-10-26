@@ -46,11 +46,11 @@ Estes objetivos permitirão que o produto seja capaz de atender às necessidades
 
 | | Ferramenta | Propósito |
 | :--------: | :--------: | :--------: |
-|  <img src="./assets/images/logo_whatsapp.png" width="50" style="border-radius: 50%" />  | WhatsApp | Comunicação assíncrona entre o time e com o cliente |
-|  <img src="./assets/images/logo_meets.png" width="50" style="border-radius: 50%" />  | Google Meets | Reuniões síncronas com o cliente |
-|  <img src="./assets/images/logo_discord.png" width="50" style="border-radius: 50%" />  | Discord | Comunicações e registros de informações internas / Pareamentos |
-|  <img src="./assets/images/logo_drive.png" width="70" style="border-radius: 50%" />  | Google Drive | Armazenamento e manuseio de documentos |
-|  <img src="./assets/images/logo_github.png" width="50" style="border-radius: 50%" />  | Github | Repositórios de documentação e código do projeto |
+|  <img src="../assets/images/logo_whatsapp.png" width="50" style="border-radius: 50%" />  | WhatsApp | Comunicação assíncrona entre o time e com o cliente |
+|  <img src="../assets/images/logo_meets.png" width="50" style="border-radius: 50%" />  | Google Meets | Reuniões síncronas com o cliente |
+|  <img src="../assets/images/logo_discord.png" width="50" style="border-radius: 50%" />  | Discord | Comunicações e registros de informações internas / Pareamentos |
+|  <img src="../assets/images/logo_drive.png" width="70" style="border-radius: 50%" />  | Google Drive | Armazenamento e manuseio de documentos |
+|  <img src="../assets/images/logo_github.png" width="50" style="border-radius: 50%" />  | Github | Repositórios de documentação e código do projeto |
 
 ##  Histórico de Versão:
 

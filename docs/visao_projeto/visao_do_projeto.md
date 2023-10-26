@@ -78,3 +78,4 @@ Dentre os riscos enfrentados na missão 1 estão:
 | 28/09/2023 | 1.1 | Adição dos primeiros dois ciclos de planejamento e adição de imagens |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.2 | Alteração nos índices de replanejamento, e aumento da descrição das ações para contigência |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 24/10/2023 | 1.3 | Alteração na matriz de comunicação |  [Lucas Spinosa](https://github.com/LucasSpinosa)  
+| 25/10/2023 | 1.4 | Alteração nas atribuições  | [Mateus Fidelis](https://github.com/MatsFidelis)  |

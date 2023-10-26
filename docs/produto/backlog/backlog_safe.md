@@ -65,3 +65,9 @@ Gestão, análise e armazenamento de dados de pacientes para um consultório de 
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero que o sistema envie ao e-mail cadastrado do paciente, uma confirmação do agendamento da consulta, para que ele veja se a operação foi bem sucedida.|
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero ser capaz de agendar consultas, para deixar marcado em meu calendário.|
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero ser capaz de reagendar consultas, alterando as informações de uma consulta anteriormente cadastrada, para manter as informações atualizadas.|
+
+##  Histórico de Versão:
+
+| **Data** | **Versão** | **Descrição** | **Autor** |
+| :--------: | :--------: | :--------:  | :--------: | 
+| 25/10/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |

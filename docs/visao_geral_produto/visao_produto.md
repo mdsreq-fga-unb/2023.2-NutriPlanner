@@ -62,4 +62,4 @@
 | 28/09/2023 | 1.2 | Alteração nos índices e na formatação da documentação  |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 24/10/2023 | 1.3 | Adição do diagrama de Ishikawa  |  [Maria Alice](https://github.com/Maliz30)|
 | 24/10/2023 | 1.4 | Adição do Google Meets em Ferramentas |  [Lucas Spinosa](https://github.com/LucasSpinosa)  |
-| 02/11/2023 | 1.4 | Correção dos objetivos do produto |  [Leandro Silva](https://github.com/Leanddro13)  |
+| 02/11/2023 | 1.5 | Correção dos objetivos do produto |  [Leandro Silva](https://github.com/Leanddro13)  |

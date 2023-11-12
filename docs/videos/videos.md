@@ -22,4 +22,4 @@ Após a finalização de cada missão referente a matéria de Requisitos de Soft
 | :--------: | :--------: | :--------:  | :--------: | 
 | 23/09/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 28/09/2023 | 1.1 | Adição da formatação e link referente a missão 01 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
-| 25/09/2023 | 1.2 | Adição da formatação e link referente a missão 02 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 25/10/2023 | 1.2 | Adição da formatação e link referente a missão 02 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |

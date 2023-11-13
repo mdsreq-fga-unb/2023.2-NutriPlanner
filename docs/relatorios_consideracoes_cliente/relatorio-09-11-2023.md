@@ -42,10 +42,8 @@ Os objetivos da reunião eram:
 
     - O cliente comentou que, na funcionalidade de busca de pacientes cadastrados por nome, pode ocorrer a situação de pacientes com o mesmo nome (algo que, segundo ele, já acontece no seu negócio). Portanto, deve haver algum tratamento para essa situação. A equipe informou que estava ciente disso.
 
-
-
 ##  Histórico de Versão:
 
-| **Data** | **Versão** | **Descrição** | **Autor** |
-| :--------: | :--------: | :--------:  | :--------: | 
-| 12/11/2023 | 1.0 | Criação do Documento  | [Lucas Spinosa](https://github.com/LucasSpinosa)  |
+| **Data**   | **Versão** |    **Descrição**      |                  **Autor**                        |
+| :--------: | :--------: | :------------------:  | :-----------------------------------------------: | 
+| 12/11/2023 |    1.0     | Criação do Documento  | [Lucas Spinosa](https://github.com/LucasSpinosa)  |

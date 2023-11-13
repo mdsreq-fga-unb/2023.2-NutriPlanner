@@ -24,9 +24,8 @@ Os objetivos da reunião eram:
 
 - A faixa etária de seu público é em torno de 30 anos, e muitos usam celular. Sendo assim, é importante que o sistema NutriPlanner tenha sua interface pensada tanto para computadores pessoais quanto para dispositivos móveis.
 
-
 ##  Histórico de Versão:
 
-| **Data** | **Versão** | **Descrição** | **Autor** |
-| :--------: | :--------: | :--------:  | :--------: | 
-| 12/11/2023 | 1.0 | Criação do Documento  | [Lucas Spinosa](https://github.com/LucasSpinosa)  |
+| **Data**   | **Versão** |    **Descrição**      |                  **Autor**                        |
+| :--------: | :--------: | :------------------:  | :-----------------------------------------------: | 
+| 12/11/2023 |    1.0     | Criação do Documento  | [Lucas Spinosa](https://github.com/LucasSpinosa)  |

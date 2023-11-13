@@ -43,13 +43,13 @@ nav:
     - Vídeos: videos/videos.md
   - Reuniões: 
     - Reuniões Gerais da Equipe:
-      - Ata 1 (05/10/2023):
-      - Ata 2 (07/10/2023):
-      - Ata 3 (08/10/2023):
-      - Ata 4 (12/10/2023):
-      - Ata 5 (16/10/2023):
-      - Ata 6 (17/10/2023):
-      - Ata 7 (08/11/2023):
+      - Ata 1 (05/10/2023): atas_reunioes_gerais/ata_1.md
+      - Ata 2 (07/10/2023): atas_reunioes_gerais/ata_2.md
+      - Ata 3 (12/10/2023): atas_reunioes_gerais/ata_3.md
+      - Ata 4 (16/10/2023): atas_reunioes_gerais/ata_4.md
+      - Ata 5 (17/10/2023): atas_reunioes_gerais/ata_5.md
+      - Ata 6 (08/11/2023): atas_reunioes_gerais/ata_6.md
+      - Ata 7 (10/11/2023): atas_reunioes_gerais/ata_7.md
     - Alinhamentos com Cliente:
       - Relatório de Considerações (08/10/2023): relatorios_consideracoes_cliente/relatorio-08-10-2023.md
       - Relatório de Considerações (09/11/2023): relatorios_consideracoes_cliente/relatorio-09-11-2023.md

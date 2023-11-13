@@ -91,8 +91,20 @@ Gestão, análise e armazenamento de dados de pacientes para um consultório de 
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero ser capaz de agendar consultas, para deixar marcado em meu calendário.|
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero ser capaz de reagendar consultas, alterando as informações de uma consulta anteriormente cadastrada, para manter as informações atualizadas.|
 
+## Requisitos não-funcionais
+Requisito Não-Funcional trata-se de restrição ao sistema, seja ela de tempo, processos ou normas, que não é uma funcionalidade. Estão relacionados, por exemplo, à restrição de design ou interface.Utilizamos o modelo URPS+ para categorizá-los em aspectos como Usabilidade, Confiabilidade, Desempenho, Suportabilidade, Restrições de Design, Requisitos de Implementação, Requisitos de Interface e Requisitos Físicos.
+
+| Número | Categoria | Declaração |
+| :----: | --------- | ---------- |
+|  RNF1  | Implementação   | O produto deve ser uma aplicação web |
+|  RNF2  | Usabilidade     | O produto deve ser responsivo a diferentes tamanhos de tela e dispositivos |
+|  RNF3  | Implemetação    | O front-end do produto deve ser desenvolvido utilizando ReactJs |
+|  RNF4  | Implementação   | O back-end do produto deve ser desenvolvido utilizando NodeJs |
+|  RNF5  | Suportabilidade | A aplicação deverá rodar nos navegadores Chrome e Safari em suas versões recentes |
+
 ##  Histórico de Versão:
 
 | **Data** | **Versão** | **Descrição** | **Autor** |
 | :--------: | :--------: | :--------:  | :--------: | 
 | 25/10/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 13/11/2023 | 1.1 | Adição dos requisitos não funcionais | [Maria Alice](https://github.com/Maliz30) |

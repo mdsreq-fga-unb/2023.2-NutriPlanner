@@ -25,13 +25,15 @@
 | Nosso produto | Organiza informações diretamente em emails e calendários, como o gmail e o google agenda. |
 
 ##  Objetivos do Produto:
+**Objetivo principal:** o sistema deve auxiliar um negócio de consultoria de nutrição, tanto na parte de administração dos pacientes (envios de mensagens por e-mail, dados pessoais) quanto na parte de administração de consultas (geração e envio de dietas e treinos, agendamento de consultas).
 
-Esse produto será desenvolvido para **ajudar** profissionais da área de saúde, que muitas vezes perdem tempo realizando as dietas e treinos manualmente em planilhas.
-1. O objetivo principal desse produto é a geração de dietas/treinos e o seu envio por e-mail para os pacientes;
-2. Outro objetivo seria o cadastro do paciente na plataforma, o nutricionista terá liberdade de alterar as informações desse paciente ou se preferir excluir;
-3. Também, o sistema apresentará funções de envio de e-mails, como e-mail para agendar consultas, ou quando for o aniversário do paciente ele receberá um e-mail de parabenização.
+**Objetivos Específicos:**
 
-Estes objetivos permitirão que o produto seja capaz de atender às necessidades dos profissionais de saúde de maneira eficaz e eficiente.
+- Desenvolver um sistema que permita o cadastro e a administração eficiente das informações de pacientes.
+- Implementar uma funcionalidade que permita nutricionistas e pacientes agendar consultas de forma fácil e conveniente, com opções de disponibilidade e lembretes.
+- Criar uma ferramenta no sistema que possibilite a geração de planos de dieta personalizados com base nas necessidades de saúde e preferências dos pacientes.
+- Desenvolver uma funcionalidade que permita a criação de planos de treino adaptados às metas e capacidades individuais dos pacientes.
+- Integre um sistema de mensagens por e-mail no aplicativo para permitir a comunicação direta entre profissionais de saúde e pacientes, enviando informações importantes, lembretes de consultas e dicas de saúde.
 
 ##  Tecnologias utilizadas:
 
@@ -60,3 +62,4 @@ Estes objetivos permitirão que o produto seja capaz de atender às necessidades
 | 28/09/2023 | 1.2 | Alteração nos índices e na formatação da documentação  |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 24/10/2023 | 1.3 | Adição do diagrama de Ishikawa  |  [Maria Alice](https://github.com/Maliz30)|
 | 24/10/2023 | 1.4 | Adição do Google Meets em Ferramentas |  [Lucas Spinosa](https://github.com/LucasSpinosa)  |
+| 02/11/2023 | 1.5 | Correção dos objetivos do produto |  [Leandro Silva](https://github.com/Leanddro13)  |

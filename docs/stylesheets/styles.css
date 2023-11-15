@@ -12,6 +12,11 @@
   p {
     text-align: justify;
   }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
   
   thead tr {
     background: #2E8B57 !important;

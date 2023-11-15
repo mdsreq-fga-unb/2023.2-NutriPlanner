@@ -43,14 +43,14 @@ A prioridade é calculada a partir da soma dos valores de valor de negócio e co
 
 Apenas as US que apresentarem **prioridade** igual a 5 ou maior ou **valor de negócio** igual a 3 serão implementadas no MVP.
 
-- A partir da tabela abaixo, vemos que as US que **não irão compor o MVP** são: US02, US03, US04, US07, US08, US14, US19, US21, US22, US23, US28, US29.
-- Enquanto que as US que **irão compor o MVP** são: US01, US05, US06, US09, US10, US11, US12, US13, US15, US16, US17, US18, US20, US24, US25, US26, US27, US30, US31, US32.
+- A partir da tabela abaixo, vemos que as US que **não irão compor o MVP** são: US01, US02, US03, US04, US07, US08, US14, US19, US21, US22, US23, US28, US29.
+- Enquanto que as US que **irão compor o MVP** são: US05, US06, US09, US10, US11, US12, US13, US15, US16, US17, US18, US20, US24, US25, US26, US27, US30, US31, US32.
 - A descrição de cada US pode ser encontrada no Backlog do Produto.
 
 
 | US | Valor de Negócio | Experiência da Equipe | Estimativa de Esforço | Complexidade Técnica | Prioridade | MVP |
 | :-: | :-: | :-: | :-: | :-: |:-: | :-: |
-|US01|3|1|2|1|4|**Sim**| 
+|US01|1|1|2|1|2|**Não**| 
 |US02|1|2|3|2|3|**Não**| 
 |US03|2|2|3|2|4|**Não**| 
 |US04|1|2|3|2|3|**Não**| 

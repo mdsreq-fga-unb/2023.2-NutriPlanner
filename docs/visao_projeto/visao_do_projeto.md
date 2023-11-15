@@ -15,7 +15,7 @@
 | Dono do Produto | Atualizar o escopo do produto, organizar o escopo das sprints, validar as entregas | Lucas | Todos |
 | Analista de Qualidade | Garantir a qualidade do produto, garantir o cumprimento do conceito de pronto, realizar inspeções de código | Millena | Todos |
 | Cliente | Fornecer feedbacks para a equipe de desenvolvimento sobre o que está sendo desenvolvido, elicitar requisitos do produto | Leonardo | ... |
-| Analista de Requisitos | Definir e comunicar os requisitos do produto de forma clara e precisa à equipe. | Mateus Fidelis | Todos |
+| Analista de Requisitos | Realizar a elicitação de requisitos, trabalhar no consenso e definição dos mesmos, realizar formas de declaração e representação, trabalhar na verificação e validação e manter o fluxo de informações organizados e atualizados | Mateus Fidelis | Todos |
 
 ##  Planejamento das Fases e/ou Iterações do Projeto:
 - Nosso ciclo de vida será iterativo/incremental, havendo duas entregas, uma **inicial** com o cliente e outra segundo o plano de ensino, ao **final** do semestre com o professor. Sendo que nesse meio tempo teremos alguns **pontos de controle** para verificar se o andamento do desenvolvimento está conforme o esperado, nosso cronograma segue o seguinte planejamento:

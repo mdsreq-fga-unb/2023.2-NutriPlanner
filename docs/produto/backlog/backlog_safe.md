@@ -8,12 +8,97 @@ A gestão de requisitos é uma disciplina essencial do SAFe, que é um framework
 
 - **Objetivo Principal**: o sistema deve auxiliar um negócio de consultoria de nutrição, tanto na parte de administração dos pacientes (envios de mensagens por e-mail, dados pessoais) quanto na parte de administração de consultas (geração e envio de dietas e treinos, agendamento de consultas).
 
-- **Objetivos Específicos**: 
-    1. Cadastrar e administrar informações de pacientes no sistema;
-    2. Realizar o agendamento de consultas no sistema;
-    3. Gerar dietas pelo sistema;
-    4. Gerar treinos pelo sistema;
-    5. Enviar mensagens por e-mail aos pacientes cadastrados na plataforma usando a própria plataforma;
+## Requisitos Funcionais
+
+**Requisitos Funcionais** são **requisitos que descrevem uma ação/comportamento esperada do produto**. Em outras palavras, são as **funcionalidades do sistema**.
+
+<center>
+
+|  N°  | Descrição |
+|------|-----------|
+| RF01 | Cadastro das informações do nutricioniosta (nome, e-mail e senha) no sistema. |
+| RF02 | Visualização do nome, e-mail e senha do nutricionista cadastrados no sistema |
+| RF03 | Edição do nome, e-mail e senha do nutricionista cadastrados no sistema |
+| RF04 | Exclusão da conta do nutricionista do sistema |
+| RF05 | Login no sistema para ter acesso às informações |
+| RF06 | Envio de e-mail para a redefinição de senha |
+| RF07 | Geração de gráficos comparativos pela plataforma |
+| RF08 | Visualização de pacientes cadastrados na página inicial do sistema |
+| RF09 | Buscar de pacientes cadastrados no sistema por nome |
+| RF10 | Visualização de pacientes aniversariantes na página inicial |
+| RF11 | Criação de uma dieta personalizada na plataforma para um paciente |
+| RF12 | Visualização da dieta armazenada na plataforma para um paciente |
+| RF13 | Edição de uma dieta armazenada na plataforma para um paciente |
+| RF14 | Geração de PDF contendo todas as informações da dieta de um paciente |
+| RF15 | Exclusão de dietas armazenadas na plataforma |
+| RF16 | Visualização de treinamentos armazenados na plataforma |
+| RF17 | Edição de treinamentos armazenados na plataformas |
+| RF18 | Exclusão de treinamentos armazenados na plataforma |
+| RF19 | Geração de um PDF contendo todas as informações de um treinamento do paciente |
+| RF20 | Envio de avisos por e-mail a todos os pacientes cadastrados na plataforma |
+| RF21 | Envio de dieta criada, em formato PDF, para o e-mail do paciente cadastrado no sistema. |
+| RF22 | Envio do treino criado, em formato de PDF, para o e-mail do paciente cadastrado no sistema. |
+| RF23 | Envio de mensagens de aniversário pré-cadastradas para os pacientes em seu aniversário |
+| RF24 | Cadastro do nome, e-mail, telefone, endereço, altura, peso e medidas corporais do paciente no sistema |
+| RF25 | Visualização das informações de um paciente cadastrado no sistema |
+| RF26 | Edição das informações de um paciente cadastrado no sistema |
+| RF27 | Exclusão de um  paciente cadastrado no sistema |
+| RF28 | Cálculo de IMC através do sistema |
+| RF29 | Envio ao e-mail cadastrado do paciente uma confirmação do agendamento da consulta. |
+| RF30 | Agendamento de consultas no calendário do nutricionista |
+| RF31 | Reagendamento de consultas no calendário do nutricionista |
+
+</center>
+
+## Requisitos não-funcionais
+
+Um **Requisito Não-Funcional** refere-se a uma **restrição do sistema**, que pode ser relacionada a limitações de tempo, processos, normas ou outras características que não são funcionalidades específicas. Esses requisitos estão associados a restrições de design ou interface e não estão relacionados diretamente às funcionalidades do sistema. A categorização de requisitos Não-Funcionais é realizada utilizando o **modelo URPS+**, que abrange aspectos como Usabilidade, Confiabilidade, Desempenho, Suportabilidade, Restrições de Design, Requisitos de Implementação, Requisitos de Interface e Requisitos Físicos.
+
+<center>
+
+| Número | Categoria | Declaração |
+| :----: | --------- | ---------- |
+|  RNF1  | Implementação   | O produto deve ser uma aplicação web |
+|  RNF2  | Usabilidade     | O produto deve ser responsivo a diferentes tamanhos de tela e dispositivos |
+|  RNF3  | Implemetação    | O front-end do produto deve ser desenvolvido utilizando ReactJs |
+|  RNF4  | Implementação   | O back-end do produto deve ser desenvolvido utilizando NodeJs |
+|  RNF5  | Suportabilidade | A aplicação deverá rodar nos navegadores Chrome e Safari em suas versões recentes |
+
+</center>
+
+
+## Tema
+
+Gestão, análise e armazenamento de dados de pacientes para um consultório de Nutrição
+
+## Épicos
+
+- EP01 - Gerenciamento da Clínica
+- EP02 - Gerenciamento de Consultoria
+
+## Capacidades
+
+<center>
+
+| **Épico** | **Capacidade 1**                    | **Capacidade 2**                          | 
+|:---------:|:------------------------------------|:------------------------------------------|
+| EP01      | CP01 - Acesso ao sistema            | CP02 - Gerenciamento de Dados do Paciente |
+| EP02      | CP03 - Informações para o Paciente  | CP05 - Coordenação de Consultas           |
+
+</center>
+
+## Funcionalidades
+
+<center>
+
+| **Épico** | **Capacidade**                            | **Funcionalidade 1**            | **Funcionalidade 2**                     |**Funcionalidade 3**              |
+|:---------:|:------------------------------------------|:--------------------------------|:-----------------------------------------|:---------------------------------|
+| EP01      | CP01 - Acesso ao sistema                  | F01 - Cadastro de Nutricionista        | F02 - Processo de autenticação              |
+| EP01      | CP02 - Gerenciamento de Dados do Paciente | F03 - Análise de dados do Paciente     | F04 - Dashboard de dados dos Pacientes      |
+| EP02      | CP03 - Coordenação de Consultas           | F05 - Criação de Dietas Nutricionais   | F06 - Criação de Itinerário de Treinamentos | F07 - Envio de emails |
+| EP02      | CP04 - Coordenação de Consultas           | F08 - Cadastro dos dados dos Pacientes | F09 - Gerenciamento de Consulta             |
+
+</center>
 
 ### Relação entre objetivos e Funcionalidade
     
@@ -29,35 +114,12 @@ A gestão de requisitos é uma disciplina essencial do SAFe, que é um framework
 
 </center>
 
-## Tema
-
-Gestão, análise e armazenamento de dados de pacientes para um consultório de Nutrição
-
-## Épicos
-
-- EP01 - Gerenciamento da Clínica
-- EP02 - Gerenciamento de Consultoria
-
-## Capacidades
-
-| **Épico** | **Capacidade 1**                    | **Capacidade 2**                          | 
-|:---------:|:-----------------------------------:|:-----------------------------------------:|
-| EP01      | CP01 - Acesso ao sistema            | CP02 - Gerenciamento de Dados do Paciente |
-| EP02      | CP03 - Informações para o Paciente  | CP05 - Coordenação de Consultas           |
-
-## Funcionalidades
-
-| **Épico** | **Capacidade**                            | **Funcionalidade 1**            | **Funcionalidade 2**                     |**Funcionalidade 3**              |
-|:---------:|:-----------------------------------------:|:-------------------------------:|:----------------------------------------:|:--------------------------------:|
-| EP01      | CP01 - Acesso ao sistema                  | F01 - Cadastro de Nutricionista        | F02 - Processo de autenticação              |
-| EP01      | CP02 - Gerenciamento de Dados do Paciente | F03 - Análise de dados do Paciente     | F04 - Dashboard de dados dos Pacientes      |
-| EP02      | CP03 - Coordenação de Consultas           | F05 - Criação de Dietas Nutricionais   | F06 - Criação de Itinerário de Treinamentos | F07 - Envio de emails |
-| EP02      | CP04 - Coordenação de Consultas           | F08 - Cadastro dos dados dos Pacientes | F09 - Gerenciamento de Consulta             |
-
 ## Histórias de usuário
 
+<center>
+
 | **Épico** | **Capacidade** | **Funcionalidade** | **História de usuário**                     |
-|:---------:|:--------------:|:------------------:|:-------------------------------------------:|
+|:---------:|:--------------:|:------------------:|:--------------------------------------------|
 | EP01      | CP01           | F01                | Eu, como nutricionista, quero ser capaz de cadastrar minhas informações no sistema, como nome, e-mail e senha, para armazenar as informações no sistema. |
 | EP01      | CP01           | F01                | Eu, como nutricionista, quero ser capaz de visualizar meu nome e e-mail cadastrado no sistema, para poder consultar meus dados. |
 | EP01      | CP01           | F01                | Eu, como nutricionista, quero poder alterar meu nome, e-mail e senha, cadastrados no sistema para mantê-los sempre atualizados. |
@@ -91,16 +153,7 @@ Gestão, análise e armazenamento de dados de pacientes para um consultório de 
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero ser capaz de agendar consultas, para deixar marcado em meu calendário.|
 | EP02      | CP05           | F09                | Eu, como nutricionista, quero ser capaz de reagendar consultas, alterando as informações de uma consulta anteriormente cadastrada, para manter as informações atualizadas.|
 
-## Requisitos não-funcionais
-Requisito Não-Funcional trata-se de restrição ao sistema, seja ela de tempo, processos ou normas, que não é uma funcionalidade. Estão relacionados, por exemplo, à restrição de design ou interface.Utilizamos o modelo URPS+ para categorizá-los em aspectos como Usabilidade, Confiabilidade, Desempenho, Suportabilidade, Restrições de Design, Requisitos de Implementação, Requisitos de Interface e Requisitos Físicos.
-
-| Número | Categoria | Declaração |
-| :----: | --------- | ---------- |
-|  RNF1  | Implementação   | O produto deve ser uma aplicação web |
-|  RNF2  | Usabilidade     | O produto deve ser responsivo a diferentes tamanhos de tela e dispositivos |
-|  RNF3  | Implemetação    | O front-end do produto deve ser desenvolvido utilizando ReactJs |
-|  RNF4  | Implementação   | O back-end do produto deve ser desenvolvido utilizando NodeJs |
-|  RNF5  | Suportabilidade | A aplicação deverá rodar nos navegadores Chrome e Safari em suas versões recentes |
+</center>
 
 ##  Histórico de Versão:
 
@@ -108,3 +161,4 @@ Requisito Não-Funcional trata-se de restrição ao sistema, seja ela de tempo, 
 | :--------: | :--------: | :--------:  | :--------: | 
 | 25/10/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 13/11/2023 | 1.1 | Adição dos requisitos não funcionais | [Maria Alice](https://github.com/Maliz30) |
+| 14/11/2023 | 1.2 | Atualização dos requisitos funcionais  | [Lucas Spinosa](https://github.com/LucasSpinosa)  |

@@ -8,26 +8,44 @@ A gestão de requisitos é uma disciplina essencial do SAFe, que é um framework
 
 - **Objetivo Principal**: o sistema deve auxiliar um negócio de consultoria de nutrição, tanto na parte de administração dos pacientes (envios de mensagens por e-mail, dados pessoais) quanto na parte de administração de consultas (geração e envio de dietas e treinos, agendamento de consultas).
 
-- **Objetivos Específicos**: 
-    1. Cadastrar e administrar informações de pacientes no sistema;
-    2. Realizar o agendamento de consultas no sistema;
-    3. Gerar dietas pelo sistema;
-    4. Gerar treinos pelo sistema;
-    5. Enviar mensagens por e-mail aos pacientes cadastrados na plataforma usando a própria plataforma;
+## Requisitos Funcionais
 
-### Relação entre objetivos e Funcionalidade
-    
-<center>
+**Requisitos Funcionais** são **requisitos que descrevem uma ação/comportamento esperada do produto**. Em outras palavras, são as **funcionalidades do sistema**.
 
-| Objetivo | Funcionalidade relacionada |
-|:--------:|----------------------------|
-| A | F03, F04, F08|
-| B | F09 |
-| C | F04, F05 |
-| D | F04, F06 |
-| E | F07 |
+|  N°  | Descrição |
+|------|-----------|
+| RF01 | Cadastro das informações do nutricioniosta (nome, e-mail e senha) no sistema. |
+| RF02 | Visualização do nome, e-mail e senha do nutricionista cadastrados no sistema |
+| RF03 | Edição do nome, e-mail e senha do nutricionista cadastrados no sistema |
+| RF04 | Exclusão da conta do nutricionista do sistema |
+| RF05 | Login no sistema para ter acesso às informações |
+| RF06 | Envio de e-mail para a redefinição de senha |
+| RF07 | Geração de gráficos comparativos pela plataforma |
+| RF08 | Visualização de pacientes cadastrados na página inicial do sistema |
+| RF09 | Buscar de pacientes cadastrados no sistema por nome |
+| RF10 | Visualização de pacientes aniversariantes na página inicial |
+| RF11 | Criação de uma dieta personalizada na plataforma para um paciente |
+| RF12 | Visualização da dieta armazenada na plataforma para um paciente |
+| RF13 | Edição de uma dieta armazenada na plataforma para um paciente |
+| RF14 | Geração de PDF contendo todas as informações da dieta de um paciente |
+| RF15 | Exclusão de dietas armazenadas na plataforma |
+| RF16 | Visualização de treinamentos armazenados na plataforma |
+| RF17 | Edição de treinamentos armazenados na plataformas |
+| RF18 | Exclusão de treinamentos armazenados na plataforma |
+| RF19 | Geração de um PDF contendo todas as informações de um treinamento do paciente |
+| RF20 | Envio de avisos por e-mail a todos os pacientes cadastrados na plataforma |
+| RF21 | Envio de dieta criada, em formato PDF, para o e-mail do paciente cadastrado no sistema. |
+| RF22 | Envio do treino criado, em formato de PDF, para o e-mail do paciente cadastrado no sistema. |
+| RF23 | Envio de mensagens de aniversário pré-cadastradas para os pacientes em seu aniversário |
+| RF24 | Cadastro do nome, e-mail, telefone, endereço, altura, peso e medidas corporais do paciente no sistema |
+| RF25 | Visualização das informações de um paciente cadastrado no sistema |
+| RF26 | Edição das informações de um paciente cadastrado no sistema |
+| RF27 | Exclusão de um  paciente cadastrado no sistema |
+| RF28 | Cálculo de IMC através do sistema |
+| RF29 | Envio ao e-mail cadastrado do paciente uma confirmação do agendamento da consulta. |
+| RF30 | Agendamento de consultas no calendário do nutricionista |
+| RF31 | Reagendamento de consultas no calendário do nutricionista |
 
-</center>
 
 ## Tema
 
@@ -53,6 +71,20 @@ Gestão, análise e armazenamento de dados de pacientes para um consultório de 
 | EP01      | CP02 - Gerenciamento de Dados do Paciente | F03 - Análise de dados do Paciente     | F04 - Dashboard de dados dos Pacientes      |
 | EP02      | CP03 - Coordenação de Consultas           | F05 - Criação de Dietas Nutricionais   | F06 - Criação de Itinerário de Treinamentos | F07 - Envio de emails |
 | EP02      | CP04 - Coordenação de Consultas           | F08 - Cadastro dos dados dos Pacientes | F09 - Gerenciamento de Consulta             |
+
+### Relação entre objetivos e Funcionalidade
+    
+<center>
+
+| Objetivo | Funcionalidade relacionada |
+|:--------:|----------------------------|
+| A | F03, F04, F08|
+| B | F09 |
+| C | F04, F05 |
+| D | F04, F06 |
+| E | F07 |
+
+</center>
 
 ## Histórias de usuário
 
@@ -96,3 +128,4 @@ Gestão, análise e armazenamento de dados de pacientes para um consultório de 
 | **Data** | **Versão** | **Descrição** | **Autor** |
 | :--------: | :--------: | :--------:  | :--------: | 
 | 25/10/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 14/11/2023 | 1.1 | Atualização dos requisitos funcionais  | [Lucas Spinosa](https://github.com/LucasSpinosa)  |

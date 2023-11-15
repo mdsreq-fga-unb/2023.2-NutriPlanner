@@ -39,7 +39,7 @@ nav:
       - Lições Aprendidas: licoes_aprendidas/licoes_02.md
       - Apresentação backlog: visao_projeto/slide_01.md
       - VeriVal -> Equipe "Tanás": docs_separados/verival_tanas.md
-    - Refências: referencias/referencias.md
+    - Referências: referencias/referencias.md
     - Vídeos: videos/videos.md
   - Reuniões: 
     - Reuniões Gerais da Equipe:
@@ -53,4 +53,3 @@ nav:
     - Alinhamentos com Cliente:
       - Relatório de Considerações (08/10/2023): relatorios_consideracoes_cliente/relatorio-08-10-2023.md
       - Relatório de Considerações (09/11/2023): relatorios_consideracoes_cliente/relatorio-09-11-2023.md
-

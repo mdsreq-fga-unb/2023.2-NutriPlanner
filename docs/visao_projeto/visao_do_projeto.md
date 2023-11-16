@@ -26,8 +26,8 @@
 |:-----:|:---|:-----:|:-----:|:----:|
 | Ciclo 1 | **Análise** <br> Definição do projeto <br> Definição da abordagem de ESW <br> Organização e Planejamento do Projeto | GitHub Pages | 05/09/23 | 28/09/23 |
 | Ciclo 2 | **Design** <br> Estruturação de backlog: <br> - Elicitação e descoberta <br> - Análise e consenso <br> - Declaração <br> - Verificação e Validação <br> Organização e Atualização do backlog | Proposição de MVP  | 29/09/23 | 26/10/23 |
-| Ciclo 3 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do protótipo de média fidelidade <br> Desenvolvimento do produto | | 27/10/23 | 23/11/23 |
-| Ciclo 4 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do produto |Entrega do Mínimo Produto Viável | 24/11/23 | 14/12/23 |
+| Ciclo 3 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do protótipo de baixa fidelidade <br> Desenvolvimento do produto | Protótipo de baixa fidelidade | Início: 27/10/23 <br> Repete a cada segunda-feira | Final: 07/12/23 |
+| Ciclo 4 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do produto |Entrega da sprint | Início: 24/11/23 <br> Semanal | Final: 14/12/23 |
 
 </center>
 

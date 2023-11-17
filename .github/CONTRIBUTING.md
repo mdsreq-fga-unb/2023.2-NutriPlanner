@@ -9,6 +9,7 @@ Para manter um histórico de código claro e informativo, adotamos o estilo de c
 
 - Formato de Commit:
     - Use o formato: < tipo >(< escopo >): < mensagem >
+
         Exemplo: feat(login): adiciona funcionalidade de login
 
     - Tipos comuns: feat, fix, docs, style, refactor, test, chore, entre outros.
@@ -24,11 +25,12 @@ Exemplo de mensagem de commit:
 
 ## Política de issues
 
-* Este projeto possui um padrão para criação de [_issue_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/ISSUE_TEMPLATE/issue-template.md).
+* Este projeto possui um padrão para criação de [_issue relacionada a bugs_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/ISSUE_TEMPLATE/issue-template.md) e [issue de user story](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/doc/contributing/.github/ISSUE_TEMPLATE/user-story-template.md)
+
 
 ## Política de Pull Requests (PRs)
 
-* Este projeto possui um padrão para criação de [_PR_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/ISSUE_TEMPLATE/issue-template.md).
+* Este projeto possui um padrão para criação de [_PR_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/doc/contributing/.github/pull_request_template.md).
 
 
 ## Política de Branchs

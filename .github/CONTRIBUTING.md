@@ -8,7 +8,7 @@ Obrigado por considerar contribuir para o nosso projeto! Seguir estas diretrizes
 Para manter um histórico de código claro e informativo, adotamos o estilo de commit [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Certifique-se de seguir estas diretrizes ao fazer commits:
 
 - Formato de Commit:
-    - Use o formato: <tipo>(<escopo>): <mensagem>
+    - Use o formato: < tipo >(< escopo >): < mensagem >
         Exemplo: feat(login): adiciona funcionalidade de login
 
     - Tipos comuns: feat, fix, docs, style, refactor, test, chore, entre outros.
@@ -18,7 +18,9 @@ Para manter um histórico de código claro e informativo, adotamos o estilo de c
     - Use o presente do indicativo ("adiciona" em vez de "adicionado" ou "adicionará").
     - Descreva o que e por que, não como.
 
-Exemplo de mensagem de commit: `feat(navbar): adiciona ícone de notificações`
+Exemplo de mensagem de commit: 
+
+```feat(navbar): adiciona ícone de notificações```
 
 ## Política de issues
 

@@ -31,3 +31,14 @@ assignees: ''
 - A issue deve ser pontuada;
 - A issue deve ser delegada a alguém;
 - A issue deve ter labels;
+
+### DoR - Definition of Ready 
+
+A US só poderá ser desenvolvida se atender aos requisitos abaixo:
+
+- [ ] O Requisito possui está declarado de forma não ambígua?
+- [ ] O Requisito pode ser realizado dada a realidade do projeto (restrições de tempo e técnicas)?
+- [ ] O Requisito possui informação necessária para ser trabalhado? 
+- [ ] O Requisito possui critérios de aceitação?
+- [ ] O protótipo foi validado pelo cliente?
+- [ ] O requisito segue os critérios de priorização?

@@ -34,8 +34,8 @@ nav:
     - Critérios de Aceitação: produto/criterios_aceit/criterios.md
   - Entregas das unidades:
     - Unidade 1:
-      - História da Facção: docs_separados/historia.md
       - Lições Aprendidas: licoes_aprendidas/licoes_01.md
+      - História da Facção: docs_separados/historia.md
       - Visão do Produto: visao_geral_produto/slide_01.md
       - Visão do Processo: visao_geral_produto/slide_02.md
     - Unidade 2:

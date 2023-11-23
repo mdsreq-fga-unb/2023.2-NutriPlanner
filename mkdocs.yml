@@ -29,16 +29,25 @@ nav:
   - Entrega do Produto: 
     - Proposta de MVP: produto/mvp/prop_mvp.md
     - Backlog SAFe: produto/backlog/backlog_safe.md
+    - Definition of Done (DoD): produto/dod/dod.md
+    - Definition of Ready (DoR): produto/dor/dor.md
+    - Critérios de Aceitação: produto/criterios_aceit/criterios.md
   - Entregas das unidades:
     - Unidade 1:
-      - História da Facção: docs_separados/historia.md
       - Lições Aprendidas: licoes_aprendidas/licoes_01.md
+      - História da Facção: docs_separados/historia.md
       - Visão do Produto: visao_geral_produto/slide_01.md
       - Visão do Processo: visao_geral_produto/slide_02.md
     - Unidade 2:
       - Lições Aprendidas: licoes_aprendidas/licoes_02.md
       - Apresentação backlog: visao_projeto/slide_01.md
       - VeriVal -> Equipe "Tanás": docs_separados/verival_tanas.md
+    - Unidade 3:
+      - Lições Aprendidas: licoes_aprendidas/licoes_03.md
+      - Product Backlog Building: docs_separados/pbb.md
+      - User Story Mapping: docs_separados/usm.md
+      - Verificação e Validação - GL: docs_separados/verival_gl.md
+      - BDD: docs_separados/bdd.md
     - Referências: referencias/referencias.md
     - Vídeos: videos/videos.md
   - Reuniões: 

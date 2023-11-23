@@ -16,6 +16,10 @@ Após a finalização de cada missão referente a matéria de Requisitos de Soft
 - Missão_04: Preservação da Galáxia
     - link futuro
 
+##  Links para reuniões com cliente
+
+ - [Link para reunião de alinhamento](https://drive.google.com/file/d/1ToT1Zbhcx6vXpCWrcFd0Md-RElb-S-bx/view?usp=sharing)
+
 ##  Histórico de Versão:
 
 | **Data** | **Versão** | **Descrição** | **Autor** |

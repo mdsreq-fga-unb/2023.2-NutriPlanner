@@ -43,6 +43,7 @@ nav:
       - Apresentação backlog: visao_projeto/slide_01.md
       - VeriVal -> Equipe "Tanás": docs_separados/verival_tanas.md
     - Unidade 3:
+      - Lições Aprendidas: licoes_aprendidas/licoes_03.md
       - Product Backlog Building: docs_separados/pbb.md
       - User Story Mapping: docs_separados/usm.md
       - Verificação e Validação - GL: docs_separados/verival_gl.md

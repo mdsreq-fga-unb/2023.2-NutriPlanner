@@ -18,7 +18,7 @@
 | Analista de Requisitos | Realizar a elicitação de requisitos, trabalhar no consenso e definição dos mesmos, realizar formas de declaração e representação, trabalhar na verificação e validação e manter o fluxo de informações organizados e atualizados | Mateus Fidelis | Todos |
 
 ##  Planejamento das Fases e/ou Iterações do Projeto:
-- Nosso ciclo de vida será iterativo/incremental, havendo duas entregas, uma **inicial** com o cliente e outra segundo o plano de ensino, ao **final** do semestre com o professor. Sendo que nesse meio tempo teremos alguns **pontos de controle** para verificar se o andamento do desenvolvimento está conforme o esperado, nosso cronograma segue o seguinte planejamento:
+- Nosso ciclo de vida será iterativo/incremental, seguindo o cronograma com o seguinte planejamento:
 
 <center>
 
@@ -81,4 +81,4 @@ Dentre os riscos enfrentados na missão 1 estão:
 | 28/09/2023 | 1.2 | Alteração nos índices de replanejamento, e aumento da descrição das ações para contigência |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 24/10/2023 | 1.3 | Alteração na matriz de comunicação |  [Lucas Spinosa](https://github.com/LucasSpinosa)  
 | 25/10/2023 | 1.4 | Alteração nas atribuições  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
-| 22/11/2023 | 1.4 | Alteração nos ciclos de planejamento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 22/11/2023 | 1.5 | Alteração nos ciclos de planejamento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |

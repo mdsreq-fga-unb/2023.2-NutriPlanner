@@ -31,6 +31,7 @@ nav:
     - Backlog SAFe: produto/backlog/backlog_safe.md
     - Definition of Done (DoD): produto/dod/dod.md
     - Definition of Ready (DoR): produto/dor/dor.md
+    - Critérios de Aceitação: produto/criterios_aceit/criterios.md
   - Entregas das unidades:
     - Unidade 1:
       - História da Facção: docs_separados/historia.md

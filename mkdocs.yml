@@ -29,6 +29,9 @@ nav:
   - Entrega do Produto: 
     - Proposta de MVP: produto/mvp/prop_mvp.md
     - Backlog SAFe: produto/backlog/backlog_safe.md
+    - Definition of Done (DoD): produto/dod/dod.md
+    - Definition of Ready (DoR): produto/dor/dor.md
+    - Critérios de Aceitação: produto/criterios_aceit/criterios.md
   - Entregas das unidades:
     - Unidade 1:
       - História da Facção: docs_separados/historia.md
@@ -41,6 +44,7 @@ nav:
       - VeriVal -> Equipe "Tanás": docs_separados/verival_tanas.md
     - Unidade 3:
       - Product Backlog Building: docs_separados/pbb.md
+      - User Story Mapping: docs_separados/usm.md
     - Referências: referencias/referencias.md
     - Vídeos: videos/videos.md
   - Reuniões: 

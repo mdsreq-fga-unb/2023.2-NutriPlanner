@@ -24,10 +24,14 @@
 
 | Ciclo | Atividades realizadas | Entrega | Data Início | Data Fim |
 |:-----:|:---|:-----:|:-----:|:----:|
-| Ciclo 1 | **Análise** <br> Definição do projeto <br> Definição da abordagem de ESW <br> Organização e Planejamento do Projeto | GitHub Pages | 05/09/23 | 28/09/23 |
-| Ciclo 2 | **Design** <br> Estruturação de backlog: <br> - Elicitação e descoberta <br> - Análise e consenso <br> - Declaração <br> - Verificação e Validação <br> Organização e Atualização do backlog | Proposição de MVP  | 29/09/23 | 26/10/23 |
-| Ciclo 3 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do protótipo de baixa fidelidade <br> Desenvolvimento do produto | Protótipo de baixa fidelidade | Início: 27/10/23 <br> Repete a cada segunda-feira | Final: 07/12/23 |
-| Ciclo 4 | **Implementação e Teste** <br> Organização e Atualização do backlog <br> Desenvolvimento do produto |Entrega da sprint | Início: 24/11/23 <br> Semanal | Final: 14/12/23 |
+| Fase 1 | **REQUIREMENTS** <br> Atividades de Elicitação, descoberta e Declaração com técnica de Documento de visão de Produto | Visão de Produto e Projeto ; Declaração do Problema | 11/09/23 | 22/09/23 |
+| Fase 1 | **REQUIREMENTS** <br> Atividades de Elicitação e descoberta com técnica envolvendo Entrevista e Análise de Tarefas | Lista de Necessidades ; Lista de Requisitos Funcionais ; Lista de Requisitos Não-funcionais | 02/10/23 | 13/10/23 |
+| Fase 1 | **REQUIREMENTS** <br> Atividades de Elicitação, descoberta, verificação e validação com técnicas envolvendo Entrevista, SAFe  |  Resultados INVEST ; Resultados do Checklist ; Backlog SAFe ; Proposta de MVP  | 16/10/23 | 27/10/23 |
+| Fase 2 | **USER DESIGN** <br> Atividades de Representação com técnicas envolvendo protipagem |  Protótipo de alta Fidelidade  | 30/10/23 | 10/11/23 |
+| Fase 3 | **CONSTRUCTION** <br> Atividades de Verificação e Validadação com técnicas envolvendo Checklists de Verificação e Validação e Feedback com o usuário |  Checklist DoR e DoD ; Critérios de Aceitação das US ; Configurações iniciais do projeto (preparo do ambiente de desenvolvimento)  | 13/11/23 | 24/11/23 |
+| Fase 4 | **USER DESIGN** <br> Atividades de Verificação e Validação com técnicas envolvendo BDD e checklist DoR e DoD |  Protótipo de alta Fidelidade  | 24/11/23 | 26/11/23 |
+| Fase 5 | **CONSTRUCTION** <br> Atividades de Verificação e Validadação com técnicas envolvendo Checklists de Verificaçãoe Validação e Feedback com o usuário |  Checklist DoR e DoD ; Critérios de Aceitação das US ; Desenvolvimento das US | 27/11/23 | 05/12/23 |
+| Fase 6 | **CUTOVER** <br> Verificação e Validação com o usuário | Teste de Usabilidade | 05/12/23 | 14/12/23 |
 
 </center>
 
@@ -35,8 +39,6 @@ Vale citar que teremos reuniões de validação com o cliente e com o professor 
 
 - Ponto de Controle 1 (Professor): 14/11/23
 - Ponto de Controle 2 (Professor): 05/12/23
- 
-É importante dizer ainda que após as entregas para o professor, serão realizados ajustes para a entrega final ao cliente.
 
 ##  Matriz de Comunicação:
 
@@ -79,3 +81,4 @@ Dentre os riscos enfrentados na missão 1 estão:
 | 28/09/2023 | 1.2 | Alteração nos índices de replanejamento, e aumento da descrição das ações para contigência |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 24/10/2023 | 1.3 | Alteração na matriz de comunicação |  [Lucas Spinosa](https://github.com/LucasSpinosa)  
 | 25/10/2023 | 1.4 | Alteração nas atribuições  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 22/11/2023 | 1.4 | Alteração nos ciclos de planejamento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |

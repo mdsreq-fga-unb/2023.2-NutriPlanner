@@ -28,3 +28,4 @@ Após a finalização de cada missão referente a matéria de Requisitos de Soft
 | 28/09/2023 | 1.1 | Adição da formatação e link referente a missão 01 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 25/10/2023 | 1.2 | Adição da formatação e link referente a missão 02 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 22/11/2023 | 1.3 | Adição da formatação e link referente a missão 03 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 22/11/2023 | 1.4 | Adição da formatação e link referente a reunião com cliente |  [Mateus Fidelis](https://github.com/MatsFidelis)  |

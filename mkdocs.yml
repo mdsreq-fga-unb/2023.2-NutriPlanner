@@ -29,6 +29,8 @@ nav:
   - Entrega do Produto: 
     - Proposta de MVP: produto/mvp/prop_mvp.md
     - Backlog SAFe: produto/backlog/backlog_safe.md
+    - Definition of Done (DoD): produto/dod/dod.md
+    - Definition of Ready (DoR): produto/dor/dor.md
   - Entregas das unidades:
     - Unidade 1:
       - História da Facção: docs_separados/historia.md

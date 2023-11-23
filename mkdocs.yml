@@ -45,6 +45,8 @@ nav:
     - Unidade 3:
       - Product Backlog Building: docs_separados/pbb.md
       - User Story Mapping: docs_separados/usm.md
+      - Verificação e Validação - GL: docs_separados/verival_gl.md
+      - BDD: docs_separados/bdd.md
     - Referências: referencias/referencias.md
     - Vídeos: videos/videos.md
   - Reuniões: 

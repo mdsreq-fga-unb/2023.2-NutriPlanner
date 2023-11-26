@@ -19,21 +19,15 @@ O NutriPlanner é uma plataforma web com o objetivo de simplificar o processo de
 - Python 3
 - Python package manager, pip
 
-´´´bash
-python get-pip.py
-´´´	
+        python get-pip.py
 
 - mkdocs
 
-```bash
-pip install mkdocs
-```
+        pip install mkdocs
 
 - mkdocs-material
 
-```bash
-pip install mkdocs-material
-```
+        pip install mkdocs-material
 
 ### Execução
 

@@ -12,6 +12,37 @@ O NutriPlanner é uma plataforma web com o objetivo de simplificar o processo de
 | --- | --- | --- | --- | --- | --- | 
 | [Arthur](https://github.com/arthurgrandao) | [Leandro](https://github.com/Leanddro13) | [Lucas Spinosa](https://github.com/LucasSpinosa) | [Maria Alice](https://github.com/Maliz30) | [Mateus Fidelis](https://github.com/MatsFidelis) | [Millena Queiroz](https://github.com/MillenaQueiroz) |
 
+## Rodando a documentação localmente
+
+### Requisitos
+
+- Python 3
+- Python package manager, pip
+
+´´´bash
+python get-pip.py
+´´´	
+
+- mkdocs
+
+```bash
+pip install mkdocs
+```
+
+- mkdocs-material
+
+```bash
+pip install mkdocs-material
+```
+
+### Execução
+
+- Na raiz do projeto, execute:
+
+        mkdocs serve
+
+- Abra o navegador e acesse a URL http://localhost:8000
+
 ## Contribuição
 
-Certifique-se de ler o [Guia de Contribuição](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/doc/contributing/.github/CONTRIBUTING.md) antes de realizar qualquer atividade no projeto!
+Certifique-se de ler o [Guia de Contribuição](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/CONTRIBUTING.md) antes de realizar qualquer atividade no projeto!

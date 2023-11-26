@@ -1,3 +1,6 @@
 
 # mkdocs documentation
 /site
+
+# Node
+node_modules

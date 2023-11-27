@@ -11,11 +11,22 @@ const transporter = nodemailer.createTransport({    // Configura o serviço de e
   },
 });
 
-const clients = await mongoClient.find({ // Obtém os clientes que possuem aniversário hoje
-  birthDate: {
-    $eq: moment().format("YYYY-MM-DD"),
+// const clients = await mongoClient.find({ // Obtém os clientes que possuem aniversário hoje
+//   birthDate: {
+//     $eq: moment().format("YYYY-MM-DD"),
+//   },
+// });
+
+const clients = [
+  {
+    name: 'Mateus Fidelis',
+    email: 'mateusfidelis.43@gmail.com'
   },
-});
+  {
+    name: 'Lucas Spinosa',
+    email: 'lucas.shot.lima@gmail.com' 
+  }
+];
 
 function enviaEmail(clientes) {
   clientes.forEach((client) => {                   // Envia um e-mail para cada cliente
@@ -50,7 +61,7 @@ cron.schedule("0 0 * * *", () => {
   enviaEmail(clients);               // Executa o código
 });
 
-app.listen(3000, () => {
-  console.log("Servidor rodando na porta 3000");
+app.listen(3030, () => {
+  console.log("Servidor rodando na porta 3030");
   enviaEmail(clients);
 });

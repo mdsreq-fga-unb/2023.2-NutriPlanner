@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from 'axios';
+import './Login.css';
 
 function Login() {
 
@@ -34,18 +35,21 @@ function Login() {
             {user == null ? 
             (
                 <div>
-                    <h2>Bem Vindo</h2>
+                    <div className="header-nutriplanner"/>
+                    <h2>Bem-vindo!</h2>
                         <form className="login-form">
                             <input type="pin" 
                                     name="pin" 
-                                    placeholder="pin" 
+                                    placeholder="Pin de acesso" 
+                                    className="login-input"
                                     required
                                     onChange={(e) => setPin(e.target.value)}
                                     />
-                        </form>
-                        <button type="submit" 
+                            <button type="submit" 
                                 className="btn-login"
-                                onClick={(e) => handleLogin(e)}>Login</button>
+                                onClick={(e) => handleLogin(e)}>Entrar</button>
+                        </form>
+                        
                         <p>{error}</p>
                 </div>
             ) : (
@@ -53,7 +57,10 @@ function Login() {
                     <p>loguei</p>
                 </div>
             )}
-            
+            <div className="login-footer">
+                <p className="footer-title">Universidade de Brasília</p>
+                <h3>Guardiões do Bem e do Leite ©️ 2023</h3>
+            </div>   
         </div>
     );
 }

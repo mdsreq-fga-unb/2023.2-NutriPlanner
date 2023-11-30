@@ -1,0 +1,23 @@
+.menuButton{
+   background-color: #FFF;
+   color: #000;
+   width: 185px;
+   height: 45px;
+   border: none;
+   border-radius: 20px;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+.menuButton img{
+   float: left;
+}
+
+.menuButtonPage{
+   background-color: var(--cinza);
+}
+
+.menuButton:hover{
+   background-color: var(--amarelo);
+   transition: 0.5s;
+}

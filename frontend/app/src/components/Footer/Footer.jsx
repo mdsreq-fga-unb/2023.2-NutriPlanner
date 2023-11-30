@@ -3,5 +3,6 @@ import React from 'react'
 
 export default props =>
     <footer className="footer">
-        Rodapé
+        <span>Universidade de Brasília<br></br></span>
+        <span>Guardiões do Bem e do Leite&copy; 2023</span>
     </footer>

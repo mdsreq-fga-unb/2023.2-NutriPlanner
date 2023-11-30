@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const routes = require("./routes.js");
+
+const pacienteRoutes = require("./routes/pacienteRoutes.js");
 
 dotenv.config();
 app.use(express.json());
@@ -18,4 +19,4 @@ app.listen(port, () => {
 
 require("./db/connection.js");
 
-app.use(routes);
+app.use('/pacientes', pacienteRoutes);

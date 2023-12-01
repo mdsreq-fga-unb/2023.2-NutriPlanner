@@ -1,11 +1,12 @@
 const express = require('express');
+require('dotenv').config();
 
 const routes = express.Router();
 
-const users =[{
-    id:1,
-    name: 'Admin',
-    pin: '12345'
+const users = [{
+    id: process.env.USER_ID,
+    name: process.env.USER_NAME,
+    pin: process.env.USER_PIN
 }];
 
 routes.post('/login', (req,res) =>{

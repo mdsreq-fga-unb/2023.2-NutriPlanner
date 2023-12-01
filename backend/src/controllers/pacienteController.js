@@ -41,7 +41,7 @@ exports.cadastroPaciente = async (req, res) => {
         const medidaData = {
             idPaciente: newPaciente._id,
             ...req.body.medida,
-            imc: req.body.medida.pesoJejum / (req.body.medida.altura ** 2)
+            imc: (req.body.medida.pesoJejum / (req.body.medida.altura ** 2)).toFixed(2)
         };
 
         // Criar a Medida

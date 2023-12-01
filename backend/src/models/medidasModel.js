@@ -34,10 +34,12 @@ const medidasSchema = new mongoose.Schema({
     circunferencia: [{
         bracos: {
             type: [Number],
+            minLength:2,
             maxLength: 2
         },
         anteBracos: {
             type: [Number],
+            minLength:2,
             maxLength: 2
         },
         abdomen: Number,
@@ -46,10 +48,12 @@ const medidasSchema = new mongoose.Schema({
         ombros: Number,
         coxas: {
             type: [Number],
+            minLength:2,
             maxLength: 2
         },
         panturrilhas: {
             type: [Number],
+            minLength:2,
             maxLength: 2
         },
         quadril: Number,
@@ -58,23 +62,9 @@ const medidasSchema = new mongoose.Schema({
     dobrasCutaneas: {
         type: String,
         maxLength: 750,
-        trim: true
-    },
-    gastoEnergeticoDiario: {
-        type: Number,
-        required: [true, 'Medida deve conter gasto energetico diario!'],
-        max: 10000  // nao sei um valor apropriado
-    },
-    metabolismoBasal: {
-        type: Number,
-        required: [true, 'Medida deve conter metabolismo basal!'],
-        max: 50000 // nao sei um valor apropriado
-    },
-    valorCaloricoPlano: {
-        type: Number,
-        required: [true, 'Medida deve conter valor calorico do plano alimentar!'],
-        max: 100000 // nao sei um valor apropriado
-    },
+        trim: true,
+        default: 'Não possui.'
+    }
 });
 
 

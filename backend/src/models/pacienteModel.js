@@ -21,8 +21,7 @@ const pacienteSchema = new mongoose.Schema({
     sexo: {
         type: String,
         required: [true, 'O paciente deve conter sexo!'],
-        maxLength: 1,
-        enum: ["M", "F"]
+        enum: ["Masculino", "Feminino"]
     },
     email: {
         type: String,
@@ -113,6 +112,27 @@ const pacienteSchema = new mongoose.Schema({
             trim: true,
             default: ''
         }
+    },
+    gastoEnergeticoDiario: {
+        type: Number,
+        required: [true, 'Medida deve conter gasto energetico diario!'],
+        max: 10000  
+    },
+    metabolismoBasal: {
+        type: Number,
+        required: [true, 'Medida deve conter metabolismo basal!'],
+        max: 50000 
+    },
+    valorCaloricoPlano: {
+        type: Number,
+        required: [true, 'Medida deve conter valor calorico do plano alimentar!'],
+        max: 100000 
+    },
+    conclusoes: {
+        type: String,
+        maxLength: 1500,
+        trim: true,
+        default: ''
     }
 });
 

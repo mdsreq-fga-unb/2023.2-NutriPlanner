@@ -1,50 +1,105 @@
-.cadastro{
-   display: flex;
-   padding-top: 1.4%;
-} 
+.CadastroPaciente {
+   margin: 0px;
+   display: grid;
 
-.menu-lateral{
+   grid-template-areas: 
+      "aside main";
+   grid-template-rows: 100% 100%;
+   grid-template-columns: 25% 75%;
+
+}
+
+.CadastroPaciente-menu-lateral{
    background-color: #68A797;
-   width: 25%;
    display: flex;
    flex-direction: column;
    align-items: center;
+   grid-area: aside;
+   padding-top: 4%;
+   position: sticky;
 }
 
-.menu-titulo {
+.CadastroPaciente-menu-titulo {
    color: #FFF;
    font-weight: bold;
    align-self: flex-start;
    padding-left: 13%;
-   margin-top: 8%;
-   font-size: 0.8rem;
+   margin-top: 4%;
+   font-size: 0.CadastroPaciente-8rem;
 }
 
-.menu-divisao {
+.CadastroPaciente-menu-divisao {
    color: white;
    width: 80%;
 }
 
-.navegacao {
+.CadastroPaciente-navegacao {
    display: flex;
    flex-direction: column;
 }
 
-.item-menu {
+.CadastroPaciente-item-menu {
    margin: 7% 0;
 }
 
-.conteudo {
-   padding-left: 13px;
-   width: 100%;
-   padding-right: 13px;
+.CadastroPaciente-conteudo {
+   grid-area: main;
+   padding-left: 2%;
+   width: 98%;
+   padding-top: 2%;
 }
 
-.cabecalho {
+/* .CadastroPaciente-cabecalho{
+   position: sticky;
+   top: 1px;
+   z-index: 100;
+   background-color: #FFF;
+} */
+
+.CadastroPaciente-items-cabecalho {
    display: flex;
    justify-content: space-between;
+   padding-right: 4%;
+   align-items: center;
 }
 
-.divisao-conteudo {
+.CadastroPaciente-botoes-cabecalho button{
+   margin-right: 20px;
+}
+
+.CadastroPaciente-divisao-conteudo {
    color: var(--cinza-claro);
+}
+
+.CadastroPaciente-formulario{
+   margin: 3% 0;
+}
+
+.CadastroPaciente-area-formulario{
+   width: 85%;
+}
+
+.CadastroPaciente-titulo-area{
+   font-weight: bold;
+   font-size: 1.2rem;
+}
+
+.CadastroPaciente-campos-formulario{
+   display: flex;
+   justify-content: space-between;
+   padding: 2%;
+}
+
+.CadastroPaciente-segundaColuna-campos{
+   padding-right: 10%;
+}
+
+
+.CadastroPaciente-item-formulario{
+   display: flex;
+   flex-direction: column;
+}
+
+.CadastroPaciente-label-campo{
+   font-weight: 600;
 }

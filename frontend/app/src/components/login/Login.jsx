@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
 import './Login.css';
+import nutriplannerLogo from "./../../assets/nutriplanner-logo.png"
 
 function Login() {
 
@@ -35,7 +36,9 @@ function Login() {
             {user == null ? 
             (
                 <div>
-                    <div className="header-nutriplanner"/>
+                    <div className="header-nutriplanner">
+                        <img src={nutriplannerLogo} className="logo-image" />
+                    </div>
                     <h2>Bem-vindo!</h2>
                         <form className="login-form">
                             <input type="pin" 

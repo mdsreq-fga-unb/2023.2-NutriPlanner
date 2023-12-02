@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 import nutriplannerLogo from "./../../assets/nutriplanner-logo.png"
 
 function Login() {
+    const navigate = useNavigate();
 
     const [pin, setPin] = useState('');
     const [error, setError] = useState('');
@@ -22,6 +24,7 @@ function Login() {
             );
             console.log(response.data);
             setUser(response.data);
+            navigate('/home');
         }catch (error){
             if(!error?.response){
                 setError('Error');

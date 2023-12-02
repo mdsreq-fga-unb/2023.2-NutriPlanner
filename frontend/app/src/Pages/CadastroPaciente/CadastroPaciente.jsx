@@ -1,11 +1,13 @@
 import './CadastroPaciente.css'
-import React, {useState} from 'react'
+import React from 'react'
+import axios from 'axios'
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
 import MenuButton from '../../components/Buttons/Menu/MenuButton'
 import Button from '../../components/Buttons/Button'
 import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 //Ícones
 import dieta from '../../assets/icons/Adição Dieta.svg';
@@ -40,9 +42,19 @@ const CadastroPaciente = () =>{
         conclusoes: ''
     }
 
-    function imprimirObjeto(e){
-        // e.preventDefault();
-        console.log((dadosPaciente))
+    async function imprimirObjeto(e){
+        e.preventDefault();
+        
+        // const url = 'http://localhost:3000/pacientes'
+
+        // axios.post(url, JSON.stringify(dadosPaciente))
+        // .then(response => {
+        //     console.log('Post successful:', response.data);
+        // })
+        // .catch(error => {
+        //     console.error('Error during post request:', error.response);
+        // });
+
     };
 
     const preencheAtributo = (event) => {
@@ -54,50 +66,122 @@ const CadastroPaciente = () =>{
         const { name, value } = event.target;
         dadosPaciente.questionario[name] = value;
     };
-    
-    const preencheAtributoMedicamento = (event) => {
+
+    const preencheAtributoMedicamento = (event, indice) => {
         const { name, value } = event.target;
-
-        const indiceMedicamento = dadosPaciente.questionario.medicamentosIngeridos.length;
-
-        dadosPaciente.questionario.medicamentosIngeridos[indiceMedicamento][name] = value;
+        
+        const medicamentoAtual = dadosPaciente.questionario.medicamentosIngeridos[indice]
+        medicamentoAtual[name] = value;
     };
+    
 
-    function adicionarMedicamento(e) {
+    let indiceMedicamento = 0;
+
+    function adicionarMedicamento(event) {
+        event.preventDefault()
         dadosPaciente.questionario.medicamentosIngeridos.push({
-            nome:'',
-            horario:'',
-            tipo:''
+            nome: '',
+            horario: '',
+            tipo: ''
         })
 
-        const formMedicamento = document.getElementById('formMedicamento');    
+         // Create the main container div
+        var mainContainer = document.createElement('div');
+        mainContainer.classList.add('CadastroPaciente-campos-medicamento');
+        mainContainer.dataset.index = indiceMedicamento;
 
-        const novoMedicamento = document.createElement('div');
-        novoMedicamento.className = 'CadastroPaciente-campos-medicamento';
+        // Create and append the first item div with input
+        var itemDiv1 = document.createElement('div');
+        itemDiv1.classList.add('CadastroPaciente-item-formulario-medicamento');
 
-        novoMedicamento.innerHTML = `
-            <div class="CadastroPaciente-item-formulario-medicamento">
-                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="nomeMedicamento">Nome do Medicamento</label>
-                <input class="CadastroPaciente-input CadastroPaciente-input-medicamento" type="text" id="nomeMedicamento" name="nome" onChange="preencheAtributoMedicamento(event) required" />
-            </div>
-            <div class="CadastroPaciente-item-formulario-medicamento">
-                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="horario">Horário</label>
-                <input class="CadastroPaciente-input CadastroPaciente-input-horario" type="time" id="horario" name="horario" onChange="preencheAtributoMedicamento(event) required" />
-            </div>
-            <div class="CadastroPaciente-item-formulario-medicamento">
-                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="tipo">Tipo de Uso</label>
-                <select class="CadastroPaciente-input CadastroPaciente-input-select" id="tipo" name="sexo" onChange="preencheAtributoMedicamento(event)">
-                    <option value="" disabled selected>Selecione</option>
-                    <option value="Eventual">Eventual</option>
-                    <option value="Contínuo">Contínuo</option>
-                </select> 
-            </div>
-        `;
+        var label1 = document.createElement('label');
+        label1.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
+        label1.setAttribute('for', 'nomeMedicamento');
+        label1.textContent = 'Nome do Medicamento';
 
-        formMedicamento.appendChild(novoMedicamento);
+        var input1 = document.createElement('input');
+        input1.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-medicamento');
+        input1.setAttribute('type', 'text');
+        input1.setAttribute('id', 'nomeMedicamento');
+        input1.setAttribute('name', 'nome');
+        input1.addEventListener('change', function (e) {
+            preencheAtributoMedicamento(e, mainContainer.dataset.index);
+        });
+        input1.setAttribute('required', 'required');
+
+        itemDiv1.appendChild(label1);
+        itemDiv1.appendChild(input1);
+        mainContainer.appendChild(itemDiv1);
+
+        // Create and append the second item div with input
+        var itemDiv2 = document.createElement('div');
+        itemDiv2.classList.add('CadastroPaciente-item-formulario-medicamento');
+
+        var label2 = document.createElement('label');
+        label2.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
+        label2.setAttribute('for', 'horario');
+        label2.textContent = 'Horário';
+
+        var input2 = document.createElement('input');
+        input2.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-horario');
+        input2.setAttribute('type', 'time');
+        input2.setAttribute('id', 'horario');
+        input2.setAttribute('name', 'horario');
+        input2.addEventListener('change', function (e) {
+            preencheAtributoMedicamento(e, mainContainer.dataset.index)
+        });
+        input2.setAttribute('required', 'required');
+
+        itemDiv2.appendChild(label2);
+        itemDiv2.appendChild(input2);
+        mainContainer.appendChild(itemDiv2);
+
+        // Create and append the third item div with select
+        var itemDiv3 = document.createElement('div');
+        itemDiv3.classList.add('CadastroPaciente-item-formulario-medicamento');
+
+        var label3 = document.createElement('label');
+        label3.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
+        label3.textContent = 'Tipo de Uso';
+
+        var select = document.createElement('select');
+        select.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-select');
+        select.setAttribute('id', 'tipo');
+        select.setAttribute('name', 'tipo');
+        select.addEventListener('change', function (e) {
+            preencheAtributoMedicamento(e, mainContainer.dataset.index)
+        });
+
+        var option1 = document.createElement('option');
+        option1.setAttribute('value', '');
+        option1.setAttribute('disabled', 'disabled');
+        option1.setAttribute('selected', 'selected');
+        option1.textContent = 'Selecione';
+
+        var option2 = document.createElement('option');
+        option2.setAttribute('value', 'Eventual');
+        option2.textContent = 'Eventual';
+
+        var option3 = document.createElement('option');
+        option3.setAttribute('value', 'Contínuo');
+        option3.textContent = 'Contínuo';
+
+        select.appendChild(option1);
+        select.appendChild(option2);
+        select.appendChild(option3);
+
+        itemDiv3.appendChild(label3);
+        itemDiv3.appendChild(select);
+        mainContainer.appendChild(itemDiv3);
+
+        // Append the main container to the 'formMedicamento' container
+        document.getElementById('formMedicamento').appendChild(mainContainer);
+        indiceMedicamento++;
     }
+    
+    function removerMedicamento(event) {
+        event.preventDefault()
 
-    function removerMedicamento() {
         dadosPaciente.questionario.medicamentosIngeridos.pop()
         const formMedicamento = document.getElementById('formMedicamento');
         const medicamentos = formMedicamento.querySelectorAll('.CadastroPaciente-campos-medicamento');
@@ -105,6 +189,8 @@ const CadastroPaciente = () =>{
         if (medicamentos.length > 0) {
             formMedicamento.removeChild(medicamentos[medicamentos.length - 1]);
         }
+
+        indiceMedicamento--;
     }
 
     return(     
@@ -115,19 +201,19 @@ const CadastroPaciente = () =>{
                 <hr className="CadastroPaciente-menu-divisao" />
                 <nav className="CadastroPaciente-navegacao">
                     <a href="/" className='CadastroPaciente-item-menu'>
-                        <MenuButton title="Pacientes" />
+                        <MenuButton title="Pacientes" icon={paciente}/>
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>
-                        <MenuButton title="Cadastrar Paciente" selecionado="true" />
+                        <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente}selecionado="true" />
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>
-                        <MenuButton title="Criar Dieta" />
+                        <MenuButton title="Criar Dieta" icon={dieta}/>
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>
-                        <MenuButton title="Criar Plano de Treino" />
+                        <MenuButton title="Criar Plano de Treino" icon={treino}/>
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>
-                        <MenuButton title="Agendar Consulta" />
+                        <MenuButton title="Agendar Consulta" icon={agendamento} />
                     </a>
                 </nav>
             </div>
@@ -137,15 +223,15 @@ const CadastroPaciente = () =>{
                     <div className='CadastroPaciente-items-cabecalho'>
                         <Header title="Cadastrar Paciente" caminhoImagem={adicaoPaciente} />
                         <div className='CadastroPaciente-botoes-cabecalho'>
-                            <Button title="Ajuda" />
-                            <Button title="Sair" />
+                            <Button title="Ajuda"classeAdicional="CadastroPaciente-botoes-cabecalho" />
+                            <Button title="Sair" classeAdicional="CadastroPaciente-botoes-cabecalho" />
                         </div>
                     </div>
                     <hr className="CadastroPaciente-divisao-conteudo"></hr>
-                    <Button title="Voltar" />
+                    <Button title="Voltar" classeAdicional="CadastroPaciente-botao-voltar"/>
                 </div>
     
-                <div className="CadastroPaciente-formulario">
+                <form className="CadastroPaciente-formulario">
                     <fieldset className="CadastroPaciente-area-formulario">
                         <legend className="CadastroPaciente-titulo-area">Dados Pessoais</legend>
     
@@ -211,8 +297,7 @@ const CadastroPaciente = () =>{
                                     id="telefone"
                                     name="telefone"
                                     onChange={e => preencheAtributo(e)} 
-                                    placeholder="(xx) xxxxx-xxxx" 
-                                    pattern="[0-9]+"/>
+                                    placeholder="(xx) xxxxx-xxxx"/>
                                 </div>  
                                 <div className="CadastroPaciente-item-formulario">
                                     <label className="CadastroPaciente-label-campo" for="sexo">Sexo</label>
@@ -262,7 +347,7 @@ const CadastroPaciente = () =>{
                                 onChange={e => preencheAtributoQuestionario(e)} 
                                 />
                             </div>
-                            <div className="CadastroPaciente-formulario-medicamento">
+                            <div className="CadastroPaciente-medicamentos">
                                 <label className="CadastroPaciente-label-campo">Medicamentos Ingeridos</label>
                                 <div id="formMedicamento">
                                 </div>
@@ -462,10 +547,10 @@ const CadastroPaciente = () =>{
                             </div>
                         </div>
                     </fieldset>
-                    {/* <Button /> */}
                     <input className="CadastroPaciente-enviar" type="submit" value="Cadastrar" onClick={e => imprimirObjeto(e)}/>
-                </div>
+                </form>
             </div>
+            <Footer className="CadastroPaciente-rodape"/>
         </div>
     )    
 };

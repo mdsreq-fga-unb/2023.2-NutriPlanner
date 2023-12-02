@@ -1,22 +1,23 @@
-import React from "react"
-import './MenuButton.css'
+import React from "react";
+import './MenuButton.css';
 
 const MenuButton = (props) => {
-     const { selecionado=false, title } = props;
+     const { selecionado = false, title, icon } = props;
 
-     if(selecionado){
+     if (selecionado) {
           return (
                <button className="menuButton menuButtonPage">
-                    {props.title}
-               </button>       
+                    <img src={icon} className="menuIcon" />
+                    {title}
+               </button>
           )
-     }
-     else{
+     } else {
           return (
                <button className="menuButton">
-                    {props.title}
-               </button>       
-          ) 
+                    <img src={icon}  className="menuIcon" />
+                    {title}
+               </button>
+          )
      }
 }
 

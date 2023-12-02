@@ -7,10 +7,15 @@
    border-radius: 20px;
    font-weight: bold;
    cursor: pointer;
+   display: flex;
+   align-items: center;
+   font-size: 0.8rem;
 }
 
-.menuButton img{
-   float: left;
+.menuIcon{
+   width: 16%;
+   margin-right: 6%;
+   margin-left: 2%;
 }
 
 .menuButtonPage{

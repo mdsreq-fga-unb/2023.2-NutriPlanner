@@ -7,6 +7,11 @@ const pacienteSchema = new mongoose.Schema({
         default: new Date().toLocaleString("en-US", {timeZone: "America/Sao_Paulo"}),
         immutable: true
     },
+    ativo: {
+        type: Boolean,
+        default: true,
+        required: true
+    },
     nome: {
         type: String,
         required: [true, 'O paciente deve conter um nome!'],

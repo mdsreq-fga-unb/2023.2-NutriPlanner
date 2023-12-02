@@ -25,12 +25,12 @@ Exemplo de mensagem de commit:
 
 ## Política de issues
 
-* Este projeto possui um padrão para criação de [_issue relacionada a bugs_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/ISSUE_TEMPLATE/issue-template.md) e [issue relacionada a user story](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/doc/contributing/.github/ISSUE_TEMPLATE/user-story-template.md).
+* Este projeto possui um padrão para criação de [_issue relacionada a bugs_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/ISSUE_TEMPLATE/issue-template.md) e [issue relacionada a user story](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/ISSUE_TEMPLATE/user-story-template.md).
 
 
 ## Política de Pull Requests (PRs)
 
-* Este projeto possui um padrão para criação de [_PR_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/doc/contributing/.github/pull_request_template.md).
+* Este projeto possui um padrão para criação de [_PR_](https://github.com/mdsreq-fga-unb/2023.2-NutriPlanner/blob/main/.github/pull_request_template.md).
 
 
 ## Política de Branchs

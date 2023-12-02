@@ -49,12 +49,12 @@
    padding-top: 2%;
 }
 
-/* .CadastroPaciente-cabecalho{
+.CadastroPaciente-cabecalho{
    position: sticky;
-   top: 1px;
+   top: 0px;
    z-index: 100;
    background-color: #FFF;
-} */
+}
 
 .CadastroPaciente-items-cabecalho {
    display: flex;
@@ -77,29 +77,117 @@
 
 .CadastroPaciente-area-formulario{
    width: 85%;
+   margin: 3% 0;
 }
 
 .CadastroPaciente-titulo-area{
    font-weight: bold;
-   font-size: 1.2rem;
+   font-size: 1.3rem;
+}
+
+.CadastroPaciente-item-formulario{
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px
+}
+
+.CadastroPaciente-item-formulario-medicamento{
+   display: flex;
+   flex-direction: column;
+   margin-right: 20px;
+}
+
+.CadastroPaciente-formulario-medicamento{
+   margin-bottom: 20px
+}
+
+.CadastroPaciente-campos-medicamento{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   display: flex;
+}
+
+.CadastroPaciente-label-campo{
+   font-weight: 600;
+   margin-bottom: 15px;
+}
+
+.CadastroPaciente-label-medicamento{
+   font-size: 0.8rem;
+   text-align: center;
+}
+
+.CadastroPaciente-input{
+   line-height: 1.8rem;
+   border-radius: 15px;
+   border: 1px solid #000;
+}
+
+.CadastroPaciente-input-texto{
+   width: 200%;
+   font-size: 15px;
+}
+
+.CadastroPaciente-input-select{
+   width: 104px;
+   height: 30px;
+   text-indent: 6px;
+}
+
+
+.CadastroPaciente-input-curto{
+   width: 140px;
+}
+
+.CadastroPaciente-input-medicamento{
+   width: 250px;
+}
+
+.CadastroPaciente-input-horario{
+   width: 90px;
 }
 
 .CadastroPaciente-campos-formulario{
    display: flex;
    justify-content: space-between;
-   padding: 2%;
 }
 
-.CadastroPaciente-segundaColuna-campos{
-   padding-right: 10%;
+.CadastroPaciente-container{
+   padding-top: 2%;
+   padding-right: 14%;
+   padding-left: 2%;
+   padding-bottom: 1%;
 }
 
-
-.CadastroPaciente-item-formulario{
-   display: flex;
-   flex-direction: column;
+.CadastroPaciente-area-texto{
+   width: 100%;
+   font-size: 1.1rem;
+   resize: none;
 }
 
-.CadastroPaciente-label-campo{
-   font-weight: 600;
+.CadastroPaciente-enviar{
+   background-color: var(--verde);
+   color: #FFF;
+   width: 110px;
+   height: 40px;
+   border: none;
+   border-radius: 20px;
+   font-weight: bold;
+   cursor: pointer;
+   float: right;
+   margin-right: 15%;
+}
+
+.CadastroPaciente-enviar:hover{
+   background-color: var(--laranja);
+   transition: 0.5s;
+}
+
+.CadastroPaciente-botoes-medicamento{
+   margin-top: 4%;
+}
+
+.CadastroPaciente-botao-opcao {
+   width: 200px !important;
+   margin-right: 3%;
 }

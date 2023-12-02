@@ -18,6 +18,7 @@
 }
 
 .menuButton:hover{
-   background-color: var(--amarelo);
+   color: #FFF;
+   background-color: var(--laranja);
    transition: 0.5s;
 }

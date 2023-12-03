@@ -42,38 +42,38 @@ const CadastroPaciente = () =>{
             valorCaloricoPlano: '',
             conclusoes: ''
         },
-        medidas:
-        {
+        medida: {
             altura: '',
             pesoJejum: '',
             pesoObjetivo: '',
-            imc: '',
-            circunferencia: [{
-                bracoEsquerdo: '',
-                bracoDireito: '',
-                antebracoEsquerdo: '',
-                antebracoDireito: '',
-                abdomen: '',
-                cintura: '',
+            circunferencia: [
+                {
+                    bracoEsquerdo: '',
+                    bracoDireito: '',
+                    antebracoEsquerdo: '',
+                    antebracoDireito: '',
+                    abdomen: '',
+                    cintura: '',
+                    peitoral: '',
+                    ombros: '',
+                    coxaEsquerda: '',
+                    coxaDireita: '',
+                    panturrilhaEsquerda: '',
+                    panturrilhaDireita: '',
+                    quadril: '',
+                    pescoco: '',
+                }
+            ],
+            dobrasCutaneas: {
+                subscapular: '',
+                axilarMedia: '',
+                coxa: '',
+                tricipetal: '',
+                suprailiaca: '',
                 peitoral: '',
-                ombros: '',
-                coxaEsquerda: '',
-                coxaDireita: '',
-                panturrilhaEsquerda: '',
-                panturrilhaDireita: '',
-                pescoco: '',
-                quadril: '',
-            }]
-        },
-        dobrasCutaneas: {
-            subscapular: '',
-            axilarMedia: '',
-            coxa: '',
-            tricipetal: '',
-            suprailiaca: '',
-            peitoral: '',
-            abdominal: ''
-        },
+                abdominal: ''
+            },
+        }
     }
 
     const preencheAtributoPaciente = (event) => {
@@ -96,23 +96,19 @@ const CadastroPaciente = () =>{
     const preencheAtributoMedidasCorporais = (event) => {
         const { name, value } = event.target;
 
-        if(name == 'altura'){
-            
-        }
-
-        dadosPaciente.medidas[name] = value;
+        dadosPaciente.medida[name] = value;
     };
 
     const preencheAtributoCircunferencias = (event) => {
         const { name, value } = event.target;
 
-        dadosPaciente.medidas.circunferencia[0][name] = value;
+        dadosPaciente.medida.circunferencia[0][name] = value;
     };
 
     const preencheAtributoDobrasCutaneas = (event) => {
         const { name, value } = event.target;
 
-        dadosPaciente.dobrasCutaneas[name] = value;
+        dadosPaciente.medida.dobrasCutaneas[name] = value;
     };
 
 
@@ -127,90 +123,42 @@ const CadastroPaciente = () =>{
             tipo: ''
         })
 
-        let containerCampos = document.createElement('div');
+        let containerCampos = document.createElement('div')
         containerCampos.classList.add('CadastroPaciente-campos-medicamento');
         containerCampos.dataset.index = indiceMedicamento;
-
-        let campoNome = document.createElement('div');
-        campoNome.classList.add('CadastroPaciente-item-formulario-medicamento');
-
-        let labelNome = document.createElement('label');
-        labelNome.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
-        labelNome.setAttribute('for', 'nomeMedicamento');
-        labelNome.textContent = 'Nome do Medicamento';
-
-        let inputNome = document.createElement('input');
-        inputNome.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-medicamento');
-        inputNome.setAttribute('type', 'text');
-        inputNome.setAttribute('id', 'nomeMedicamento');
-        inputNome.setAttribute('name', 'nome');
-        inputNome.addEventListener('change', function (e) {
-            preencheAtributoMedicamento(e, containerCampos.dataset.index);
-        });
-        inputNome.setAttribute('required', 'required');
-
-        campoNome.appendChild(labelNome);
-        campoNome.appendChild(inputNome);
-        containerCampos.appendChild(campoNome);
-
-        let campoHorario = document.createElement('div');
-        campoHorario.classList.add('CadastroPaciente-item-formulario-medicamento');
-
-        let labelHorario = document.createElement('label');
-        labelHorario.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
-        labelHorario.setAttribute('for', 'horario');
-        labelHorario.textContent = 'Horário';
-
-        let inputHorario = document.createElement('input');
-        inputHorario.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-horario');
-        inputHorario.setAttribute('type', 'time');
-        inputHorario.setAttribute('id', 'horario');
-        inputHorario.setAttribute('name', 'horario');
-        inputHorario.addEventListener('change', function (e) {
+        
+        containerCampos.innerHTML = `
+            <div class="CadastroPaciente-item-formulario-medicamento">
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="nomeMedicamento">Nome do Medicamento</label>
+                <input class="CadastroPaciente-input CadastroPaciente-input-medicamento" type="text" id="nomeMedicamento" name="nome" required="required"/>
+            </div>
+            <div class="CadastroPaciente-item-formulario-medicamento">
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="horario">Horário</label>
+                <input class="CadastroPaciente-input CadastroPaciente-input-horario" type="time" id="horario" name="horario" required="required"/>
+            </div>
+            <div class="CadastroPaciente-item-formulario-medicamento">
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento">Tipo de Uso</label>
+                <select class="CadastroPaciente-input CadastroPaciente-input-select" id="tipo" name="tipo">
+                    <option value="" disabled="disabled" selected="selected">Selecione</option>
+                    <option value="Eventual">Eventual</option>
+                    <option value="Contínuo">Contínuo</option>
+                </select>
+            </div>
+        `
+        const inputNome = containerCampos.querySelector('.CadastroPaciente-input-medicamento');
+        inputNome.addEventListener('change', function(e) {
             preencheAtributoMedicamento(e, containerCampos.dataset.index)
-        });
-        inputHorario.setAttribute('required', 'required');
+        })
 
-        campoHorario.appendChild(labelHorario);
-        campoHorario.appendChild(inputHorario);
-        containerCampos.appendChild(campoHorario);
-
-        let campoTipo = document.createElement('div');
-        campoTipo.classList.add('CadastroPaciente-item-formulario-medicamento');
-
-        let labelTipo = document.createElement('label');
-        labelTipo.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
-        labelTipo.textContent = 'Tipo de Uso';
-
-        let selectTipo = document.createElement('select');
-        selectTipo.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-select');
-        selectTipo.setAttribute('id', 'tipo');
-        selectTipo.setAttribute('name', 'tipo');
-        selectTipo.addEventListener('change', function (e) {
+        const inputHorario = containerCampos.querySelector('.CadastroPaciente-input-horario');
+        inputHorario.addEventListener('change', function(e) {
             preencheAtributoMedicamento(e, containerCampos.dataset.index)
-        });
+        })
 
-        let opcaoPlaceholder = document.createElement('option');
-        opcaoPlaceholder.setAttribute('value', '');
-        opcaoPlaceholder.setAttribute('disabled', 'disabled');
-        opcaoPlaceholder.setAttribute('selected', 'selected');
-        opcaoPlaceholder.textContent = 'Selecione';
-
-        let opcaoEventual = document.createElement('option');
-        opcaoEventual.setAttribute('value', 'Eventual');
-        opcaoEventual.textContent = 'Eventual';
-
-        let opcaoContinuo = document.createElement('option');
-        opcaoContinuo.setAttribute('value', 'Contínuo');
-        opcaoContinuo.textContent = 'Contínuo';
-
-        selectTipo.appendChild(opcaoPlaceholder);
-        selectTipo.appendChild(opcaoEventual);
-        selectTipo.appendChild(opcaoContinuo);
-
-        campoTipo.appendChild(labelTipo);
-        campoTipo.appendChild(selectTipo);
-        containerCampos.appendChild(campoTipo);
+        const inputTipo = containerCampos.querySelector('select');
+        inputTipo.addEventListener('change', function(e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index)
+        })
 
         document.getElementById('formMedicamento').appendChild(containerCampos);
         indiceMedicamento++;
@@ -231,88 +179,19 @@ const CadastroPaciente = () =>{
     }
 
 
-    function imprimirObjeto(event){
+    function cadastrarPaciente(event){
         event.preventDefault();
-                
+
         const url = 'http://localhost:3000/pacientes';
-        // const dados = JSON.stringify(dadosPaciente);
         
-        // axios.post(url, dados, {
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        // })
-        //   .then((response) => {
-        //     console.log(response);
-        //   })
-        //   .catch((error) => {
-        //     console.log(error);
-        //   });
-        
-        axios.post(url, {
-                "paciente": {
-                    "nome": dadosPaciente.paciente.nome,
-                    "dtNascimento": dadosPaciente.paciente.dtNascimento,
-                    "sexo": dadosPaciente.paciente.sexo,
-                    "email": dadosPaciente.paciente.email,
-                    "telefone": dadosPaciente.paciente.telefone,
-                    "endereco": dadosPaciente.paciente.endereco,
-                    "questionario": {
-                        "objetivosPaciente": dadosPaciente.paciente.questionario.objetivosPaciente,
-                        "problemasSaudeIndividual": dadosPaciente.paciente.questionario.problemasSaudeIndividual,
-                        "problemasSaudeFamiliares": dadosPaciente.paciente.questionario.problemasSaudeFamiliares,
-                        "medicamentosIngeridos": dadosPaciente.paciente.questionario.medicamentosIngeridos,
-                        "alergiasAlimentares": dadosPaciente.paciente.questionario.alergiasAlimentares,
-                        "alteracoes": dadosPaciente.paciente.questionario.alteracoes,
-                        "cirurgias": dadosPaciente.paciente.questionario.cirurgias,
-                        "lesoes": dadosPaciente.paciente.questionario.lesoes,
-                        "restricoesMedicas": dadosPaciente.paciente.questionario.restricoesMedicas,
-                        "habitosGeraisAlimentares": dadosPaciente.paciente.questionario.habitosGeraisAlimentares
-                    },
-                    "gastoEnergeticoDiario": dadosPaciente.paciente.gastoEnergeticoDiario,
-                    "metabolismoBasal": dadosPaciente.paciente.metabolismoBasal,
-                    "valorCaloricoPlano": dadosPaciente.paciente.valorCaloricoPlano,
-                    "conclusoes": dadosPaciente.paciente.conclusoes,
-                },
-                "medida": {
-                    "altura": dadosPaciente.medidas.altura,
-                    "pesoJejum": dadosPaciente.medidas.pesoJejum,
-                    "pesoObjetivo": dadosPaciente.medidas.pesoObjetivo,
-                    "circunferencia": [
-                        {
-                            "bracosEsquerdo": dadosPaciente.medidas.circunferencia[0].bracoEsquerdo,
-                            "bracosDireito": dadosPaciente.medidas.circunferencia[0].bracoDireito,
-                            "antebracoEsquerdo": dadosPaciente.medidas.circunferencia[0].antebracoEsquerdo,
-                            "antebracoDireito": dadosPaciente.medidas.circunferencia[0].antebracoDireito,
-                            "abdomen": dadosPaciente.medidas.circunferencia[0].abdomen,
-                            "cintura": dadosPaciente.medidas.circunferencia[0].cintura,
-                            "peitoral": dadosPaciente.medidas.circunferencia[0].peitoral,
-                            "ombros": dadosPaciente.medidas.circunferencia[0].ombros,
-                            "coxaEsquerda": dadosPaciente.medidas.circunferencia[0].coxaEsquerda,
-                            "coxaDireita": dadosPaciente.medidas.circunferencia[0].coxaDireita,
-                            "panturrilhaEsquerda": dadosPaciente.medidas.circunferencia[0].panturrilhaEsquerda,
-                            "panturrilhaDireita": dadosPaciente.medidas.circunferencia[0].panturrilhaDireita,
-                            "quadril": dadosPaciente.medidas.circunferencia[0].quadril,
-                            "pescoco": dadosPaciente.medidas.circunferencia[0].pescoco,
-                        }
-                    ],
-                    "dobrasCutaneas": {
-                        "subscapular": dadosPaciente.dobrasCutaneas.subscapular,
-                        "axilarMedia": dadosPaciente.dobrasCutaneas.axilarMedia,
-                        "coxa": dadosPaciente.dobrasCutaneas.coxa,
-                        "tricipetal": dadosPaciente.dobrasCutaneas.tricipetal,
-                        "suprailiaca": dadosPaciente.dobrasCutaneas.suprailiaca,
-                        "peitoral": dadosPaciente.dobrasCutaneas.peitoral,
-                        "abdominal": dadosPaciente.dobrasCutaneas.abdominal
-                    } 
-                    }
-          })
+        const dados = JSON.stringify(dadosPaciente);
+
+        axios.post(url, dadosPaciente)
           .then((response) => {
             alert('Usuário Cadastrado com sucesso!')
-            console.log(response.status)
           }, (error) => {
             alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
-            console.log(error)
+            console.log(error.response.data)
           });
     };
 
@@ -875,7 +754,7 @@ const CadastroPaciente = () =>{
                             </div>
                         </div>
                     </fieldset>
-                    <input className="CadastroPaciente-enviar" type="submit" value="Cadastrar" onClick={e => imprimirObjeto(e)}/>
+                    <input className="CadastroPaciente-enviar" type="submit" value="Cadastrar" onClick={e => cadastrarPaciente(e)}/>
                 </form>
             </div>
             <Footer className="CadastroPaciente-rodape"/>

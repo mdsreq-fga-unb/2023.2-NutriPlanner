@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 import nutriplannerLogo from "./../../assets/nutriplanner-logo.png"
+import { PrivateRoute } from "../../PrivateRoute";
 
 function Login() {
     const navigate = useNavigate();
@@ -60,7 +61,7 @@ function Login() {
                 </div>
             ) : (
                 <div>
-                    <p>loguei</p>
+                    <p>logado</p>
                 </div>
             )}
             <div className="login-footer">

@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 
+const treinoRoutes = require('./routes/treinoRoutes.js');
+
 dotenv.config();
 app.use(express.json());
 
@@ -18,3 +20,5 @@ app.listen(port, () => {
 
 
 require("./db/connection.js");
+
+app.use('/treinos', treinoRoutes);

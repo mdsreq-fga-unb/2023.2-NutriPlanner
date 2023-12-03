@@ -32,8 +32,8 @@ const medidasSchema = new mongoose.Schema({
         default: 0
     },
     circunferencia: [{
-        bracosEsquerdo: Number,
-        bracosDireito: Number,
+        bracoEsquerdo: Number,
+        bracoDireito: Number,
         antebracoEsquerdo: Number,
         antebracoDireito: Number,
         abdomen: Number,

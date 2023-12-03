@@ -15,7 +15,7 @@ const medidasSchema = new mongoose.Schema({
     altura: { // em metro
         type: Number,
         required: [true, 'Medida deve conter altura!'],
-        max: 2.50 
+        max: 3.50 
     },
     pesoJejum: {
         type: Number,
@@ -32,38 +32,30 @@ const medidasSchema = new mongoose.Schema({
         default: 0
     },
     circunferencia: [{
-        bracos: {
-            type: [Number],
-            minLength:2,
-            maxLength: 2
-        },
-        anteBracos: {
-            type: [Number],
-            minLength:2,
-            maxLength: 2
-        },
+        bracosEsquerdo: Number,
+        bracosDireito: Number,
+        antebracoEsquerdo: Number,
+        antebracoDireito: Number,
         abdomen: Number,
         cintura: Number,
         peitoral: Number,
         ombros: Number,
-        coxas: {
-            type: [Number],
-            minLength:2,
-            maxLength: 2
-        },
-        panturrilhas: {
-            type: [Number],
-            minLength:2,
-            maxLength: 2
-        },
+        coxaEsquerda: Number,
+        coxaDireita: Number,
+        panturrilhaEsquerda: Number,
+        panturrilhaDireita: Number,
+        coxaDireita: Number,
         quadril: Number,
         pescoco: Number
     }],
     dobrasCutaneas: {
-        type: String,
-        maxLength: 750,
-        trim: true,
-        default: 'Não possui.'
+        subscapular: Number,
+        axilarMedia: Number,
+        coxa: Number,
+        tricipetal: Number,
+        suprailiaca: Number,
+        peitoral: Number,
+        abdominal: Number
     }
 });
 

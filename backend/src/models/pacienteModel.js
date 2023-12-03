@@ -47,6 +47,12 @@ const pacienteSchema = new mongoose.Schema({
         maxLength: 200
     },
     questionario: {
+        objetivosPaciente: {
+            type: String,
+            required: [true, 'O paciente deve conter um objetivo!'],
+            maxLength: 1000,
+            trim: true,
+        },
         problemasSaudeIndividual: {
             type: String,
             maxLength: 1000,

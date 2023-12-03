@@ -78,37 +78,37 @@ const CadastroPaciente = () =>{
 
     const preencheAtributoPaciente = (event) => {
         const { name, value } = event.target;
-        dadosPaciente.paciente[name] = value;
+        dadosPaciente.paciente[name] = String(value.trim());
     };
 
     const preencheAtributoQuestionario = (event) => {
         const { name, value } = event.target;
-        dadosPaciente.paciente.questionario[name] = value;
+        dadosPaciente.paciente.questionario[name] = String(value.trim());
     };
 
     const preencheAtributoMedicamento = (event, indice) => {
         const { name, value } = event.target;
         
         const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
-        medicamentoAtual[name] = value;
+        medicamentoAtual[name] = String(value.trim());
     };
 
     const preencheAtributoMedidasCorporais = (event) => {
         const { name, value } = event.target;
 
-        dadosPaciente.medida[name] = value;
+        dadosPaciente.medida[name] = String(value.trim());
     };
 
     const preencheAtributoCircunferencias = (event) => {
         const { name, value } = event.target;
 
-        dadosPaciente.medida.circunferencia[0][name] = value;
+        dadosPaciente.medida.circunferencia[0][name] = String(value.trim());
     };
 
     const preencheAtributoDobrasCutaneas = (event) => {
         const { name, value } = event.target;
 
-        dadosPaciente.medida.dobrasCutaneas[name] = value;
+        dadosPaciente.medida.dobrasCutaneas[name] = String(value.trim());
     };
 
 

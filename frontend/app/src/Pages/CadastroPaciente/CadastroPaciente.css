@@ -183,6 +183,16 @@
    margin-bottom: 15px;
 }
 
+.CadastroPaciente-aviso{
+   color: red;
+   font-size: 0.6rem;
+}
+
+.CadastroPaciente-campo-obrigatorio::after{
+      content:" *";
+      color: red;
+}
+
 .CadastroPaciente-label-medicamento{
    font-size: 0.8rem;
    text-align: center;

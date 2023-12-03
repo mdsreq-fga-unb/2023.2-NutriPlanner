@@ -129,15 +129,15 @@ const CadastroPaciente = () =>{
         
         containerCampos.innerHTML = `
             <div class="CadastroPaciente-item-formulario-medicamento">
-                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="nomeMedicamento">Nome do Medicamento</label>
-                <input class="CadastroPaciente-input CadastroPaciente-input-medicamento" type="text" id="nomeMedicamento" name="nome" required="required"/>
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio" for="nomeMedicamento">Nome do Medicamento</label>
+                <input class="CadastroPaciente-input CadastroPaciente-input-medicamento" type="text" id="nomeMedicamento" name="nome" required="required" maxlength="200"/>
             </div>
             <div class="CadastroPaciente-item-formulario-medicamento">
-                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento" for="horario">Horário</label>
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio" for="horario">Horário</label>
                 <input class="CadastroPaciente-input CadastroPaciente-input-horario" type="time" id="horario" name="horario" required="required"/>
             </div>
             <div class="CadastroPaciente-item-formulario-medicamento">
-                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento">Tipo de Uso</label>
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio">Tipo de Uso</label>
                 <select class="CadastroPaciente-input CadastroPaciente-input-select" id="tipo" name="tipo">
                     <option value="" disabled="disabled" selected="selected">Selecione</option>
                     <option value="Eventual">Eventual</option>
@@ -242,7 +242,7 @@ const CadastroPaciente = () =>{
                             {/* Primeira Coluna de Campos */}
                             <div>
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="nome">Nome Completo</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="nome">Nome Completo</label>
                                     <input 
                                     className="CadastroPaciente-input CadastroPaciente-input-texto" 
                                     type="text" 
@@ -250,6 +250,7 @@ const CadastroPaciente = () =>{
                                     name="nome"
                                     onChange={e => preencheAtributoPaciente(e)}
                                     required
+                                    maxLength={200}
                                     />
                                 </div>
     
@@ -260,12 +261,13 @@ const CadastroPaciente = () =>{
                                     type="text" 
                                     id="endereco" 
                                     name="endereco" 
-                                    onChange={e => preencheAtributoPaciente(e)} 
-                                    required/>
+                                    onChange={e => preencheAtributoPaciente(e)}
+                                    maxLength={200} 
+                                    />
                                 </div>
     
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="email">E-mail</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="email">E-mail</label>
                                     <input 
                                     className="CadastroPaciente-input CadastroPaciente-input-texto" 
                                     type="email" 
@@ -273,7 +275,8 @@ const CadastroPaciente = () =>{
                                     name="email"
                                     placeholder="email@exemplo.com"
                                     onChange={e => preencheAtributoPaciente(e)}
-                                    required 
+                                    required
+                                    maxLength={320} 
                                     />
                                 </div>
     
@@ -282,7 +285,7 @@ const CadastroPaciente = () =>{
                             {/* Segunda Coluna de Campos */}
                             <div>
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="dataNascimento">Data de Nascimento</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio " for="dataNascimento">Data de Nascimento</label>
                                     <input 
                                     className="CadastroPaciente-input CadastroPaciente-input-curto" 
                                     type="date" 
@@ -299,10 +302,12 @@ const CadastroPaciente = () =>{
                                     id="telefone"
                                     name="telefone"
                                     onChange={e => preencheAtributoPaciente(e)} 
-                                    placeholder="(xx) xxxxx-xxxx"/>
+                                    placeholder="(xx) xxxxx-xxxx"
+                                    maxLength={15}
+                                    />
                                 </div>  
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="sexo">Sexo</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="sexo">Sexo</label>
                                     <select 
                                     className="CadastroPaciente-input CadastroPaciente-input-select" 
                                     id="sexo" 
@@ -321,14 +326,16 @@ const CadastroPaciente = () =>{
                         <legend className='CadastroPaciente-titulo-area'>Informações Médicas</legend>
                         <div className="CadastroPaciente-container">
                             <div className="CadastroPaciente-item-formulario">
-                                <label className="CadastroPaciente-label-campo" for="objetivosPaciente">Objetivos do Paciente</label>
+                                <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="objetivosPaciente">Objetivos do Paciente</label>
                                 <textarea 
                                 rows="5" 
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="objetivosPaciente"
                                 name="objetivosPaciente"
                                 onChange={e => preencheAtributoQuestionario(e)} 
-                                required/>
+                                required
+                                maxLength={1000}
+                                />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
                                 <label className="CadastroPaciente-label-campo" for="problemasSaudeIndividual">Problemas de Saúde Individual</label>
@@ -337,7 +344,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="problemasSaudeIndividual" 
                                 name="problemasSaudeIndividual"
-                                onChange={e => preencheAtributoQuestionario(e)} 
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={1000} 
                                 />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -346,7 +354,8 @@ const CadastroPaciente = () =>{
                                 rows="5" 
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" id="problemasSaudeFamiliares"
                                 name="problemasSaudeFamiliares"
-                                onChange={e => preencheAtributoQuestionario(e)} 
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={1000} 
                                 />
                             </div>
                             <div className="CadastroPaciente-medicamentos">
@@ -365,7 +374,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="alergiasAlimentares" 
                                 name="alergiasAlimentares"
-                                onChange={e => preencheAtributoQuestionario(e)} 
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={500} 
                                 />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -375,7 +385,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="alteracoes"
                                 name="alteracoes"
-                                onChange={e => preencheAtributoQuestionario(e)}  
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={1000}  
                                 />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -385,7 +396,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="cirurgias"
                                 name="cirurgias"
-                                onChange={e => preencheAtributoQuestionario(e)}   
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={1000}   
                                 />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -395,7 +407,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="lesoes"
                                 name="lesoes"
-                                onChange={e => preencheAtributoQuestionario(e)}    
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={500}    
                                 />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -405,7 +418,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="restricoesMedicas"
                                 name="restricoesMedicas"
-                                onChange={e => preencheAtributoQuestionario(e)}    
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={500}    
                                 />
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -415,7 +429,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="habitosGeraisAlimentares"
                                 name="habitosGeraisAlimentares"
-                                onChange={e => preencheAtributoQuestionario(e)}  
+                                onChange={e => preencheAtributoQuestionario(e)}
+                                maxLength={1000}  
                                  />
                             </div>
                         </div>
@@ -427,7 +442,7 @@ const CadastroPaciente = () =>{
                            {/* Primeira Coluna de Campos */}
                             <div>
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="pesoObjetivo">Peso Objetivo</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="pesoObjetivo">Peso Objetivo</label>
                                     <input 
                                     className="CadastroPaciente-input CadastroPaciente-input-curto" 
                                     type="tel" 
@@ -435,23 +450,26 @@ const CadastroPaciente = () =>{
                                     name="pesoObjetivo"
                                     onChange={e => preencheAtributoMedidasCorporais(e)}
                                     required/>
+                                    <span className='CadastroPaciente-aviso'>Valor máximo permitido: 600 Kg!</span>
                                 </div>
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="altura">Altura</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="altura">Altura</label>
                                     <input 
                                     className="CadastroPaciente-input CadastroPaciente-input-curto" 
                                     type="tel" 
                                     id="altura"
                                     name="altura" 
                                     onChange={e => preencheAtributoMedidasCorporais(e)}
+                                    placeholder='1.70'
                                     required/>
+                                    <span className='CadastroPaciente-aviso'>Altura máxima permitida: 3.50m!</span>
                                 </div>
                             </div>
     
                             {/* Segunda Coluna de Campos */}
                             <div>
                                 <div className="CadastroPaciente-item-formulario">
-                                    <label className="CadastroPaciente-label-campo" for="pesoJejum">Peso Atual em Jejum</label>
+                                    <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="pesoJejum">Peso Atual em Jejum</label>
                                     <input 
                                     className="CadastroPaciente-input CadastroPaciente-input-curto" 
                                     type="tel" 
@@ -459,6 +477,7 @@ const CadastroPaciente = () =>{
                                     name="pesoJejum"
                                     onChange={e => preencheAtributoMedidasCorporais(e)}
                                     required/>
+                                    <span className='CadastroPaciente-aviso'>Valor máximo permitido: 600 Kg!</span>
                                 </div>
                     
                                 <div className="CadastroPaciente-item-formulario">
@@ -487,7 +506,7 @@ const CadastroPaciente = () =>{
                                         id="bracoEsquerdo"
                                         name="bracoEsquerdo"
                                         onChange={e => preencheAtributoCircunferencias(e)}
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="antebracoEsquerdo">Antebraço Esquerdo</label>
@@ -497,7 +516,7 @@ const CadastroPaciente = () =>{
                                         id="antebracoEsquerdo"
                                         name="antebracoEsquerdo"
                                         onChange={e => preencheAtributoCircunferencias(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="coxaEsquerda">Coxa Esquerda</label>
@@ -507,7 +526,7 @@ const CadastroPaciente = () =>{
                                         id="coxaEsquerda"
                                         name="coxaEsquerda"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="panturrilhaEsquerda">Panturrilha Esquerda</label>
@@ -517,7 +536,7 @@ const CadastroPaciente = () =>{
                                         id="panturrilhaEsquerda" 
                                         name="panturrilhaEsquerda"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="abdomen">Abdômen</label>
@@ -527,7 +546,7 @@ const CadastroPaciente = () =>{
                                         id="abdomen"
                                         name="abdomen"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="peitoral">Peitoral</label>
@@ -537,7 +556,7 @@ const CadastroPaciente = () =>{
                                         id="peitoral"
                                         name="peitoral"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="quadril">Quadril</label>
@@ -547,7 +566,7 @@ const CadastroPaciente = () =>{
                                         id="quadril"
                                         name="quadril"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
                             </div>
     
@@ -561,7 +580,7 @@ const CadastroPaciente = () =>{
                                         id="bracoDireito"
                                         name="bracoDireito"
                                         onChange={e => preencheAtributoCircunferencias(e)}  
-                                        required/>
+                                        />
                                     </div>       
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="antebracoDireito">Antebraço Direito</label>
@@ -571,7 +590,7 @@ const CadastroPaciente = () =>{
                                         id="antebracoDireito"
                                         name="antebracoDireito"
                                         onChange={e => preencheAtributoCircunferencias(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="coxaDireita">Coxa Direita</label>
@@ -581,7 +600,7 @@ const CadastroPaciente = () =>{
                                         id="coxaDireita"
                                         name="coxaDireita"
                                         onChange={e => preencheAtributoCircunferencias(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="panturrilhaDireita">Panturrilha Direita</label>
@@ -591,7 +610,7 @@ const CadastroPaciente = () =>{
                                         id="panturrilhaDireita"
                                         name="panturrilhaDireita"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="cintura">Cintura</label>
@@ -601,7 +620,7 @@ const CadastroPaciente = () =>{
                                         id="cintura"
                                         name="cintura"
                                         onChange={e => preencheAtributoCircunferencias(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="ombros">Ombros</label>
@@ -611,7 +630,7 @@ const CadastroPaciente = () =>{
                                         id="ombros"
                                         name="ombros"
                                         onChange={e => preencheAtributoCircunferencias(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="pescoco">Pescoço</label>
@@ -621,7 +640,7 @@ const CadastroPaciente = () =>{
                                         id="pescoco"
                                         name="pescoco"
                                         onChange={e => preencheAtributoCircunferencias(e)} 
-                                        required/>
+                                        />
                                     </div>
 
                             </div>
@@ -640,7 +659,7 @@ const CadastroPaciente = () =>{
                                         id="subscapular"
                                         name="subscapular"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="coxa">Coxa</label>
@@ -650,7 +669,7 @@ const CadastroPaciente = () =>{
                                         id="coxa"
                                         name="coxa"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)}  
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="tricipetal">Tricipetal</label>
@@ -660,7 +679,7 @@ const CadastroPaciente = () =>{
                                         id="tricipetal"
                                         name="tricipetal"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="peitoral">Peitoral</label>
@@ -670,7 +689,7 @@ const CadastroPaciente = () =>{
                                         id="peitoral"
                                         name="peitoral"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)} 
-                                        required/>
+                                        />
                                     </div>
                             </div>
     
@@ -683,7 +702,7 @@ const CadastroPaciente = () =>{
                                         id="axilarMedia"
                                         name="axilarMedia"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)} 
-                                        required/>
+                                        />
                                     </div>     
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="suprailiaca">Supra-ilíaca </label>
@@ -693,7 +712,7 @@ const CadastroPaciente = () =>{
                                         id="suprailiaca"
                                         name="suprailiaca"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)} 
-                                        required/>
+                                        />
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="abdominal">Abdominal</label>
@@ -703,7 +722,7 @@ const CadastroPaciente = () =>{
                                         id="abdominal"
                                         name="abdominal"
                                         onChange={e => preencheAtributoDobrasCutaneas(e)} 
-                                        required/>
+                                        />
                                     </div>
                             </div>
                         </div>
@@ -713,34 +732,40 @@ const CadastroPaciente = () =>{
                         <legend className="CadastroPaciente-titulo-area">Informações Nutricionais</legend>
                         <div className='CadastroPaciente-container'>
                             <div className="CadastroPaciente-item-formulario">
-                                <label className="CadastroPaciente-label-campo" for="gastoEnergeticoDiario">Gasto Energético Diário</label>
+                                <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="gastoEnergeticoDiario">Gasto Energético Diário</label>
                                 <input 
                                 className="CadastroPaciente-input CadastroPaciente-input-curto" 
                                 type="tel" 
                                 id="gastoEnergeticoDiario"
                                 name="gastoEnergeticoDiario"
-                                onChange={e => preencheAtributoPaciente(e)} 
+                                onChange={e => preencheAtributoPaciente(e)}
+                                maxLength={5}
                                 required/>
+                                <span className='CadastroPaciente-aviso'>Valor máximo permitido: 50000 kcal!</span>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
-                                <label className="CadastroPaciente-label-campo" for="metabolismoBasal">Metabolismo Basal</label>
+                                <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="metabolismoBasal">Metabolismo Basal</label>
                                 <input 
                                 className="CadastroPaciente-input CadastroPaciente-input-curto" 
                                 type="tel" 
                                 id="metabolismoBasal"
                                 name="metabolismoBasal"
-                                onChange={e => preencheAtributoPaciente(e)} 
+                                onChange={e => preencheAtributoPaciente(e)}
+                                maxLength={5} 
                                 required/>
+                                <span className='CadastroPaciente-aviso'>Valor máximo permitido: 50000 kcal!</span>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
                                 <label className="CadastroPaciente-label-campo" for="valorCaloricoPlano">Valor Calórico do Plano Alimentar</label>
                                 <input 
-                                className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                className="CadastroPaciente-input CadastroPaciente-input-curto CadastroPaciente-campo-obrigatorio" 
                                 type="tel" 
                                 id="valorCaloricoPlano"
                                 name="valorCaloricoPlano"
-                                onChange={e => preencheAtributoPaciente(e)}  
+                                onChange={e => preencheAtributoPaciente(e)}
+                                maxLength={6}
                                 required/>
+                                <span className='CadastroPaciente-aviso'>Valor máximo permitido: 100000 kcal!</span>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
                                 <label className="CadastroPaciente-label-campo" for="conclusoes">Conclusões</label>
@@ -749,7 +774,8 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="conclusoes"
                                 name="conclusoes"
-                                onChange={e => preencheAtributoPaciente(e)}   
+                                onChange={e => preencheAtributoPaciente(e)} 
+                                maxLength={1500}  
                                 />
                             </div>
                         </div>

@@ -18,171 +18,208 @@ import adicaoPaciente from '../../assets/icons/Adição Paciente.svg';
 
 const CadastroPaciente = () =>{
     const dadosPaciente = {
-        nome: '',
-        dtNascimento: '',
-        sexo: '',
-        email: '',
-        telefone: '',
-        endereco: '',
-        questionario: {
-            objetivosPaciente: '',
-            problemasSaudeIndividual: '',
-            problemasSaudeFamiliares: '',
-            medicamentosIngeridos: [],
-            alergiasAlimentares: '',
-            alteracoes: '',
-            cirurgias: '',
-            lesoes: '',
-            restricoesMedicas: '',
-            habitosGeraisAlimentares: ''
+        paciente: {
+            nome: '',
+            dtNascimento: '',
+            sexo: '',
+            email: '',
+            telefone: '',
+            endereco: '',
+            questionario: {
+                objetivosPaciente: '',
+                problemasSaudeIndividual: '',
+                problemasSaudeFamiliares: '',
+                medicamentosIngeridos: [],
+                alergiasAlimentares: '',
+                alteracoes: '',
+                cirurgias: '',
+                lesoes: '',
+                restricoesMedicas: '',
+                habitosGeraisAlimentares: ''
+            },
+            gastoEnergeticoDiario: '',
+            metabolismoBasal: '',
+            valorCaloricoPlano: '',
+            conclusoes: ''
         },
-        gastoEnergeticoDiario: '',
-        metabolismoBasal: '',
-        valorCaloricoPlano: '',
-        conclusoes: ''
+        medidas:
+        {
+            altura: '',
+            pesoJejum: '',
+            pesoObjetivo: '',
+            imc: '',
+            circunferencia: [{
+                bracoEsquerdo: '',
+                bracoDireito: '',
+                antebracoEsquerdo: '',
+                antebracoDireito: '',
+                abdomen: '',
+                cintura: '',
+                peitoral: '',
+                ombros: '',
+                coxaEsquerda: '',
+                coxaDireita: '',
+                panturrilhaEsquerda: '',
+                panturrilhaDireita: '',
+                pescoco: '',
+                quadril: '',
+            }]
+        },
+        dobrasCutaneas: {
+            subscapular: '',
+            axilarMedia: '',
+            coxa: '',
+            tricipetal: '',
+            suprailiaca: '',
+            peitoral: '',
+            abdominal: ''
+        },
     }
 
-    async function imprimirObjeto(e){
-        e.preventDefault();
-        
-        // const url = 'http://localhost:3000/pacientes'
-
-        // axios.post(url, JSON.stringify(dadosPaciente))
-        // .then(response => {
-        //     console.log('Post successful:', response.data);
-        // })
-        // .catch(error => {
-        //     console.error('Error during post request:', error.response);
-        // });
-
-    };
-
-    const preencheAtributo = (event) => {
+    const preencheAtributoPaciente = (event) => {
         const { name, value } = event.target;
-        dadosPaciente[name] = value;
+        dadosPaciente.paciente[name] = value;
     };
 
     const preencheAtributoQuestionario = (event) => {
         const { name, value } = event.target;
-        dadosPaciente.questionario[name] = value;
+        dadosPaciente.paciente.questionario[name] = value;
     };
 
     const preencheAtributoMedicamento = (event, indice) => {
         const { name, value } = event.target;
         
-        const medicamentoAtual = dadosPaciente.questionario.medicamentosIngeridos[indice]
+        const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
         medicamentoAtual[name] = value;
     };
-    
+
+    const preencheAtributoMedidasCorporais = (event) => {
+        const { name, value } = event.target;
+
+        if(name == 'altura'){
+            
+        }
+
+        dadosPaciente.medidas[name] = value;
+    };
+
+    const preencheAtributoCircunferencias = (event) => {
+        const { name, value } = event.target;
+
+        dadosPaciente.medidas.circunferencia[0][name] = value;
+    };
+
+    const preencheAtributoDobrasCutaneas = (event) => {
+        const { name, value } = event.target;
+
+        dadosPaciente.dobrasCutaneas[name] = value;
+    };
+
 
     let indiceMedicamento = 0;
 
-    function adicionarMedicamento(event) {
+    function adicionarMedicamento(event, index) {
         event.preventDefault()
-        dadosPaciente.questionario.medicamentosIngeridos.push({
+
+        dadosPaciente.paciente.questionario.medicamentosIngeridos.push({
             nome: '',
             horario: '',
             tipo: ''
         })
 
-         // Create the main container div
-        var mainContainer = document.createElement('div');
-        mainContainer.classList.add('CadastroPaciente-campos-medicamento');
-        mainContainer.dataset.index = indiceMedicamento;
+        let containerCampos = document.createElement('div');
+        containerCampos.classList.add('CadastroPaciente-campos-medicamento');
+        containerCampos.dataset.index = indiceMedicamento;
 
-        // Create and append the first item div with input
-        var itemDiv1 = document.createElement('div');
-        itemDiv1.classList.add('CadastroPaciente-item-formulario-medicamento');
+        let campoNome = document.createElement('div');
+        campoNome.classList.add('CadastroPaciente-item-formulario-medicamento');
 
-        var label1 = document.createElement('label');
-        label1.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
-        label1.setAttribute('for', 'nomeMedicamento');
-        label1.textContent = 'Nome do Medicamento';
+        let labelNome = document.createElement('label');
+        labelNome.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
+        labelNome.setAttribute('for', 'nomeMedicamento');
+        labelNome.textContent = 'Nome do Medicamento';
 
-        var input1 = document.createElement('input');
-        input1.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-medicamento');
-        input1.setAttribute('type', 'text');
-        input1.setAttribute('id', 'nomeMedicamento');
-        input1.setAttribute('name', 'nome');
-        input1.addEventListener('change', function (e) {
-            preencheAtributoMedicamento(e, mainContainer.dataset.index);
+        let inputNome = document.createElement('input');
+        inputNome.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-medicamento');
+        inputNome.setAttribute('type', 'text');
+        inputNome.setAttribute('id', 'nomeMedicamento');
+        inputNome.setAttribute('name', 'nome');
+        inputNome.addEventListener('change', function (e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index);
         });
-        input1.setAttribute('required', 'required');
+        inputNome.setAttribute('required', 'required');
 
-        itemDiv1.appendChild(label1);
-        itemDiv1.appendChild(input1);
-        mainContainer.appendChild(itemDiv1);
+        campoNome.appendChild(labelNome);
+        campoNome.appendChild(inputNome);
+        containerCampos.appendChild(campoNome);
 
-        // Create and append the second item div with input
-        var itemDiv2 = document.createElement('div');
-        itemDiv2.classList.add('CadastroPaciente-item-formulario-medicamento');
+        let campoHorario = document.createElement('div');
+        campoHorario.classList.add('CadastroPaciente-item-formulario-medicamento');
 
-        var label2 = document.createElement('label');
-        label2.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
-        label2.setAttribute('for', 'horario');
-        label2.textContent = 'Horário';
+        let labelHorario = document.createElement('label');
+        labelHorario.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
+        labelHorario.setAttribute('for', 'horario');
+        labelHorario.textContent = 'Horário';
 
-        var input2 = document.createElement('input');
-        input2.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-horario');
-        input2.setAttribute('type', 'time');
-        input2.setAttribute('id', 'horario');
-        input2.setAttribute('name', 'horario');
-        input2.addEventListener('change', function (e) {
-            preencheAtributoMedicamento(e, mainContainer.dataset.index)
+        let inputHorario = document.createElement('input');
+        inputHorario.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-horario');
+        inputHorario.setAttribute('type', 'time');
+        inputHorario.setAttribute('id', 'horario');
+        inputHorario.setAttribute('name', 'horario');
+        inputHorario.addEventListener('change', function (e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index)
         });
-        input2.setAttribute('required', 'required');
+        inputHorario.setAttribute('required', 'required');
 
-        itemDiv2.appendChild(label2);
-        itemDiv2.appendChild(input2);
-        mainContainer.appendChild(itemDiv2);
+        campoHorario.appendChild(labelHorario);
+        campoHorario.appendChild(inputHorario);
+        containerCampos.appendChild(campoHorario);
 
-        // Create and append the third item div with select
-        var itemDiv3 = document.createElement('div');
-        itemDiv3.classList.add('CadastroPaciente-item-formulario-medicamento');
+        let campoTipo = document.createElement('div');
+        campoTipo.classList.add('CadastroPaciente-item-formulario-medicamento');
 
-        var label3 = document.createElement('label');
-        label3.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
-        label3.textContent = 'Tipo de Uso';
+        let labelTipo = document.createElement('label');
+        labelTipo.classList.add('CadastroPaciente-label-campo', 'CadastroPaciente-label-medicamento');
+        labelTipo.textContent = 'Tipo de Uso';
 
-        var select = document.createElement('select');
-        select.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-select');
-        select.setAttribute('id', 'tipo');
-        select.setAttribute('name', 'tipo');
-        select.addEventListener('change', function (e) {
-            preencheAtributoMedicamento(e, mainContainer.dataset.index)
+        let selectTipo = document.createElement('select');
+        selectTipo.classList.add('CadastroPaciente-input', 'CadastroPaciente-input-select');
+        selectTipo.setAttribute('id', 'tipo');
+        selectTipo.setAttribute('name', 'tipo');
+        selectTipo.addEventListener('change', function (e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index)
         });
 
-        var option1 = document.createElement('option');
-        option1.setAttribute('value', '');
-        option1.setAttribute('disabled', 'disabled');
-        option1.setAttribute('selected', 'selected');
-        option1.textContent = 'Selecione';
+        let opcaoPlaceholder = document.createElement('option');
+        opcaoPlaceholder.setAttribute('value', '');
+        opcaoPlaceholder.setAttribute('disabled', 'disabled');
+        opcaoPlaceholder.setAttribute('selected', 'selected');
+        opcaoPlaceholder.textContent = 'Selecione';
 
-        var option2 = document.createElement('option');
-        option2.setAttribute('value', 'Eventual');
-        option2.textContent = 'Eventual';
+        let opcaoEventual = document.createElement('option');
+        opcaoEventual.setAttribute('value', 'Eventual');
+        opcaoEventual.textContent = 'Eventual';
 
-        var option3 = document.createElement('option');
-        option3.setAttribute('value', 'Contínuo');
-        option3.textContent = 'Contínuo';
+        let opcaoContinuo = document.createElement('option');
+        opcaoContinuo.setAttribute('value', 'Contínuo');
+        opcaoContinuo.textContent = 'Contínuo';
 
-        select.appendChild(option1);
-        select.appendChild(option2);
-        select.appendChild(option3);
+        selectTipo.appendChild(opcaoPlaceholder);
+        selectTipo.appendChild(opcaoEventual);
+        selectTipo.appendChild(opcaoContinuo);
 
-        itemDiv3.appendChild(label3);
-        itemDiv3.appendChild(select);
-        mainContainer.appendChild(itemDiv3);
+        campoTipo.appendChild(labelTipo);
+        campoTipo.appendChild(selectTipo);
+        containerCampos.appendChild(campoTipo);
 
-        // Append the main container to the 'formMedicamento' container
-        document.getElementById('formMedicamento').appendChild(mainContainer);
+        document.getElementById('formMedicamento').appendChild(containerCampos);
         indiceMedicamento++;
     }
     
     function removerMedicamento(event) {
         event.preventDefault()
 
-        dadosPaciente.questionario.medicamentosIngeridos.pop()
+        dadosPaciente.paciente.questionario.medicamentosIngeridos.pop()
         const formMedicamento = document.getElementById('formMedicamento');
         const medicamentos = formMedicamento.querySelectorAll('.CadastroPaciente-campos-medicamento');
 
@@ -192,6 +229,92 @@ const CadastroPaciente = () =>{
 
         indiceMedicamento--;
     }
+
+
+    function imprimirObjeto(event){
+        event.preventDefault();
+                
+        const url = 'http://localhost:3000/pacientes';
+        // const dados = JSON.stringify(dadosPaciente);
+        
+        // axios.post(url, dados, {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        // })
+        //   .then((response) => {
+        //     console.log(response);
+        //   })
+        //   .catch((error) => {
+        //     console.log(error);
+        //   });
+        
+        axios.post(url, {
+                "paciente": {
+                    "nome": dadosPaciente.paciente.nome,
+                    "dtNascimento": dadosPaciente.paciente.dtNascimento,
+                    "sexo": dadosPaciente.paciente.sexo,
+                    "email": dadosPaciente.paciente.email,
+                    "telefone": dadosPaciente.paciente.telefone,
+                    "endereco": dadosPaciente.paciente.endereco,
+                    "questionario": {
+                        "objetivosPaciente": dadosPaciente.paciente.questionario.objetivosPaciente,
+                        "problemasSaudeIndividual": dadosPaciente.paciente.questionario.problemasSaudeIndividual,
+                        "problemasSaudeFamiliares": dadosPaciente.paciente.questionario.problemasSaudeFamiliares,
+                        "medicamentosIngeridos": dadosPaciente.paciente.questionario.medicamentosIngeridos,
+                        "alergiasAlimentares": dadosPaciente.paciente.questionario.alergiasAlimentares,
+                        "alteracoes": dadosPaciente.paciente.questionario.alteracoes,
+                        "cirurgias": dadosPaciente.paciente.questionario.cirurgias,
+                        "lesoes": dadosPaciente.paciente.questionario.lesoes,
+                        "restricoesMedicas": dadosPaciente.paciente.questionario.restricoesMedicas,
+                        "habitosGeraisAlimentares": dadosPaciente.paciente.questionario.habitosGeraisAlimentares
+                    },
+                    "gastoEnergeticoDiario": dadosPaciente.paciente.gastoEnergeticoDiario,
+                    "metabolismoBasal": dadosPaciente.paciente.metabolismoBasal,
+                    "valorCaloricoPlano": dadosPaciente.paciente.valorCaloricoPlano,
+                    "conclusoes": dadosPaciente.paciente.conclusoes,
+                },
+                "medida": {
+                    "altura": dadosPaciente.medidas.altura,
+                    "pesoJejum": dadosPaciente.medidas.pesoJejum,
+                    "pesoObjetivo": dadosPaciente.medidas.pesoObjetivo,
+                    "circunferencia": [
+                        {
+                            "bracosEsquerdo": dadosPaciente.medidas.circunferencia[0].bracoEsquerdo,
+                            "bracosDireito": dadosPaciente.medidas.circunferencia[0].bracoDireito,
+                            "antebracoEsquerdo": dadosPaciente.medidas.circunferencia[0].antebracoEsquerdo,
+                            "antebracoDireito": dadosPaciente.medidas.circunferencia[0].antebracoDireito,
+                            "abdomen": dadosPaciente.medidas.circunferencia[0].abdomen,
+                            "cintura": dadosPaciente.medidas.circunferencia[0].cintura,
+                            "peitoral": dadosPaciente.medidas.circunferencia[0].peitoral,
+                            "ombros": dadosPaciente.medidas.circunferencia[0].ombros,
+                            "coxaEsquerda": dadosPaciente.medidas.circunferencia[0].coxaEsquerda,
+                            "coxaDireita": dadosPaciente.medidas.circunferencia[0].coxaDireita,
+                            "panturrilhaEsquerda": dadosPaciente.medidas.circunferencia[0].panturrilhaEsquerda,
+                            "panturrilhaDireita": dadosPaciente.medidas.circunferencia[0].panturrilhaDireita,
+                            "quadril": dadosPaciente.medidas.circunferencia[0].quadril,
+                            "pescoco": dadosPaciente.medidas.circunferencia[0].pescoco,
+                        }
+                    ],
+                    "dobrasCutaneas": {
+                        "subscapular": dadosPaciente.dobrasCutaneas.subscapular,
+                        "axilarMedia": dadosPaciente.dobrasCutaneas.axilarMedia,
+                        "coxa": dadosPaciente.dobrasCutaneas.coxa,
+                        "tricipetal": dadosPaciente.dobrasCutaneas.tricipetal,
+                        "suprailiaca": dadosPaciente.dobrasCutaneas.suprailiaca,
+                        "peitoral": dadosPaciente.dobrasCutaneas.peitoral,
+                        "abdominal": dadosPaciente.dobrasCutaneas.abdominal
+                    } 
+                    }
+          })
+          .then((response) => {
+            alert('Usuário Cadastrado com sucesso!')
+            console.log(response.status)
+          }, (error) => {
+            alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
+            console.log(error)
+          });
+    };
 
     return(     
         <div className="CadastroPaciente">
@@ -246,7 +369,7 @@ const CadastroPaciente = () =>{
                                     type="text" 
                                     id="nome" 
                                     name="nome"
-                                    onChange={e => preencheAtributo(e)}
+                                    onChange={e => preencheAtributoPaciente(e)}
                                     required
                                     />
                                 </div>
@@ -258,7 +381,7 @@ const CadastroPaciente = () =>{
                                     type="text" 
                                     id="endereco" 
                                     name="endereco" 
-                                    onChange={e => preencheAtributo(e)} 
+                                    onChange={e => preencheAtributoPaciente(e)} 
                                     required/>
                                 </div>
     
@@ -270,7 +393,7 @@ const CadastroPaciente = () =>{
                                     id="email"
                                     name="email"
                                     placeholder="email@exemplo.com"
-                                    onChange={e => preencheAtributo(e)}
+                                    onChange={e => preencheAtributoPaciente(e)}
                                     required 
                                     />
                                 </div>
@@ -286,7 +409,7 @@ const CadastroPaciente = () =>{
                                     type="date" 
                                     id="dtNascimento"
                                     name="dtNascimento"
-                                    onChange={e => preencheAtributo(e)} 
+                                    onChange={e => preencheAtributoPaciente(e)} 
                                     required/>
                                 </div>
                                 <div className="CadastroPaciente-item-formulario">
@@ -296,7 +419,7 @@ const CadastroPaciente = () =>{
                                     type="tel" 
                                     id="telefone"
                                     name="telefone"
-                                    onChange={e => preencheAtributo(e)} 
+                                    onChange={e => preencheAtributoPaciente(e)} 
                                     placeholder="(xx) xxxxx-xxxx"/>
                                 </div>  
                                 <div className="CadastroPaciente-item-formulario">
@@ -305,7 +428,7 @@ const CadastroPaciente = () =>{
                                     className="CadastroPaciente-input CadastroPaciente-input-select" 
                                     id="sexo" 
                                     name="sexo" 
-                                    onChange={e => preencheAtributo(e)} required>
+                                    onChange={e => preencheAtributoPaciente(e)} required>
                                         <option value="" disabled selected>Selecione</option>
                                         <option value="Masculino">Masculino</option>
                                         <option value="Feminino">Feminino</option>
@@ -331,7 +454,7 @@ const CadastroPaciente = () =>{
                             <div className="CadastroPaciente-item-formulario">
                                 <label className="CadastroPaciente-label-campo" for="problemasSaudeIndividual">Problemas de Saúde Individual</label>
                                 <textarea 
-                                ows="5" 
+                                rows="5" 
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="problemasSaudeIndividual" 
                                 name="problemasSaudeIndividual"
@@ -352,7 +475,7 @@ const CadastroPaciente = () =>{
                                 <div id="formMedicamento">
                                 </div>
                                 <div className='CadastroPaciente-botoes-medicamento'>
-                                    <Button title="Adicionar Medicamento" classeAdicional="CadastroPaciente-botao-opcao" onClick={e => adicionarMedicamento(e)}/>
+                                    <Button title="Adicionar Medicamento" classeAdicional="CadastroPaciente-botao-opcao" onClick={e => adicionarMedicamento(e, indiceMedicamento)}/>
                                     <Button title="Remover Medicamento" classeAdicional="CadastroPaciente-botao-opcao" onClick={e => removerMedicamento(e)}/>
                                 </div>
                             </div>
@@ -422,81 +545,286 @@ const CadastroPaciente = () =>{
                     <fieldset className="CadastroPaciente-area-formulario">
                         <legend className="CadastroPaciente-titulo-area">Avaliação Antropométrica</legend>    
                         <div className='CadastroPaciente-campos-formulario CadastroPaciente-container'>
-    
-                            {/* Primeira Coluna de Campos */}
+                           {/* Primeira Coluna de Campos */}
                             <div>
                                 <div className="CadastroPaciente-item-formulario">
                                     <label className="CadastroPaciente-label-campo" for="pesoObjetivo">Peso Objetivo</label>
-                                    <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="pesoObjetivo" required/>
+                                    <input 
+                                    className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                    type="tel" 
+                                    id="pesoObjetivo"
+                                    name="pesoObjetivo"
+                                    onChange={e => preencheAtributoMedidasCorporais(e)}
+                                    required/>
                                 </div>
                                 <div className="CadastroPaciente-item-formulario">
                                     <label className="CadastroPaciente-label-campo" for="altura">Altura</label>
-                                    <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="altura" required/>
+                                    <input 
+                                    className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                    type="tel" 
+                                    id="altura"
+                                    name="altura" 
+                                    onChange={e => preencheAtributoMedidasCorporais(e)}
+                                    required/>
                                 </div>
-                                <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="bracoEsquerdo">Braço Esquerdo</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="bracoEsquerdo" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="abdomen">Abdômen</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="abdomen" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="peitoral">Peitoral</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="peitoral" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="quadril">Quadril</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="quadril" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="coxaEsquerda">Coxa Esquerda</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="coxaEsquerda" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="panturrilhaEsquerda">Panturrilha Esquerda</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="panturrilhaEsquerda" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="pescoco">Pescoço</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="pescoco" required/>
-                                    </div>
                             </div>
     
                             {/* Segunda Coluna de Campos */}
                             <div>
                                 <div className="CadastroPaciente-item-formulario">
                                     <label className="CadastroPaciente-label-campo" for="pesoJejum">Peso Atual em Jejum</label>
-                                    <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="pesoJejum" required/>
+                                    <input 
+                                    className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                    type="tel" 
+                                    id="pesoJejum"
+                                    name="pesoJejum"
+                                    onChange={e => preencheAtributoMedidasCorporais(e)}
+                                    required/>
                                 </div>
                     
                                 <div className="CadastroPaciente-item-formulario">
                                     <label className="CadastroPaciente-label-campo" for="imc">IMC</label>
-                                    <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="imc" required/>
+                                    <input 
+                                    className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                    type="tel" 
+                                    id="imc"
+                                    name="imc"
+                                    onChange={e => preencheAtributoMedidasCorporais(e)}
+                                    required/>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <h3>Circunferências</h3>
+
+                        <div className='CadastroPaciente-campos-formulario CadastroPaciente-container'>
+                            {/* Primeira Coluna de Campos */}
+                            <div>
+                                <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="bracoEsquerdo">Braço Esquerdo</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="bracoEsquerdo"
+                                        name="bracoEsquerdo"
+                                        onChange={e => preencheAtributoCircunferencias(e)}
+                                        required/>
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="antebracoEsquerdo">Antebraço Esquerdo</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="antebracoEsquerdo"
+                                        name="antebracoEsquerdo"
+                                        onChange={e => preencheAtributoCircunferencias(e)}  
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="coxaEsquerda">Coxa Esquerda</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="coxaEsquerda"
+                                        name="coxaEsquerda"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="panturrilhaEsquerda">Panturrilha Esquerda</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="panturrilhaEsquerda" 
+                                        name="panturrilhaEsquerda"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="abdomen">Abdômen</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="abdomen"
+                                        name="abdomen"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="peitoral">Peitoral</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="peitoral"
+                                        name="peitoral"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="quadril">Quadril</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="quadril"
+                                        name="quadril"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+                            </div>
+    
+                            {/* Segunda Coluna de Campos */}
+                            <div>
+                                <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="bracoDireito">Braço Direito</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="bracoDireito" required/>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="bracoDireito"
+                                        name="bracoDireito"
+                                        onChange={e => preencheAtributoCircunferencias(e)}  
+                                        required/>
                                     </div>       
                                     <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="antebracos">Antebraços</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="antebracos" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="cintura">Cintura</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="cintura" required/>
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="ombros">Ombros</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="ombros" required/>
+                                        <label className="CadastroPaciente-label-campo" for="antebracoDireito">Antebraço Direito</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="antebracoDireito"
+                                        name="antebracoDireito"
+                                        onChange={e => preencheAtributoCircunferencias(e)}  
+                                        required/>
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="coxaDireita">Coxa Direita</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="coxaDireita" required/>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="coxaDireita"
+                                        name="coxaDireita"
+                                        onChange={e => preencheAtributoCircunferencias(e)}  
+                                        required/>
                                     </div>
                                     <div className="CadastroPaciente-item-formulario">
                                         <label className="CadastroPaciente-label-campo" for="panturrilhaDireita">Panturrilha Direita</label>
-                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" type="tel" id="panturrilhaDireita" required/>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="panturrilhaDireita"
+                                        name="panturrilhaDireita"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="cintura">Cintura</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="cintura"
+                                        name="cintura"
+                                        onChange={e => preencheAtributoCircunferencias(e)}  
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="ombros">Ombros</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="ombros"
+                                        name="ombros"
+                                        onChange={e => preencheAtributoCircunferencias(e)}  
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="pescoco">Pescoço</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="pescoco"
+                                        name="pescoco"
+                                        onChange={e => preencheAtributoCircunferencias(e)} 
+                                        required/>
+                                    </div>
+
+                            </div>
+                        </div>
+                        
+                        <h3>Dobras Cutâneas (Protocolo: Pollock, 7DC)</h3>
+
+                        <div className='CadastroPaciente-campos-formulario CadastroPaciente-container'>
+                            {/* Primeira Coluna de Campos */}
+                            <div>
+                                <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="subscapular">Subscapular</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="subscapular"
+                                        name="subscapular"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)}  
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="coxa">Coxa</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="coxa"
+                                        name="coxa"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)}  
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="tricipetal">Tricipetal</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="tricipetal"
+                                        name="tricipetal"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="peitoral">Peitoral</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="peitoral"
+                                        name="peitoral"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)} 
+                                        required/>
+                                    </div>
+                            </div>
+    
+                            {/* Segunda Coluna de Campos */}
+                            <div>
+                                <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="axilarMedia">Axilar-média</label>
+                                        <input className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="axilarMedia"
+                                        name="axilarMedia"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)} 
+                                        required/>
+                                    </div>     
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="suprailiaca">Supra-ilíaca </label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                        type="tel" 
+                                        id="suprailiaca"
+                                        name="suprailiaca"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)} 
+                                        required/>
+                                    </div>
+                                    <div className="CadastroPaciente-item-formulario">
+                                        <label className="CadastroPaciente-label-campo" for="abdominal">Abdominal</label>
+                                        <input 
+                                        className="CadastroPaciente-input CadastroPaciente-input-curto"
+                                        type="tel" 
+                                        id="abdominal"
+                                        name="abdominal"
+                                        onChange={e => preencheAtributoDobrasCutaneas(e)} 
+                                        required/>
                                     </div>
                             </div>
                         </div>
@@ -512,7 +840,7 @@ const CadastroPaciente = () =>{
                                 type="tel" 
                                 id="gastoEnergeticoDiario"
                                 name="gastoEnergeticoDiario"
-                                onChange={e => preencheAtributo(e)} 
+                                onChange={e => preencheAtributoPaciente(e)} 
                                 required/>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -522,7 +850,7 @@ const CadastroPaciente = () =>{
                                 type="tel" 
                                 id="metabolismoBasal"
                                 name="metabolismoBasal"
-                                onChange={e => preencheAtributo(e)} 
+                                onChange={e => preencheAtributoPaciente(e)} 
                                 required/>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -532,7 +860,7 @@ const CadastroPaciente = () =>{
                                 type="tel" 
                                 id="valorCaloricoPlano"
                                 name="valorCaloricoPlano"
-                                onChange={e => preencheAtributo(e)}  
+                                onChange={e => preencheAtributoPaciente(e)}  
                                 required/>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
@@ -542,7 +870,7 @@ const CadastroPaciente = () =>{
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 
                                 id="conclusoes"
                                 name="conclusoes"
-                                onChange={e => preencheAtributo(e)}   
+                                onChange={e => preencheAtributoPaciente(e)}   
                                 />
                             </div>
                         </div>

@@ -5,6 +5,7 @@ const treinos = require('./../controllers/treinoControllers');
 
 const routes = express.Router();
 
-routes.route('/:idPaciente').post(treinos.criaTreino);
+routes.route('/:idPaciente').post(treinos.criaTreino).get(treinos.getTreinos);
+routes.route('/:idPaciente/:idTreino').get(treinos.getTreino);
 
 module.exports = routes;

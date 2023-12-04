@@ -8,14 +8,14 @@ const MenuButton = (props) => {
           return (
                <button className="menuButton menuButtonPage">
                     <img src={icon} className="menuIcon" />
-                    {title}
+                    <span>{title}</span>
                </button>
           )
      } else {
           return (
                <button className="menuButton">
                     <img src={icon}  className="menuIcon" />
-                    {title}
+                    <span>{title}</span>
                </button>
           )
      }

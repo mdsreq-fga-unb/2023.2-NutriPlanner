@@ -7,6 +7,17 @@
    border-radius: 20px;
    font-weight: bold;
    cursor: pointer;
+   display: flex;
+   flex-direction: row;
+}
+
+.buttonIcon{
+   margin-right: 7%;
+   margin-left: 8%;
+}
+
+.buttonTitle{
+   align-self: center;
 }
 
 .button:hover{

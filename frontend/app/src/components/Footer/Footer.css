@@ -1,8 +1,14 @@
-footer.footer{
+.footer{
    display: flex;
    align-items: center;
-   justify-content: flex-end;
-   padding: 0 25px;
+   margin-top: 2%;
+   padding: 20px;
    flex-direction: column;
-   background-color: #FFF;
+   background-color: var(--cinza-claro);
+}
+
+.footer-text{
+   font-size: 1.1rem;
+   font-weight: bold;
+   margin-bottom: 15px;
 }

@@ -76,39 +76,54 @@ const CadastroPaciente = () =>{
         }
     }
 
+    function tratamentoDecimal(valor)  {
+        valor = String(valor);
+        valor = valor.replace(/,/g, '.');
+        
+        return valor;
+    }
+    
     const preencheAtributoPaciente = (event) => {
-        const { name, value } = event.target;
-        dadosPaciente.paciente[name] = String(value.trim());
+        let { name, value } = event.target;
+
+        if(name == 'gastoEnergeticoDiario' || name == 'metabolismoBasal' || name == 'valorCaloricoPlano')
+            value = tratamentoDecimal(value)
+
+        dadosPaciente.paciente[name] = value;
     };
 
     const preencheAtributoQuestionario = (event) => {
         const { name, value } = event.target;
-        dadosPaciente.paciente.questionario[name] = String(value.trim());
+        dadosPaciente.paciente.questionario[name] = value;
     };
 
     const preencheAtributoMedicamento = (event, indice) => {
         const { name, value } = event.target;
         
         const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
-        medicamentoAtual[name] = String(value.trim());
+        medicamentoAtual[name] = value;
     };
 
     const preencheAtributoMedidasCorporais = (event) => {
-        const { name, value } = event.target;
+        let { name, value } = event.target;
+        value = tratamentoDecimal(value)
 
-        dadosPaciente.medida[name] = String(value.trim());
+        dadosPaciente.medida[name] = value;
     };
 
     const preencheAtributoCircunferencias = (event) => {
-        const { name, value } = event.target;
+        let { name, value } = event.target;
+        value = tratamentoDecimal(value)
 
-        dadosPaciente.medida.circunferencia[0][name] = String(value.trim());
+
+        dadosPaciente.medida.circunferencia[0][name] = value;
     };
 
     const preencheAtributoDobrasCutaneas = (event) => {
-        const { name, value } = event.target;
+        let { name, value } = event.target;
+        value = tratamentoDecimal(value)
 
-        dadosPaciente.medida.dobrasCutaneas[name] = String(value.trim());
+        dadosPaciente.medida.dobrasCutaneas[name] = value;
     };
 
 
@@ -182,9 +197,9 @@ const CadastroPaciente = () =>{
     function cadastrarPaciente(event){
         event.preventDefault();
 
+        console.log(dadosPaciente)
+
         const url = 'http://localhost:3000/pacientes';
-        
-        const dados = JSON.stringify(dadosPaciente);
 
         axios.post(url, dadosPaciente)
           .then((response) => {
@@ -450,7 +465,6 @@ const CadastroPaciente = () =>{
                                     name="pesoObjetivo"
                                     onChange={e => preencheAtributoMedidasCorporais(e)}
                                     required/>
-                                    <span className='CadastroPaciente-aviso'>Valor máximo permitido: 600 Kg!</span>
                                 </div>
                                 <div className="CadastroPaciente-item-formulario">
                                     <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="altura">Altura</label>
@@ -462,7 +476,6 @@ const CadastroPaciente = () =>{
                                     onChange={e => preencheAtributoMedidasCorporais(e)}
                                     placeholder='1.70'
                                     required/>
-                                    <span className='CadastroPaciente-aviso'>Altura máxima permitida: 3.50m!</span>
                                 </div>
                             </div>
     
@@ -477,7 +490,6 @@ const CadastroPaciente = () =>{
                                     name="pesoJejum"
                                     onChange={e => preencheAtributoMedidasCorporais(e)}
                                     required/>
-                                    <span className='CadastroPaciente-aviso'>Valor máximo permitido: 600 Kg!</span>
                                 </div>
                     
                                 <div className="CadastroPaciente-item-formulario">
@@ -739,9 +751,7 @@ const CadastroPaciente = () =>{
                                 id="gastoEnergeticoDiario"
                                 name="gastoEnergeticoDiario"
                                 onChange={e => preencheAtributoPaciente(e)}
-                                maxLength={5}
                                 required/>
-                                <span className='CadastroPaciente-aviso'>Valor máximo permitido: 50000 kcal!</span>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
                                 <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="metabolismoBasal">Metabolismo Basal</label>
@@ -751,21 +761,17 @@ const CadastroPaciente = () =>{
                                 id="metabolismoBasal"
                                 name="metabolismoBasal"
                                 onChange={e => preencheAtributoPaciente(e)}
-                                maxLength={5} 
                                 required/>
-                                <span className='CadastroPaciente-aviso'>Valor máximo permitido: 50000 kcal!</span>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
-                                <label className="CadastroPaciente-label-campo" for="valorCaloricoPlano">Valor Calórico do Plano Alimentar</label>
+                                <label className="CadastroPaciente-label-campo CadastroPaciente-campo-obrigatorio" for="valorCaloricoPlano">Valor Calórico do Plano Alimentar</label>
                                 <input 
-                                className="CadastroPaciente-input CadastroPaciente-input-curto CadastroPaciente-campo-obrigatorio" 
+                                className="CadastroPaciente-input CadastroPaciente-input-curto " 
                                 type="tel" 
                                 id="valorCaloricoPlano"
                                 name="valorCaloricoPlano"
                                 onChange={e => preencheAtributoPaciente(e)}
-                                maxLength={6}
                                 required/>
-                                <span className='CadastroPaciente-aviso'>Valor máximo permitido: 100000 kcal!</span>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
                                 <label className="CadastroPaciente-label-campo" for="conclusoes">Conclusões</label>

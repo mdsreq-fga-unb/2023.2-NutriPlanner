@@ -127,17 +127,14 @@ const pacienteSchema = new mongoose.Schema({
     gastoEnergeticoDiario: {
         type: Number,
         required: [true, 'Medida deve conter gasto energetico diario!'],
-        max: 50000  
     },
     metabolismoBasal: {
         type: Number,
         required: [true, 'Medida deve conter metabolismo basal!'],
-        max: 50000 
     },
     valorCaloricoPlano: {
         type: Number,
         required: [true, 'Medida deve conter valor calorico do plano alimentar!'],
-        max: 100000 
     },
     conclusoes: {
         type: String,

@@ -62,7 +62,7 @@ Com carinho,
         to: client.email,
         subject: "Feliz aniversário!",
         text: mensagemEmail,
-      }, (err, data) => {
+      }, (err) => {
         if (err) {
           console.log(err);
         } else {

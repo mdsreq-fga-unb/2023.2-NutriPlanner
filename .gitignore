@@ -4,3 +4,7 @@
 
 # Node
 node_modules
+
+.env
+
+backend/.env

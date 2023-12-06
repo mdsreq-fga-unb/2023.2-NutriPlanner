@@ -1,4 +1,4 @@
-body {
+.login-page {
   margin: 0;
   padding: 0;
   background-color: var(--secundary);
@@ -7,9 +7,11 @@ body {
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+
 }
 
-h2{
+.login-welcome{
   font-size: 3vh;
   line-height: normal; 
 }
@@ -32,7 +34,6 @@ h2{
 }
   
 .login-form-wrap {
-  margin-top: 70%;
   flex-shrink: 0; 
   color: var(--dark);
   background-color: var(--grey);
@@ -42,6 +43,17 @@ h2{
   left:0;
 }
 
+@media screen and (min-width: 0px){
+  .login-form-wrap {
+    margin-top: 400px;
+  }  
+}
+
+@media screen and (min-width: 1024px){
+  .login-form-wrap {
+    margin-top: 200px;
+  }  
+}
 
 .btn-login {
   border: none;
@@ -59,9 +71,9 @@ h2{
 
 .login-input{
   padding: 10px;
-  width: 100%;
+  width: 90%;
   height: 50%;
-  background-image: url('./frontend/app/images/Key.png');
+  background-image: url('../../assets/icons/Chave.svg');
   background-repeat: no-repeat;
   background-position: right 10px center; 
   background-size: 20px 20px; 
@@ -88,7 +100,7 @@ h2{
   margin-bottom: 0;
 }
 
-h3{
+.footer-team{
   margin-top: 0;
 }
 

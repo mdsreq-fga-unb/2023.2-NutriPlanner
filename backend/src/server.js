@@ -3,7 +3,6 @@ const routes = require('./routes');
 const cors = require('cors');
 const app = express();
 const dotenv = require("dotenv");
-const cors = require("cors")
 
 const pacienteRoutes = require("./routes/pacienteRoutes.js");
 

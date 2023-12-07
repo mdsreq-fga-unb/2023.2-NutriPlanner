@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import CadastroTreino from './Pages/CadastroTreino/CadastroTreino'
 import './index.css'
+import AppRoutes from './Routes.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <CadastroTreino/>
+    <AppRoutes />
   </React.StrictMode>,
 )

@@ -1,16 +1,13 @@
-
+import { useState } from 'react'
 import './App.css'
-import VerPaciente from './Pages/VerPaciente/VerPaciente'
+import AppRoutes from "./Routes"
 
 function App() {
   return(
     <>
-      <VerPaciente/>
+    <AppRoutes />
     </>
-
   )
-
-
 }
 
 export default App

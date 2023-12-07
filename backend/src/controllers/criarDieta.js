@@ -1,103 +1,46 @@
-const express = require("express");
 const Dieta = require('../models/dietaModel');
 
-criarDieta.post('/', async (req, res) =>{
+exports.criarDieta =  async (req, res) =>{
+    try {
+        const novaDieta = await Dieta.create({
+            idPaciente: req.params.idPaciente,
+            ...req.body
+        });
 
-})
-
-module.exports = criarDieta
-
-//
-
-
-const router = require('express').Router;
-// const person = require('../models/person')
-
-// CREATE
-
-router.post('/', async (req, res) => {
-
-    const {nome, email, telefone, endereco, altura, peso} = req.body
-
-    if(!nome){
-        res.status(422).json({error: 'O nome é obrigatório!'})
-    }
-
-    const person = {
-        nome,
-        email,
-        telefone,
-        endereco,
-        altura,
-        peso
-    }
-
-    try{
-        // criando dados
-        await person.create(person)
-
-        res.status(201).json({message: 'Pessoa inserida com sucesso!'})
-
-    } catch (error){
-        res.status(500).json({error: error})
-    }
-})
-
-
-// READ
-
-router.get('/', async(req, res) => {
-    try{
-        const people = await person.find();
-        res.status(200).json(people);
-    } catch(error){
-        res.status(500).json({error: error});
-    }
-})
-
-// READ - POR ID
-
-router.get('/id', async(req, res) => {
-    const id = req.params.id;
-
-    try{
-        const people = await person.find({_id: id});
-        if(!person){
-            res.status(422).json({message: 'O usuário não foi encontrado!'})
-            return
+        if (novaDieta){
+            res.status(200).json({
+                status: "sucesso",
+                message: "Dieta criada com sucesso",
+                data: {
+                    novaDieta
+                }
+            });
         }
-
-        res.status(200).json(people);
-    } catch(error){
-        res.status(500).json({error: error});
     }
-})
-
-// UPDATE - (PUT, PATCH)
-
-router.patch('/:id', async(req, res) => {
-    const id = req.params.id;
-    const {nome, email, telefone, endereco, altura, peso} = req.body
-    const person = {
-        nome,
-        email,
-        telefone,
-        endereco,
-        altura,
-        peso
+    catch (err){
+        res.status(400).json({
+            status: "falha",
+            message: err.message
+        });
     }
+}
 
+// visualizar dieta
+
+exports.getDieta = async (req, res) => {
     try{
-        const updatedPerson = await person.updatedPerson({_id: id}, person);
-        if(updatedPerson.matchedCount === 0){
-            res.status(422).json({message: 'O usuário não foi encontrado!'})
-            return
-        }
-        res.status(200).json(person);
-    } catch(error){
-        res.status(500).json({error: error});
+        const ver = await Dieta.find({'idPaciente': req.params.idPaciente}, '_id dtEmissao').sort({'dtEmissao': -1});
+
+        res.status(200),json({
+            status: "sucesso",
+            message: "Busca concluida com sucesso",
+            ver
+        });
     }
-})
-
-
-module.exports = router
+    catch(err){
+        res.status(400).json({
+            status: "falha",
+            message: err.message
+        });
+    }
+}

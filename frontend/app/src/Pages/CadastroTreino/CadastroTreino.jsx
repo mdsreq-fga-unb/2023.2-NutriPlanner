@@ -69,7 +69,7 @@ const CadastroTreino = () =>{
             <div className="CadastroPaciente-conteudo">
                 <div className="CadastroPaciente-cabecalho">
                     <div className='CadastroPaciente-items-cabecalho'>
-                        <Header title="Cadastrar Paciente" caminhoImagem={adicaoPaciente} />
+                        <Header title="Criar Plano de Treino" caminhoImagem={adicaoPaciente} />
                         <div className='CadastroPaciente-botoes-cabecalho'>
                             <Button title="Ajuda" classeAdicional="CadastroPaciente-botoes-cabecalho" icon={ajuda} />
                             <Button title="Sair" classeAdicional="CadastroPaciente-botoes-cabecalho" icon={sair}/>
@@ -90,7 +90,7 @@ const CadastroTreino = () =>{
                         <button>Buscar</button>
                     </fieldset>
     
-                    <Button title="Cadastrar" classeAdicional="CadastroPaciente-enviar" icon={salvar} onClick={e => cadastrarPaciente(e)}/>
+                    <Button title="Continuar" classeAdicional="CadastroPaciente-enviar" icon={salvar} onClick={e => cadastrarPaciente(e)}/>
                 </form>
             </div>
             <Footer className="CadastroPaciente-rodape"/>

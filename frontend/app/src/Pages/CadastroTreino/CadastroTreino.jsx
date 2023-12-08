@@ -1,4 +1,4 @@
-import './CadastroTreino.css'
+import './CadastroTreinoStyle.css'
 import React from 'react'
 import axios from 'axios'
 
@@ -8,6 +8,7 @@ import MenuButton from '../../components/Buttons/Menu/MenuButton'
 import Button from '../../components/Buttons/Button'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import Search from '../../components/Search/Search'
 
 //Ícones -- Menu
 import dieta from '../../assets/icons/Adição Dieta.svg';
@@ -79,19 +80,11 @@ const CadastroTreino = () =>{
                     <Button title="Voltar" classeAdicional="CadastroPaciente-botao-voltar" icon={voltar}/>
                 </div>
     
-                <form className="CadastroPaciente-formulario">
-                    <fieldset className="CadastroPaciente-area-formulario">
-                        <legend className="CadastroPaciente-titulo-area">Buscar Paciente</legend>
-    
-                        <input
-                        type="text"
-                        placeholder="Digite o nome do usuário"
-                        />
-                        <button>Buscar</button>
-                    </fieldset>
+
+                    <Search />
     
                     <Button title="Continuar" classeAdicional="CadastroPaciente-enviar" icon={salvar} onClick={e => cadastrarPaciente(e)}/>
-                </form>
+
             </div>
             <Footer className="CadastroPaciente-rodape"/>
         </div>

@@ -25,24 +25,8 @@ import voltar from '../../assets/icons/Voltar.svg';
 
 const CadastroTreino = () =>{
 
-
-    // function cadastrarDieta(e){
-    //     e.preventDefault();
-
-    //     //console.log(dadosPaciente)
-
-    //     const url = 'http://localhost:3000/path';
-
-    //     axios.post(url, dadosPaciente)
-    //       .then((response) => {
-    //         alert('Usuário Cadastrado com sucesso!')
-    //       }, (error) => {
-    //         alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
-    //         console.log(error.response.data)
-    //       });
-    // };
-
     return(     
+        
         <div className="CadastroPaciente">
             <div className="CadastroPaciente-menu-lateral">
                 <Logo />
@@ -82,6 +66,7 @@ const CadastroTreino = () =>{
     
 
                     <Search />
+                    
     
                     <Button title="Continuar" classeAdicional="CadastroPaciente-enviar" icon={salvar} onClick={e => cadastrarPaciente(e)}/>
 

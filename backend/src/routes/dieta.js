@@ -3,6 +3,6 @@ const dietas = require('../controllers/criarDieta');
 
 const routes = express.Router();
 
-routes.route('/:idPaciente').post(dietas.criarDieta).get(dietas.getDieta);
-
+routes.route('/:idPaciente').post(dietas.criarDieta).get(dietas.getDieta).patch(dietas.editarDieta);
+routes.route('/:idPaciente/:idDieta').get(dietas.getDietaEspecifica);
 module.exports = routes;

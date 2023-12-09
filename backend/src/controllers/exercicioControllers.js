@@ -18,3 +18,5 @@ exports.getExercicios = async (req, res) => {
         });
     }
 }
+
+// Esse código está sem uso, ele seria usado para recuperar todos os exercicios antes do cadastro de treino

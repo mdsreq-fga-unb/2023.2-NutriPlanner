@@ -16,7 +16,7 @@ const dietasSchema = new mongoose.Schema({
         type: [{
             consumoLiquidos: {
                 type: String,
-                enum: ['agua, cha'], // Vai escolher entre os dois
+                enum: ['agua', 'cha'], // Vai escolher entre os dois
                 required: true,
             },
             litros: {
@@ -48,8 +48,6 @@ const dietasSchema = new mongoose.Schema({
             },
         }],
     }
-
-
 });
 
 dietasSchema.pre('save', function(next) {

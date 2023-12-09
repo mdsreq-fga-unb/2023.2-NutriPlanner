@@ -4,7 +4,7 @@ Os casos de uso são uma técnica na engenharia de requisitos que descrevem as i
 
 ## Especificações de Caso de Uso
 
-### US01 - Pesquisar informações do local
+### UC01 - Pesquisar informações do local
 
 #### 1. Breve Descrição
 
@@ -57,7 +57,7 @@ Não se aplica.
 | :------: | :-----------: | 
 |     Reservar atração      | Após o passo 5, selecionar uma atração |
 
-### US02 - Buscar acomodações
+### UC02 - Buscar acomodações
 
 #### 1. Breve Descrição
 
@@ -110,7 +110,7 @@ Não se aplica.
 | :------: | :-----------: | 
 |     Reservar atração      | Após o passo 5, selecionar uma atração |
 
-### US03 - Explorar Voos
+### UC03 - Explorar Voos
 
 #### 1. Breve Descrição
 

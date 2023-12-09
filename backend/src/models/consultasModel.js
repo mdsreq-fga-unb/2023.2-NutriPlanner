@@ -8,12 +8,18 @@ const consultaSchema = new mongoose.Schema({
     },
     uid: {
         type: String,
-        required: [true],
+        required: true,
+        unique:true,
         immutable: true
     },
     dtConsulta: {
         type: Date,
-        required: [true],
+        required: true,
+    },
+    local: {
+        type: String,
+        required: true,
+        enum: ['Consultório', 'Online'],
     },
 });
 

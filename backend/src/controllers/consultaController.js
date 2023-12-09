@@ -19,39 +19,40 @@ const validarPaciente = async (paciente) => {
 
 // Função para verificar a disponibilidade de horário
 const checarHorario = async (dataInicio) => {
+  // const agora = new Date();
+
+  // Verifica se a dataInicio é maior que a data atual
+  if (dataInicio <= new Date()) {
+    return false;
+  }
+  
   const tempoMinimo = new Date(dataInicio.getTime() - 50 * 60 * 1000);
 
   const consultaExistente = await Consulta.findOne({
     dtConsulta: { $gte: tempoMinimo, $lte: dataInicio },
   });
-
+  
   if (consultaExistente)
     return false;
-  else
-    return true;
+  return true;
 };
 
 
 exports.agendarConsulta = async (req, res) => {
   try {
-    // Obter o paciente pelo ID
-    const paciente = await Paciente.findById({ '_id': req.params.idPaciente });
-
-    if (!validarPaciente(paciente)) {
-      return res.status(404).json({
-        status: 'falha',
-        message: 'Paciente inválido ou inativo'
-      });
-    }
-
-    // Extrair parâmetros da requisição
-    const data = new Date(req.body.data);
+    // Validação dos dados
     const local = req.body.local;
+    const [paciente, data, horarioDisponivel] = await Promise.all([
+      Paciente.findById(req.params.idPaciente),
+      new Date(req.body.data),
+      checarHorario(new Date(req.body.data))
+    ]);
 
-    if (checarHorario(data)) {
+    const valPaciente = await validarPaciente(paciente);
+    if (!valPaciente || !horarioDisponivel) {
       return res.status(404).json({
         status: 'falha',
-        message: 'Horario indisponível'
+        message: !valPaciente ? 'Paciente inválido ou inativo' : 'Horario indisponível'
       });
     }
 
@@ -110,7 +111,8 @@ exports.agendarConsulta = async (req, res) => {
     const consulta = await Consulta.create({
       idPaciente: paciente._id,
       dtConsulta: data,
-      uid: uid
+      uid: uid,
+      local: local,
     });
 
     res.status(200).json({

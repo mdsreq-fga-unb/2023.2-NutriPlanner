@@ -93,56 +93,44 @@ const CadastroPaciente = () =>{
     const preencheAtributoPaciente = (event) => {
         let { name, value } = event.target;
 
-        value = value.trim()
+        if(name == 'gastoEnergeticoDiario' || name == 'metabolismoBasal' || name == 'valorCaloricoPlano')
+            value = tratamentoDecimal(value.trim())
 
-        if(value){
-            if(name == 'gastoEnergeticoDiario' || name == 'metabolismoBasal' || name == 'valorCaloricoPlano')
-                value = tratamentoDecimal(value)
-
-            dadosPaciente.paciente[name] = value;
-        }
+        dadosPaciente.paciente[name] = value;
     };
 
     const preencheAtributoQuestionario = (event) => {
         let { name, value } = event.target;
-        value = value.trim()
 
-        if(value)
-            dadosPaciente.paciente.questionario[name] = value;
+        dadosPaciente.paciente.questionario[name] = value.trim();
     };
 
     const preencheAtributoMedicamento = (event, indice) => {
         let { name, value } = event.target;
-        value = value.trim()
-
         const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
 
-        if(value)
-            medicamentoAtual[name] = value;
+        medicamentoAtual[name] = value.trim();
     };
 
     const preencheAtributoMedidasCorporais = (event) => {
         let { name, value } = event.target;
-        value = tratamentoDecimal(value).trim()
+        value = tratamentoDecimal(value.trim())
 
-        if(value)
-            dadosPaciente.medida[name] = value;
+        dadosPaciente.medida[name] = value;
     };
 
     const preencheAtributoCircunferencias = (event) => {
         let { name, value } = event.target;
         value = tratamentoDecimal(value).trim()
 
-        if(value)
-            dadosPaciente.medida.circunferencia[0][name] = value;
+        dadosPaciente.medida.circunferencia[0][name] = value;
     };
 
     const preencheAtributoDobrasCutaneas = (event) => {
         let { name, value } = event.target;
-        value = tratamentoDecimal(value).trim()
+        value = tratamentoDecimal(value)
 
-        if(value)
-            dadosPaciente.medida.dobrasCutaneas[name] = value;
+        dadosPaciente.medida.dobrasCutaneas[name] = value.trim();
     };
 
 

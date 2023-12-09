@@ -22,7 +22,7 @@ const medidasSchema = new mongoose.Schema({
     },
     pesoObjetivo: {
         type: Number,
-        required: [true, 'O paciente deve conter peso de objetivo!'],
+        required: [true, 'O paciente deve conter peso objetivo!'],
     },
     imc: { 
         type: Number,

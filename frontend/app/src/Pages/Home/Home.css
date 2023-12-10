@@ -236,7 +236,6 @@
 }
 
 .Aniversariante-link{
-   align-self: flex-end;
-   margin-left: 30%;
+   padding-top: 10px;
    color: var(--black);
 }

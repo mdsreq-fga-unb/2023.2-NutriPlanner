@@ -57,6 +57,7 @@ function buscaAniversariantes(){
     axios.get(url)
     .then((response) => {
         const aniversariantes = response.data.data.aniversariantes;
+        
         const dataAtual = new Date();
 
         const areaAniversarios = document.getElementById('pacientesAniversariantes');
@@ -87,7 +88,14 @@ function buscaAniversariantes(){
             areaAniversarios.appendChild(cardAniversario);
         }
       }, (error) => {
-        console.log(error.response)
+        const areaAniversarios = document.getElementById('pacientesAniversariantes');
+
+        const aviso = document.createElement('p');
+        aviso.classList.add('Card-Pacientes-item');
+
+        aviso.innerText='Não foi possível obter os aniversariantes';
+
+        areaAniversarios.appendChild(aviso)
       });
 };
 
@@ -158,10 +166,10 @@ const Home = () =>{
                     </div>
                 </div>
                 <hr className="Home-divisao-conteudo"></hr>
-                <div className='Home-aniversariantes' id="pacientesAniversariantes">
+                <div id="pacientesAniversariantes">
                     <div className='Home-aniversariantes-cabecalho'>
                         <img className='Aniversariantes-cabecalho-imagem' src={bolo} alt="" />
-                        <span className='Aniversariantes-cabecalho-texto'>Aniversariantes</span>
+                        <span className='Aniversariantes-cabecalho-texto'>Aniversariantes (em 15 dias)</span>
                     </div>
                 </div>
             </div>

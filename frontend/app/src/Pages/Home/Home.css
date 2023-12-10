@@ -43,13 +43,11 @@
    padding-bottom: 2%;
 }
 
-
 .Home-rodape{
    grid-area: footer;
 }
 
 /* Estilos das seções */
-
 
 /* Menu Lateral */
 .Home-menu-titulo {
@@ -118,6 +116,7 @@
 .Home-botoes-cabecalho{
    display: flex;
    margin-right: 20px;
+   margin-left: 10%;
 }
 
 .Home-link-botao{
@@ -137,13 +136,38 @@
    margin-bottom: 6%;
 }
 
+@media screen and (min-width: 0px){
+   .Home-cards{
+      flex-direction: column;
+   }
+}
+
+@media screen and (min-width: 1024px){
+   .Home-cards{
+      flex-direction: row;
+   }
+}
+
 .Home-card {
    background-color: var(--secundary);
-   width: 30%;
    height: fit-content;
    padding-bottom: 2%;
    border-radius: 15px;
    border: 2.7px solid var(--dark);
+}
+
+@media screen and (min-width: 0px){
+   .Home-card{
+      width: 80%;
+      max-width: 430px;
+      margin: 0 auto 40px auto;
+   }
+}
+
+@media screen and (min-width: 1024px){
+   .Home-card{
+      width: 40%;
+   }
 }
 
 .Home-card-cabecalho {
@@ -201,19 +225,30 @@
 
 .Aniversariantes-paciente{
    display: flex;
-   height: 100px;
+   height: fit-content;
    width: 70%;
-   margin: 3% 0;
    background-color: var(--secundary);
    border-radius: 5px;
    border: 2.7px solid var(--dark);
    padding: 1% 0;
 }
 
+@media screen and (min-width: 0px){
+   .Aniversariantes-paciente{
+      margin: 3% auto;
+   }
+}
+
+@media screen and (min-width: 1024px){
+   .Aniversariantes-paciente{
+      margin: 3% 0;
+   }
+}
+
 .Aniversariante-foto{
    background-color: var(--cinza);
    width: 15%;
-   height: 90%;
+   height: 100px;
    border-radius: 100%;
    border: 2.7px solid var(--dark);
    margin-left: 1%;
@@ -225,12 +260,28 @@
    background-position: center;
 }
 
+@media screen and (min-width: 0px){
+   .Aniversariante-foto {
+      display: none;
+   }
+}
+
+@media screen and (min-width: 680px){
+   .Aniversariante-foto {
+      display: block;
+   }
+}
+
 .Aniversariante-dados{
    display: flex;
    flex-direction: column;
-   height: 100%;
-   border-left: 2.5px solid var(--dark);
    padding-left: 3%;
+}
+
+@media screen and (min-width: 680px){
+   .Aniversariante-dados{
+      border-left: 2.5px solid var(--dark);
+   }
 }
 
 .Aniversariante-texto{
@@ -242,5 +293,4 @@
 .Aniversariante-link{
    padding-top: 10px;
    color: var(--cinza-claro);
-   text-decoration: none;
 }

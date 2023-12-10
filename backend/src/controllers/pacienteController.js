@@ -71,3 +71,44 @@ exports.cadastroPaciente = async (req, res) => {
         });
     }
 };
+
+// Método GET
+
+exports.getPaciente = async (req, res) => {
+    const pacienteId = req.params.pacienteId;
+    try{
+        const paciente = await Paciente.findById(pacienteId);
+
+        if(!paciente) {
+            return res.status(404).json({
+                status: "falha",
+                message: "Paciente não encontrado"
+            });
+        }
+        const medida = await Medida.findOne({idPaciente: paciente._id});
+
+        if(!medida){
+            return res.status(404).json({
+                status: "falha",
+                message: "Medida não encontrada para este paciente"
+            });
+        }
+
+        return res.status(200).json({
+            status: "sucesso",
+            data:{
+                paciente: paciente,
+                medida: medida
+            }
+        });
+    }
+    catch(err){
+        return res.status(500).json({
+            status: "falha",
+            message: err.message
+        })
+    }
+}
+
+
+// Método UPDATE - PATCH

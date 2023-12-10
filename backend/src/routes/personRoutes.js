@@ -1,36 +1,3 @@
-const router = require('express').Router;
-// const person = require('../models/person')
-
-// CREATE
-
-router.post('/', async (req, res) => {
-
-    const {nome, email, telefone, endereco, altura, peso} = req.body
-
-    if(!nome){
-        res.status(422).json({error: 'O nome é obrigatório!'})
-    }
-
-    const person = {
-        nome,
-        email,
-        telefone,
-        endereco,
-        altura,
-        peso
-    }
-
-    try{
-        // criando dados
-        await person.create(person)
-
-        res.status(201).json({message: 'Pessoa inserida com sucesso!'})
-
-    } catch (error){
-        res.status(500).json({error: error})
-    }
-})
-
 
 // READ
 

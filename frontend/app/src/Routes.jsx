@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home"
 import Login from "./Pages/Login/Login"
 import CadastroPaciente from "./Pages/CadastroPaciente/CadastroPaciente"
 import { PrivateRoute } from "./PrivateRoute"
+import VerPaciente from "./Pages/VerPaciente/VerPaciente"
 import CriarDieta from "./Pages/CriarDieta/CriarDieta"
 
 export default function AppRoutes() {
@@ -14,7 +15,9 @@ export default function AppRoutes() {
 			<Routes>
 				<Route path="/" element={<Login />} />
 				<Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
-				<Route path="/cadastrarPaciente" element={<CadastroPaciente />} />
+				<Route path="/cadastrarPaciente" element={<PrivateRoute><CadastroPaciente /></PrivateRoute>} />
+				<Route path="/verPaciente" element={<PrivateRoute><VerPaciente/></PrivateRoute>} />
+
 
 				<Route path="/criarDieta" element={<PrivateRoute><CriarDieta/></PrivateRoute>}/>
 			</Routes>

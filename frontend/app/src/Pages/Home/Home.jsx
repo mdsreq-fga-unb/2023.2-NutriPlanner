@@ -43,7 +43,6 @@ function buscaQuantidadePacientes(){
 
             cardPacientes.appendChild(dado)
         }
-
       }, (error) => {
         const cardPacientes = document.getElementById('quantidadesPacientes');
 
@@ -58,34 +57,45 @@ function buscaAniversariantes(){
     .then((response) => {
         const aniversariantes = response.data.data.aniversariantes;
         
-        const dataAtual = new Date();
+        if(aniversariantes.length > 0){
+            const dataAtual = new Date();
+            
+            const areaAniversarios = document.getElementById('pacientesAniversariantes');
+            
+            for(let i = 0; i < aniversariantes.length; i++){
+                // Card de aniversário
+                const cardAniversario = document.createElement('div');
+            
+                cardAniversario.classList.add('Aniversariantes-paciente');
+            
+                const dataPaciente = new Date(aniversariantes[i].dtNascimento)
+                const dataFormatada = moment(dataPaciente).format('DD/MM/YYYY');
+            
+                const idadePaciente = dataAtual.getFullYear() - dataPaciente.getFullYear();
+            
+                cardAniversario.innerHTML = 
+                    `
+                    <div class="Aniversariante-foto"></div>
+                    <div class='Aniversariante-dados'>
+                        <span class='Aniversariante-texto'>${aniversariantes[i].nome}</span>
+                        <span class='Aniversariante-texto'>Aniversário: ${dataFormatada}</span>
+                        <span class='Aniversariante-texto'>Fará ${idadePaciente} anos!</span>
+                        <a class='Aniversariante-link' href="">Ver dados do Paciente</a>
+                     </div>
+                    `
+            
+                areaAniversarios.appendChild(cardAniversario);
+            }
+        }
+        else{
+            const areaAniversarios = document.getElementById('pacientesAniversariantes');
 
-        const areaAniversarios = document.getElementById('pacientesAniversariantes');
-
-        for(let i = 0; i < aniversariantes.length; i++){
-            // Card de aniversário
-            const cardAniversario = document.createElement('div');
-
-            cardAniversario.classList.add('Aniversariantes-paciente');
-
-            const dataPaciente = new Date(aniversariantes[i].dtNascimento)
-            const dataFormatada = moment(dataPaciente).format('DD/MM/YYYY');
-
-            const idadePaciente = dataAtual.getFullYear() - dataPaciente.getFullYear();
-
-            cardAniversario.innerHTML = 
-            `
-            <div class="Aniversariante-foto"></div>
-            <div class='Aniversariante-dados'>
-                <span class='Aniversariante-texto'>${aniversariantes[i].nome}</span>
-                <span class='Aniversariante-texto'>Aniversário: ${dataFormatada}</span>
-                <span class='Aniversariante-texto'>Fará ${idadePaciente} anos!</span>
-                <a class='Aniversariante-link' href="">Ver dados do Paciente</a>
-                </div>
-
-            `
-
-            areaAniversarios.appendChild(cardAniversario);
+            const aviso = document.createElement('p');
+            aviso.classList.add('Card-Pacientes-item');
+    
+            aviso.innerText='Não há aniversariantes pelos próximos 15 dias!';
+    
+            areaAniversarios.appendChild(aviso)
         }
       }, (error) => {
         const areaAniversarios = document.getElementById('pacientesAniversariantes');

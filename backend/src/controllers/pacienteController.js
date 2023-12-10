@@ -71,25 +71,3 @@ exports.cadastroPaciente = async (req, res) => {
         });
     }
 };
-
-exports.buscaQuantidade = async (req, res) => {
-    try {
-        const quantidadeTotal = await Paciente.countDocuments();
-        const quantidadeAtivos = await Paciente.countDocuments({ativo: true});
-
-        return res.status(200).json({
-            status: "sucesso",
-            dados: { 
-                Total: quantidadeTotal,
-                Ativos: quantidadeAtivos,
-                Inativos: quantidadeTotal - quantidadeAtivos
-            }    
-        });
-    }
-    catch(error) {
-        return res.status(400).json({
-            status: "falha",
-            message: err
-        });
-    }
-}

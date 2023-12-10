@@ -8,10 +8,6 @@ const pacienteRoutes = require("./routes/pacienteRoutes.js");
 
 dotenv.config();
 
-// Rotas da API
-// const personRoutes = require('./routes/personRoutes');
-// app.use('/person', personRoutes);
-
 // forma de ler JSON
 app.use(
     express.urlencoded({

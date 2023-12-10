@@ -5,6 +5,11 @@ import './Login.css';
 import nutriplannerLogo from "./../../assets/imgs/logo.svg"
 import { PrivateRoute } from "../../PrivateRoute";
 
+import dotenv from 'dotenv';
+// dotenv.config();
+
+const apiURL = import.meta.env.VITE_API_URL;
+
 function Login() {
     const navigate = useNavigate();
 
@@ -15,9 +20,11 @@ function Login() {
     const handleLogin = async(e) => {
         e.preventDefault();
         console.log(pin);
-
+        console.log(error);
+        console.log(apiURL)
+        
         try{
-            const response = await axios.post('http://localhost:3000/login', 
+            const response = await axios.post(`${apiURL}/login`, 
                 JSON.stringify({pin}),
                 {
                     headers:{ 'Content-Type': 'application/json'}

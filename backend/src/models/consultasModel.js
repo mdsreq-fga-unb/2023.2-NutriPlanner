@@ -4,7 +4,8 @@ const consultaSchema = new mongoose.Schema({
     idPaciente: {
         type: mongoose.Schema.ObjectId,
         ref: 'Paciente',
-        required: [true, 'A medida deve pertencer a um paciente!']
+        required: [true, 'A medida deve pertencer a um paciente!'],
+        immutable: true
     },
     uid: {
         type: String,

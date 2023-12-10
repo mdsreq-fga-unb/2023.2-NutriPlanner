@@ -18,13 +18,13 @@
  
  /* Estilos do Layout */
  
- .CadastroPaciente {
+ .CadastroTreino {
     margin: 0px;
     display: grid;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente{
+    .CadastroTreino{
        grid-template-areas: 
           "aside"
           "main"
@@ -35,7 +35,7 @@
  }
  
  @media screen and (min-width: 768px){
-    .CadastroPaciente{
+    .CadastroTreino{
     grid-template-areas: 
           "aside main"
           "aside footer";
@@ -44,7 +44,7 @@
     }
  }
  
- .CadastroPaciente-menu-lateral{
+ .CadastroTreino-menu-lateral{
     background-color: #68A797;
     display: flex;
     flex-direction: column;
@@ -53,7 +53,7 @@
     padding-top: 4%;
  }
  
- .CadastroPaciente-conteudo {
+ .CadastroTreino-conteudo {
     grid-area: main;
     padding-left: 2%;
     width: 98%;
@@ -62,7 +62,7 @@
  }
  
  
- .CadastroPaciente-rodape{
+ .CadastroTreino-rodape{
     grid-area: footer;
  }
  
@@ -71,7 +71,7 @@
  
  
  /* Menu Lateral */
- .CadastroPaciente-menu-titulo {
+ .CadastroTreino-menu-titulo {
     color: #FFF;
     font-weight: bold;
     align-self: flex-start;
@@ -79,35 +79,35 @@
     margin-top: 4%;
  }
  
- .CadastroPaciente-menu-divisao {
+ .CadastroTreino-menu-divisao {
     color: white;
     width: 80%;
  }
  
- .CadastroPaciente-navegacao {
+ .CadastroTreino-navegacao {
     display: flex;
     flex-direction: column;
  }
  
- .CadastroPaciente-item-menu {
+ .CadastroTreino-item-menu {
     margin: 7% 0;
     text-decoration: none;
  }
  
  /* Cabeçalho */
  
- .CadastroPaciente-cabecalho{
+ .CadastroTreino-cabecalho{
     background-color: #FFF;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-cabecalho{
+    .CadastroTreino-cabecalho{
        padding-top: 30px;
     }
  }
  
  @media screen and (min-width: 1024px){
-    .CadastroPaciente-cabecalho{
+    .CadastroTreino-cabecalho{
        padding-top: 0px;
        position: sticky;
        top: 0px;
@@ -115,151 +115,156 @@
     }
  }
  
- .CadastroPaciente-items-cabecalho {
+ .CadastroTreino-items-cabecalho {
     display: flex;
     padding-right: 4%;
     align-items: center;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-items-cabecalho{
+    .CadastroTreino-items-cabecalho{
        flex-direction: column;
     }
  }
  
  @media screen and (min-width: 600px){
-    .CadastroPaciente-items-cabecalho {
+    .CadastroTreino-items-cabecalho {
        flex-direction: row;
        justify-content: space-between;
     }
  }
  
- .CadastroPaciente-botoes-cabecalho{
+ .CadastroTreino-botoes-cabecalho{
     display: flex;
     margin-right: 20px;
  }
  
- .CadastroPaciente-divisao-conteudo {
+ .CadastroTreino-divisao-conteudo {
     color: var(--cinza-claro);
  }
  
- .CadastroPaciente-botao-voltar{
+ .CadastroTreino-botao-voltar{
     margin-top: 20px;
  }
  
  
  /* Formulário */
  
- .CadastroPaciente-formulario{
+ .CadastroTreino-formulario{
     margin: 3% 0;
  }
  
- .CadastroPaciente-area-formulario{
+ .CadastroTreino-area-formulario{
     width: 85%;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-area-formulario{
+    .CadastroTreino-area-formulario{
        margin: 5% 0;
     }
  }
  
  @media screen and (min-width: 600px){
-    .CadastroPaciente-area-formulario{
+    .CadastroTreino-area-formulario{
        margin: 3%;
     }
  }
  
- .CadastroPaciente-titulo-area{
+ .CadastroTreino-titulo-area{
     font-weight: bold;
     font-size: 1.3rem;
  }
  
- .CadastroPaciente-campos-formulario{
+ .CadastroTreino-campos-formulario{
     display: flex;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-campos-formulario{
+    .CadastroTreino-campos-formulario{
        flex-direction: column;
     }
  }
  
  @media screen and (min-width: 768px){
-    .CadastroPaciente-campos-formulario{
+    .CadastroTreino-campos-formulario{
        flex-direction: row;
        justify-content: space-between;
     }
  }
  
- .CadastroPaciente-container{
-    padding-top: 2%;
+ .CadastroTreino-container{
+    padding-top: 1%;
     padding-right: 14%;
     padding-left: 2%;
     padding-bottom: 1%;
  }
  
- .CadastroPaciente-item-formulario{
+ .CadastroTreino-item-formulario{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px
  }
  
- .CadastroPaciente-label-campo{
+ .CadastroTreino-label-campo{
     font-weight: 600;
     margin-bottom: 15px;
  }
  
- .CadastroPaciente-aviso{
+ .CadastroTreino-aviso{
     color: red;
     font-size: 0.6rem;
  }
  
- .CadastroPaciente-campo-obrigatorio::after{
+ .CadastroTreino-campo-obrigatorio::after{
        content:" *";
        color: red;
  }
  
- .CadastroPaciente-input{
+ .CadastroTreino-input{
     line-height: 1.8rem;
     border-radius: 15px;
     border: 1px solid #000;
  }
  
- .CadastroPaciente-input-texto{
+ .CadastroTreino-input-texto{
     font-size: 15px;
  }
+
+ .CadastroTreino-input-numero{
+   font-size: 15px;
+   width: 30%;
+}
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-input-texto{
+    .CadastroTreino-input-texto{
        width: 100%;
     }
  }
  
  @media screen and (min-width: 1000px){
-    .CadastroPaciente-input-texto{
+    .CadastroTreino-input-texto{
        width: 150%;
     }
  }
  
  @media screen and (min-width: 1100px){
-    .CadastroPaciente-input-texto{
+    .CadastroTreino-input-texto{
        width: 180%;
     }
  }
  
- .CadastroPaciente-input-curto{
+ .CadastroTreino-input-curto{
     width: 140px;
  }
  
  
- .CadastroPaciente-input-select{
+ .CadastroTreino-input-select{
     width: 104px;
     height: 30px;
     text-indent: 6px;
  }
  
- .CadastroPaciente-area-texto{
+ .CadastroTreino-area-texto{
     width: 100%;
     font-size: 1.1rem;
     resize: none;
@@ -268,78 +273,79 @@
  
  /* Estilos da seção de Medicamentos */
  
- .CadastroPaciente-item-formulario-medicamento{
+ .CadastroTreino-item-formulario-medicamento{
     display: flex;
     flex-direction: column;
     margin-right: 20px;
  }
  
- .CadastroPaciente-medicamentos{
+ .CadastroTreino-medicamentos{
     margin-bottom: 20px
  }
  
- .CadastroPaciente-campos-medicamento{
+ .CadastroTreino-campos-exercicio{
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
  }
  
- .CadastroPaciente-label-medicamento{
+ .CadastroTreino-label-medicamento{
     font-size: 0.8rem;
     text-align: center;
  }
  
- .CadastroPaciente-input-medicamento{
+ .CadastroTreino-input-medicamento{
     width: 250px;
  }
  
- .CadastroPaciente-input-horario{
+ .CadastroTreino-input-horario{
     width: 90px;
  }
  
- .CadastroPaciente-botoes-medicamento{
+ .CadastroTreino-botoes-medicamento{
     display: flex;
     margin-top: 4%;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-botoes-medicamento{
+    .CadastroTreino-botoes-medicamento{
        flex-direction: column;
     }
  }
  
  @media screen and (min-width: 450px){
-    .CadastroPaciente-botoes-medicamento{
+    .CadastroTreino-botoes-medicamento{
        flex-direction: row;
     }
  }
  
- .CadastroPaciente-botao-opcao {
+ .CadastroTreino-botao-opcao {
     width: 200px !important;
     margin-right: 3%;
+    margin-top: 1%;
  }
  
  @media screen and (min-width: 0px){
-    .CadastroPaciente-botao-opcao {
+    .CadastroTreino-botao-opcao {
        margin-bottom: 40px;
     }
  }
  
  @media screen and (min-width: 600px){
-    .CadastroPaciente-botao-opcao {
+    .CadastroTreino-botao-opcao {
        margin-bottom: 0px;
     }
  }
  
  /* Estilos dos botões */
  
- .CadastroPaciente-enviar{
+ .CadastroTreino-enviar{
     width: 135px !important;
     float: right;
     margin-right: 15%;
  }
  
- .CadastroPaciente-enviar:hover{
+ .CadastroTreino-enviar:hover{
     background-color: var(--laranja);
     transition: 0.5s;
  }

@@ -86,10 +86,36 @@ exports.buscaQuantidade = async (req, res) => {
             }    
         });
     }
-    catch(error) {
+    catch(err) {
         return res.status(400).json({
             status: "falha",
             message: err
         });
+    }
+}
+
+exports.buscaAniversariantes = async (req, res) => {
+    try{
+        const dataAtual = new Date();
+        const dataDaquiQuinzeDias = new Date(new Date().setDate(dataAtual.getDate() + 15));
+
+        const aniversariantes = await Paciente.find({
+            dtNascimento: {
+                $gte: dataAtual,
+                $lte: dataDaquiQuinzeDias
+            }
+        })
+
+        return res.status(200).json({
+            status: "sucesso",
+            data: { 
+                aniversariantes: aniversariantes,
+            }    
+        });
+    }catch(err){
+        return res.status(400).json({
+            status: "falha",
+            message: err
+        })
     }
 }

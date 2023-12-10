@@ -7,7 +7,8 @@ const routes = express.Router();
 
 routes.route('/').post(pacientes.checkEmail, pacientes.checkTelefone, pacientes.cadastroPaciente);
 
-routes.route('/').get(pacientes.buscaQuantidade);
+routes.route('/buscaQuantidades').get(pacientes.buscaQuantidade);
 
+routes.route('/buscaAniversarios').get(pacientes.buscaAniversariantes);
 
 module.exports = routes;

@@ -1,0 +1,26 @@
+.button{
+   background-color: var(--verde);
+   color: #FFF;
+   width: 110px;
+   height: 40px;
+   border: none;
+   border-radius: 20px;
+   font-weight: bold;
+   cursor: pointer;
+   display: flex;
+   flex-direction: row;
+}
+
+.buttonIcon{
+   margin-right: 7%;
+   margin-left: 8%;
+}
+
+.buttonTitle{
+   align-self: center;
+}
+
+.button:hover{
+   background-color: var(--laranja);
+   transition: 0.5s;
+}

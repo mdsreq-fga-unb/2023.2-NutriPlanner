@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import CriarDieta from './Pages/CriarDieta'
+import AppRoutes from "./Routes"
 
 function App() {
 
   return (
     <>
-      <CriarDieta/>
+    <AppRoutes />
     </>
   )
 }

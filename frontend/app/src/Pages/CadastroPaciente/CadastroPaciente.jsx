@@ -223,10 +223,10 @@ const CadastroPaciente = () =>{
                 <span className="CadastroPaciente-menu-titulo">MENU</span>
                 <hr className="CadastroPaciente-menu-divisao" />
                 <nav className="CadastroPaciente-navegacao">
-                    <a href="/" className='CadastroPaciente-item-menu'>
+                    <a href="/home" className='CadastroPaciente-item-menu'>
                         <MenuButton title="Pacientes" icon={paciente}/>
                     </a>
-                    <a href="/" className='CadastroPaciente-item-menu'>
+                    <a href="/cadastrarPaciente" className='CadastroPaciente-item-menu'>
                         <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente}selecionado="true" />
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>

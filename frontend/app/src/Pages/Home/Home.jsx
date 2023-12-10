@@ -170,8 +170,6 @@ const Home = () =>{
                         </div>
                         <hr className="Home-divisao-conteudo-card"></hr>
                         <div>
-                            <p className='Card-Pacientes-item'>Lucas | 12/12/2023 | 12:12</p>
-                            <p className='Card-Pacientes-item'>Lucas | 12/12/2023 | 12:12</p>
                         </div>
                     </div>
                 </div>

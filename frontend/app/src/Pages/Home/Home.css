@@ -120,6 +120,10 @@
    margin-right: 20px;
 }
 
+.Home-link-botao{
+   text-decoration: none;
+}
+
 .Home-divisao-conteudo {
    color: var(--cinza);
 }
@@ -237,5 +241,6 @@
 
 .Aniversariante-link{
    padding-top: 10px;
-   color: var(--black);
+   color: var(--cinza-claro);
+   text-decoration: none;
 }

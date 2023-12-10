@@ -1,6 +1,7 @@
 import './Home.css'
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
@@ -66,17 +67,20 @@ function buscaAniversariantes(){
 
             cardAniversario.classList.add('Aniversariantes-paciente');
 
-            const idadePaciente = aniversariantes[i].dtNascimento.get
+            const dataPaciente = new Date(aniversariantes[i].dtNascimento)
+            const dataFormatada = moment(dataPaciente).format('DD/MM/YYYY');
+
+            const idadePaciente = dataAtual.getFullYear() - dataPaciente.getFullYear();
 
             cardAniversario.innerHTML = 
             `
             <div class="Aniversariante-foto"></div>
             <div class='Aniversariante-dados'>
                 <span class='Aniversariante-texto'>${aniversariantes[i].nome}</span>
-                <span class='Aniversariante-texto'>${aniversariantes[i].dtNascimento}</span>
-                <span class='Aniversariante-texto'>Fará 26 anos!</span>
+                <span class='Aniversariante-texto'>Aniversário: ${dataFormatada}</span>
+                <span class='Aniversariante-texto'>Fará ${idadePaciente} anos!</span>
                 <a class='Aniversariante-link' href="">Ver dados do Paciente</a>
-            </div>
+                </div>
 
             `
 
@@ -121,8 +125,12 @@ const Home = () =>{
                     <div className='Home-items-cabecalho'>
                         <Header className="Home-info-cabecalho"  title="Pacientes" caminhoImagem={paciente} />
                         <div className='Home-botoes-cabecalho'>
-                            <Button title="Ajuda" classeAdicional="Home-botoes-cabecalho" icon={ajuda} />
-                            <Button title="Sair" classeAdicional="Home-botoes-cabecalho" icon={sair}/>
+                            <a className='Home-link-botao' href="">
+                                <Button title="Ajuda" classeAdicional="Home-botoes-cabecalho" icon={ajuda} />
+                            </a>
+                            <a className='Home-link-botao' href="/">
+                                <Button title="Sair" classeAdicional="Home-botoes-cabecalho" icon={sair}/>
+                            </a>
                         </div>
                     </div>
                     <hr className="Home-divisao-conteudo"></hr>

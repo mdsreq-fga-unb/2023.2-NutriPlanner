@@ -104,7 +104,7 @@ exports.buscaAniversariantes = async (req, res) => {
                 $gte: dataAtual,
                 $lte: dataDaquiQuinzeDias
             }
-        })
+        }).sort({ dtNascimento: 1});
 
         return res.status(200).json({
             status: "sucesso",

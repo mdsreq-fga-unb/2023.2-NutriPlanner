@@ -69,7 +69,7 @@ function buscaAniversariantes(){
                 cardAniversario.classList.add('Aniversariantes-paciente');
             
                 const dataPaciente = new Date(aniversariantes[i].dtNascimento)
-                const dataFormatada = moment(dataPaciente).format('DD/MM/YYYY');
+                const dataFormatada = moment(dataPaciente).format('DD/MM');
             
                 const idadePaciente = dataAtual.getFullYear() - dataPaciente.getFullYear();
             

@@ -7,6 +7,7 @@ import Login from "./Pages/Login/Login"
 import CadastroPaciente from "./Pages/CadastroPaciente/CadastroPaciente"
 import { PrivateRoute } from "./PrivateRoute"
 import VerPaciente from "./Pages/VerPaciente/VerPaciente"
+import EditarPaciente from "./Pages/EditarPaciente/EditarPaciente"
 
 export default function AppRoutes() {
 	return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
 				<Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
 				<Route path="/cadastrarPaciente" element={<PrivateRoute><CadastroPaciente /></PrivateRoute>} />
 				<Route path="/verPaciente" element={<PrivateRoute><VerPaciente/></PrivateRoute>} />
+				<Route path="/editarPaciente" element={<PrivateRoute><EditarPaciente/></PrivateRoute>} />
 
 			</Routes>
 		</BrowserRouter>

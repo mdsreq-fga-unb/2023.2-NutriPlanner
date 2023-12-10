@@ -37,7 +37,7 @@ const VerPaciente = () => {
 
     // const dadosPaciente = {
     //     paciente: {
-    //         nome: 'Maria Alice',
+    //         nome: '',
     //         dtNascimento: '',
     //         sexo: '',
     //         email: '',
@@ -220,7 +220,8 @@ const VerPaciente = () => {
     }
 
     function handleEditarPaciente(){
-        navigate('/editarPaciente');
+        console.log(dadosPaciente)
+        navigate('/editarPaciente', {state: {dados: dadosPaciente}});
     }
 
     function handleVoltar(){

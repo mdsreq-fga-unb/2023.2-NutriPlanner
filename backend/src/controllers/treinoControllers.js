@@ -62,3 +62,22 @@ exports.getTreino = async (req, res) => {
         });
     }
 }
+
+// Editar treino
+
+exports.editarTreino = async (req, res) => {
+    try {
+        const data = await Treino.findOneAndUpdate({ '_id': req.params.idTreino, 'idPaciente': req.params.idPaciente }, req.body, { new: false });
+
+        res.status(200).json({
+            status: "sucesso",
+            message: "Treino atualizado com sucesso",
+            data
+        });
+    } catch (err) {
+        res.status(400).json({
+            status: "falha",
+            message: err.message
+        });
+    }
+}

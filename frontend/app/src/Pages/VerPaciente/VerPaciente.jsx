@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import moment from "moment";
 
@@ -16,6 +16,8 @@ import paciente from '../../assets/icons/Paciente.svg';
 import adicaoPaciente from '../../assets/icons/Adição Paciente.svg';
 
 const VerPaciente = () => {
+    const { id } = useParams();
+
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [dadosPaciente, setDadosPaciente] = useState(null);
@@ -34,11 +36,11 @@ const VerPaciente = () => {
             }
         };
 
-        getPaciente('65768adfa5b4bcb0f69ee4ab');
+        getPaciente(id);
     }, []);
 
     function handleEditarPaciente() {
-        navigate('/editarPaciente');
+        navigate(`/editarPaciente/${id}`);
     }
 
     function handleVoltar() {
@@ -48,9 +50,6 @@ const VerPaciente = () => {
     if (loading) {
         return <div>Carregando...</div>;
     }
-
-    console.log(dadosPaciente)
-
 
     return (
         <div className="VerPaciente">

@@ -15,7 +15,7 @@ export default function AppRoutes() {
 				<Route path="/" element={<Login />} />
 				<Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
 				<Route path="/cadastrarPaciente" element={<PrivateRoute><CadastroPaciente /></PrivateRoute>} />
-				<Route path="/verPaciente" element={<PrivateRoute><VerPaciente/></PrivateRoute>} />
+				<Route path="/verPaciente/:id" element={<PrivateRoute><VerPaciente/></PrivateRoute>} />
 
 			</Routes>
 		</BrowserRouter>

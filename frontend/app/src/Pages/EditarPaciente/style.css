@@ -1,0 +1,35 @@
+.EditarPaciente-novaCircunferenciaBtn{
+    background-color: #68A797;
+    border: none;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.EditarPaciente-textoLabelCircunferencia{
+    font-family: 'Poppins', sans-serif;
+    color: #FFF;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.EditarPaciente-cardInterno-Infor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.EditarPaciente-circunferenciasCard{
+    display: flex;
+    flex-direction: column;
+    background-color: #68A797;
+    border-radius: 20px;
+    padding: 15px;
+    width: 400px;
+    margin: 10px;
+    justify-content: space-between;
+    justify-content: center;
+    white-space: nowrap; 
+    /* display: inline-block; */
+}

@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
@@ -20,6 +21,8 @@ import sair from '../../assets/icons/Sair.svg';
 import salvar from '../../assets/icons/Salvar.svg';
 import voltar from '../../assets/icons/Voltar.svg';
 
+import './style.css'
+
 const EditarPaciente = () => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,7 +30,7 @@ const EditarPaciente = () => {
     const state = location.state;
     // const dadosPaciente = state.dados;
 
-    const dadosPaciente = {
+    const [dadosPaciente, setDadosPaciente] = useState({
         paciente: {
             nome: 'Maria Alice Bernardo da Costa Silva',
             dtNascimento: '30/09/20/03',
@@ -90,7 +93,7 @@ const EditarPaciente = () => {
                     pescoco: '45',
                 },
                 {
-                    bracoEsquerdo: '20',
+                    bracoEsquerdo: '35',
                     bracoDireito: '20',
                     antebracoEsquerdo: '10',
                     antebracoDireito: '10',
@@ -122,7 +125,7 @@ const EditarPaciente = () => {
                     pescoco: '45',
                 },
                 {
-                    bracoEsquerdo: '20',
+                    bracoEsquerdo: '49',
                     bracoDireito: '20',
                     antebracoEsquerdo: '10',
                     antebracoDireito: '10',
@@ -164,7 +167,7 @@ const EditarPaciente = () => {
                 abdominal: 'Sei lá 7'
             },
         }
-    }
+    })
 
     console.log({dadosPaciente})
 
@@ -210,13 +213,42 @@ const EditarPaciente = () => {
         dadosPaciente.medida[name] = value;
     };
 
-    const preencheAtributoCircunferencias = (event) => {
+    const preencheAtributoCircunferencias = (event, index) => {
         let { name, value } = event.target;
         value = tratamentoDecimal(value)
 
 
-        dadosPaciente.medida.circunferencia[0][name] = value;
+        dadosPaciente.medida.circunferencia[index][name] = value;
     };
+
+    const adicionaNovaCircunferencia = (event) => {
+        const indexCircunferencia = dadosPaciente.medida.circunferencia.length;
+
+        const novaCircunferencia = {
+            bracoEsquerdo: '',
+            bracoDireito: '',
+            antebracoEsquerdo: '',
+            antebracoDireito: '',
+            abdomen: '',
+            cintura: '',
+            peitoral: '',
+            ombros: '',
+            coxaEsquerda: '',
+            coxaDireita: '',
+            panturrilhaEsquerda: '',
+            panturrilhaDireita: '',
+            quadril: '',
+            pescoco: '',
+          };
+      
+          setDadosPaciente((prevDadosPaciente) => ({
+            ...prevDadosPaciente,
+            medida: {
+              ...prevDadosPaciente.medida,
+              circunferencia: [...prevDadosPaciente.medida.circunferencia, novaCircunferencia],
+            },
+          }));
+    }
 
     const preencheAtributoDobrasCutaneas = (event) => {
         let { name, value } = event.target;
@@ -311,7 +343,7 @@ const EditarPaciente = () => {
             alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
             console.log(error.response.data)
           });
-    };
+    }
 
     return(
         <div className="CadastroPaciente">
@@ -652,153 +684,184 @@ const EditarPaciente = () => {
 
                         <div className='CadastroPaciente-campos-formulario CadastroPaciente-container'>
                             {/* Primeira Coluna de Campos */}
-                            <div>
-                                <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="bracoEsquerdo">Braço Esquerdo</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="bracoEsquerdo"
-                                        name="bracoEsquerdo"
-                                        onChange={e => preencheAtributoCircunferencias(e)}
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="antebracoEsquerdo">Antebraço Esquerdo</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="antebracoEsquerdo"
-                                        name="antebracoEsquerdo"
-                                        onChange={e => preencheAtributoCircunferencias(e)}  
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="coxaEsquerda">Coxa Esquerda</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="coxaEsquerda"
-                                        name="coxaEsquerda"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="panturrilhaEsquerda">Panturrilha Esquerda</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="panturrilhaEsquerda" 
-                                        name="panturrilhaEsquerda"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="abdomen">Abdômen</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="abdomen"
-                                        name="abdomen"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="peitoral">Peitoral</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="peitoral"
-                                        name="peitoral"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="quadril">Quadril</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="quadril"
-                                        name="quadril"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
-                            </div>
-    
-                            {/* Segunda Coluna de Campos */}
-                            <div>
-                                <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="bracoDireito">Braço Direito</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="bracoDireito"
-                                        name="bracoDireito"
-                                        onChange={e => preencheAtributoCircunferencias(e)}  
-                                        />
-                                    </div>       
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="antebracoDireito">Antebraço Direito</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="antebracoDireito"
-                                        name="antebracoDireito"
-                                        onChange={e => preencheAtributoCircunferencias(e)}  
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="coxaDireita">Coxa Direita</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="coxaDireita"
-                                        name="coxaDireita"
-                                        onChange={e => preencheAtributoCircunferencias(e)}  
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="panturrilhaDireita">Panturrilha Direita</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="panturrilhaDireita"
-                                        name="panturrilhaDireita"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="cintura">Cintura</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="cintura"
-                                        name="cintura"
-                                        onChange={e => preencheAtributoCircunferencias(e)}  
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="ombros">Ombros</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="ombros"
-                                        name="ombros"
-                                        onChange={e => preencheAtributoCircunferencias(e)}  
-                                        />
-                                    </div>
-                                    <div className="CadastroPaciente-item-formulario">
-                                        <label className="CadastroPaciente-label-campo" for="pescoco">Pescoço</label>
-                                        <input 
-                                        className="CadastroPaciente-input CadastroPaciente-input-curto" 
-                                        type="tel" 
-                                        id="pescoco"
-                                        name="pescoco"
-                                        onChange={e => preencheAtributoCircunferencias(e)} 
-                                        />
-                                    </div>
 
+
+                            <div className="EditarPaciente-circunferenciasCard">
+                                <button className="EditarPaciente-novaCircunferenciaBtn" onClick={e => adicionaNovaCircunferencia(e)}>Adicionar circunferência</button>
                             </div>
+                                    
+                            {dadosPaciente.medida.circunferencia.reverse().map((medida, index)=>(
+                                    <div key={index} className="EditarPaciente-circunferenciasCard">
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Braço esquerdo</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="bracoEsquerdo"
+                                            name="bracoEsquerdo"
+                                            value={medida.bracoEsquerdo}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Braço direito</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="bracoDireito"
+                                            name="bracoDireito"
+                                            value={medida.bracoDireito}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}  
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Antebraço esquerdo</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="antebracoEsquerdo"
+                                            name="antebracoEsquerdo"
+                                            value={medida.antebracoEsquerdo}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}  
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Antebraço direito</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="antebracoDireito"
+                                            name="antebracoDireito"
+                                            value={medida.antebracoDireito}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}  
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Abdômen</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="abdomen"
+                                            name="abdomen"
+                                            value={medida.abdomen}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Cintura</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="cintura"
+                                            name="cintura"
+                                            value={medida.cintura}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}  
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Peitoral</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="peitoral"
+                                            name="peitoral"
+                                            value={medida.peitoral}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Ombros</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="ombros"
+                                            name="ombros"
+                                            value={medida.ombros}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}  
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Coxa esquerda</p>
+                                            <input 
+                                                className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                                type="tel" 
+                                                id="coxaEsquerda"
+                                                name="coxaEsquerda"
+                                                value={medida.coxaEsquerda}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Coxa direita</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="coxaDireita"
+                                            name="coxaDireita"
+                                            value={medida.coxaDireita}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)}  
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Panturrilha esquerda</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="panturrilhaEsquerda" 
+                                            name="panturrilhaEsquerda"
+                                            value={medida.panturrilhaEsquerda}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Panturrilha direita</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="panturrilhaDireita"
+                                            name="panturrilhaDireita"
+                                            value={medida.panturrilhaDireita}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Quadril</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="quadril"
+                                            name="quadril"
+                                            value={medida.quadril}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+
+                                        <div className="EditarPaciente-cardInterno-Infor">
+                                            <p className="EditarPaciente-textoLabelCircunferencia">Pescoço</p>
+                                            <input 
+                                            className="CadastroPaciente-input CadastroPaciente-input-curto" 
+                                            type="tel" 
+                                            id="pescoco"
+                                            name="pescoco"
+                                            value={medida.pescoco}
+                                            onChange={e => preencheAtributoCircunferencias(e, index)} 
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
                         </div>
                         
                         <h3>Dobras Cutâneas (Protocolo: Pollock, 7DC)</h3>

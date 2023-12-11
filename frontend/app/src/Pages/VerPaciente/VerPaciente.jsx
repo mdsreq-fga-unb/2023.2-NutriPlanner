@@ -240,7 +240,7 @@ const VerPaciente = () => {
                     <a href="/" className='VerPaciente-item-menu'>
                         <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente} />
                     </a>
-                    <a href="/" className='VerPaciente-item-menu'>
+                    <a href="/criarDieta" className='VerPaciente-item-menu'>
                         <MenuButton title="Criar Dieta" icon={dieta}/>
                     </a>
                     <a href="/" className='VerPaciente-item-menu'>

@@ -189,84 +189,147 @@ const VerPaciente = () => {
                             </div>
                         </div>
 
-                    <div className="VerPaciente-avaliacaoAtropometrica">
+                        <div className="VerPaciente-avaliacaoAtropometrica">
                         <h2 className="VerPaciente-h2">Avaliação Antropométrica</h2>
                         <div className="VerPaciente-infoBox">
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Peso atual em jejum</p>
-                                <p className="VerPaciente-texto">{dadosPaciente.medida.pesoJejum} kg</p>
-                            </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Peso Objetivo</p>
-                                <p className="VerPaciente-texto">{dadosPaciente.medida.pesoObjetivo} kg</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Peso atual em jejum</p>
+                            <p className="VerPaciente-texto"> {dadosPaciente.medida.pesoJejum} kg</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Altura</p>
-                                <p className="VerPaciente-texto">{dadosPaciente.medida.altura} m</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Peso Objetivo</p>
+                            <p className="VerPaciente-texto">{dadosPaciente.medida.pesoObjetivo} kg</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">IMC</p>
-                                <p className="VerPaciente-texto">{dadosPaciente.medida.imc}</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Altura</p>
+                            <p className="VerPaciente-texto"> {dadosPaciente.medida.altura} m</p>
+                        </div>
 
-                            <h3 className="VerPaciente-h3">Dobras Cutâneas</h3>
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Subcapsular</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.subscapular + 'mm'}</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">IMC</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.imc}</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Axilar-média</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.axilarMedia + 'mm'}</p>
-                            </div>
+                        <h3 className="VerPaciente-h3">Dobras Cutâneas</h3>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Subcapsular</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.subscapular + 'mm'}</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Coxa</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.coxa + 'mm'}</p>
-                           </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Axilar-média</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.axilarMedia + 'mm'}</p>
+                        </div>
 
-                           <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Tricipetal</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.tricipetal + 'mm'}</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Coxa</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.coxa + 'mm'}</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Supra-ilíaca</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.suprailiaca + 'mm'}</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Tricipetal</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.tricipetal + 'mm'}</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Peitoral</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.peitoral + 'mm'}</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Supra-ilíaca</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.suprailiaca + 'mm'}</p>
+                        </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
-                                <p className="VerPaciente-textoLabel">Abdominal</p>
-                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.abdominal + 'mm'}</p>
-                            </div>
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Peitoral</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.peitoral + 'mm'}</p>
+                        </div>
 
-                            <h3 className="VerPaciente-h3">Circunferências (Da mais recente à mais antiga)</h3>
-                            {dadosPaciente.medida.circunferencia.reverse().map((medida, index) => (
-                            <div  className="VerPaciente-carrosselArea">
-                            <div className="VerPaciente-carrosselArea">
-                                <div key={index} className="VerPaciente-circunferenciasCard">
-                                    {Object.entries(medida).map(([key, value]) => (
-                                        key != '_id' && value && (
-                                            <div key={key} className="VerPaciente-cardInterno-Infor">
-                                                <p className="VerPaciente-textoLabelCircunferencia">{key}</p>
-                                                <p className="VerPaciente-textoCircunferencia">{value} cm </p>
-                                            </div>
-                                        )
-                                    ))}
+                        <div className="VerPaciente-cardInterno-Infor">
+                            <p className="VerPaciente-textoLabel">Abdominal</p>
+                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.abdominal + 'mm'}</p>
+                        </div>
+
+                        <h3 className="VerPaciente-h3">Circunferências (Da mais recente à mais antiga)</h3>
+                        <div className="VerPaciente-carrosselArea">
+                        
+                            {dadosPaciente.medida.circunferencia.reverse().map((medida, index)=>(
+                            <div key={index} className="VerPaciente-circunferenciasCard">
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Braço esquerdo</p>
+                                    <p className="VerPaciente-textoCircunferencia">{"Não informado" ||medida.bracoEsquerdo + 'cm'}</p>
                                 </div>
-                            </div>                            
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Braço direito</p>
+                                    <p className="VerPaciente-textoCircunferencia">{"Não informado" || medida.bracoDireito+ 'cm'}</p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Antebraço esquerdo</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.antebracoEsquerdo} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Antebraço direito</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.antebracoDireito} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Abdômen</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.abdomen} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Cintura</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.cintura} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Peitoral</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.peitoral} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Ombros</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.ombros} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Coxa esquerda</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.coxaEsquerda} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Coxa direita</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.coxaDireita} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Panturrilha esquerda</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaEsquerda} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Panturrilha direita</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaDireita} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Quadril</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.quadril} cm </p>
+                                </div>
+
+                                <div className="VerPaciente-cardInterno-Infor">
+                                    <p className="VerPaciente-textoLabelCircunferencia">Pescoço</p>
+                                    <p className="VerPaciente-textoCircunferencia">: {medida.pescoco} cm </p>
+                                </div>
                             </div>
                             ))}
+                        </div> 
                         </div>
                     </div>
+
                 </div>
             </div>
             <Footer className="VerPaciente-rodape" />

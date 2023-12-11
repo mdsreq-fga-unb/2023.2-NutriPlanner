@@ -38,7 +38,7 @@ const CadastroTreino = () =>{
       },
     ],
   }
-  const [quantidadeTreinos, setQuantidadeTreinos] = useState(1);
+  const [quantidadeTreinos, setQuantidadeTreinos] = useState(0);
   const [indiceSessao, setIndiceSessao] = useState(0);
   let indiceExercicio = 0;
   

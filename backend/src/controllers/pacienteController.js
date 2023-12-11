@@ -100,9 +100,13 @@ exports.buscaAniversariantes = async (req, res) => {
         const dataDaquiQuinzeDias = new Date(new Date().setDate(dataAtual.getDate() + 15));
 
         const aniversariantes = await Paciente.find({
-            dtNascimento: {
-                $gte: dataAtual,
-                $lte: dataDaquiQuinzeDias
+            $expr: {
+                $and: [
+                    { $gte: [{ $dayOfMonth: "$dtNascimento" }, { $dayOfMonth: dataAtual }] },
+                    { $gte: [{ $month: "$dtNascimento" }, { $month: dataAtual }] },
+                    { $lte: [{ $dayOfMonth: "$dtNascimento" }, { $dayOfMonth: dataDaquiQuinzeDias }] },
+                    { $lte: [{ $month: "$dtNascimento" }, { $month: dataDaquiQuinzeDias }] },
+                ]
             }
         }).sort({ dtNascimento: 1});
 

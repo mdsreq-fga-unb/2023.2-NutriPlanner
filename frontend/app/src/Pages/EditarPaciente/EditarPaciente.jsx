@@ -25,131 +25,146 @@ const EditarPaciente = () => {
     const location = useLocation();
 
     const state = location.state;
-    const dadosPaciente = state.dados;
+    // const dadosPaciente = state.dados;
 
-    // const dadosPaciente = {
-    //     paciente: {
-    //         nome: 'Maria Alice Bernardo da Costa Silva',
-    //         dtNascimento: '30/09/20/03',
-    //         sexo: 'Feminino',
-    //         email: 'marialice3003@gmail.com',
-    //         telefone: '(61)984662347',
-    //         endereco: 'Qd. 4, Lt. 24, Vila São Luiz 1 - Santo Antônio do Descoberto - GO',
-    //         questionario: {
-    //             objetivosPaciente: 'ficar com um bundão',
-    //             problemasSaudeIndividual: 'Não possui',
-    //             problemasSaudeFamiliares: 'Não possui',
-    //             medicamentosIngeridos: [], 
-    //             alergiasAlimentares: 'Não possui',
-    //             alteracoes: 'Nunca sentiu',
-    //             cirurgias: 'Nunca fez',
-    //             lesoes: 'toda quebrada',
-    //             restricoesMedicas: 'Não possui',
-    //             habitosGeraisAlimentares: 'Come doce demais'
-    //         },
-    //         gastoEnergeticoDiario: '2000',
-    //         metabolismoBasal: '1500',
-    //         valorCaloricoPlano: '2500',
-    //         conclusoes: 'Linda linda'
-    //     },
-    //     medida: {
-    //         altura: '1,58',
-    //         pesoJejum: '48',
-    //         pesoObjetivo: '55',
-    //         imc: '20',
-    //         circunferencia: [
-    //             {
-    //                 bracoEsquerdo: '20',
-    //                 bracoDireito: '20',
-    //                 antebracoEsquerdo: '10',
-    //                 antebracoDireito: '10',
-    //                 abdomen: '60',
-    //                 cintura: '48',
-    //                 peitoral: '75',
-    //                 ombros: '90',
-    //                 coxaEsquerda: '80',
-    //                 coxaDireita: '80',
-    //                 panturrilhaEsquerda: '65',
-    //                 panturrilhaDireita: '65',
-    //                 quadril: '80',
-    //                 pescoco: '45',
-    //             },
-    //             {
-    //                 bracoEsquerdo: '20',
-    //                 bracoDireito: '20',
-    //                 antebracoEsquerdo: '10',
-    //                 antebracoDireito: '10',
-    //                 abdomen: '60',
-    //                 cintura: '48',
-    //                 peitoral: '75',
-    //                 ombros: '90',
-    //                 coxaEsquerda: '80',
-    //                 coxaDireita: '80',
-    //                 panturrilhaEsquerda: '65',
-    //                 panturrilhaDireita: '65',
-    //                 quadril: '80',
-    //                 pescoco: '45',
-    //             },
-    //             {
-    //                 bracoEsquerdo: '20',
-    //                 bracoDireito: '20',
-    //                 antebracoEsquerdo: '10',
-    //                 antebracoDireito: '10',
-    //                 abdomen: '60',
-    //                 cintura: '48',
-    //                 peitoral: '75',
-    //                 ombros: '90',
-    //                 coxaEsquerda: '80',
-    //                 coxaDireita: '80',
-    //                 panturrilhaEsquerda: '65',
-    //                 panturrilhaDireita: '65',
-    //                 quadril: '80',
-    //                 pescoco: '45',
-    //             },
-    //             {
-    //                 bracoEsquerdo: '20',
-    //                 bracoDireito: '20',
-    //                 antebracoEsquerdo: '10',
-    //                 antebracoDireito: '10',
-    //                 abdomen: '60',
-    //                 cintura: '48',
-    //                 peitoral: '75',
-    //                 ombros: '90',
-    //                 coxaEsquerda: '80',
-    //                 coxaDireita: '80',
-    //                 panturrilhaEsquerda: '65',
-    //                 panturrilhaDireita: '65',
-    //                 quadril: '80',
-    //                 pescoco: '45',
-    //             },
-    //             {
-    //                 bracoEsquerdo: '20',
-    //                 bracoDireito: '20',
-    //                 antebracoEsquerdo: '10',
-    //                 antebracoDireito: '10',
-    //                 abdomen: '60',
-    //                 cintura: '48',
-    //                 peitoral: '75',
-    //                 ombros: '90',
-    //                 coxaEsquerda: '80',
-    //                 coxaDireita: '80',
-    //                 panturrilhaEsquerda: '65',
-    //                 panturrilhaDireita: '65',
-    //                 quadril: '80',
-    //                 pescoco: '45',
-    //             }
-    //         ],
-    //         dobrasCutaneas: {
-    //             subscapular: 'Sei lá 1',
-    //             axilarMedia: 'Sei lá 2',
-    //             coxa: 'Sei lá 3',
-    //             tricipetal: 'Sei lá 4',
-    //             suprailiaca: 'Sei lá 5',
-    //             peitoral: 'Sei lá 6',
-    //             abdominal: 'Sei lá 7'
-    //         },
-    //     }
-    // }
+    const dadosPaciente = {
+        paciente: {
+            nome: 'Maria Alice Bernardo da Costa Silva',
+            dtNascimento: '30/09/20/03',
+            sexo: 'Feminino',
+            email: 'marialice3003@gmail.com',
+            telefone: '(61)984662347',
+            endereco: 'Qd. 4, Lt. 24, Vila São Luiz 1 - Santo Antônio do Descoberto - GO',
+            questionario: {
+                objetivosPaciente: 'ficar com um bundão',
+                problemasSaudeIndividual: 'Não possui',
+                problemasSaudeFamiliares: 'Não possui',
+                medicamentosIngeridos: [{            
+                        nome: 'Rivotril',
+                        horario: '3:00',
+                        tipo: 'Contínuo'
+                    },
+                    {            
+                        nome: 'Rivotril',
+                        horario: '3:00',
+                        tipo: 'Contínuo'
+                    },
+                    {            
+                        nome: 'Rivotril',
+                        horario: '3:00',
+                        tipo: 'Contínuo'
+                    },
+                ], 
+                alergiasAlimentares: 'Não possui',
+                alteracoes: 'Nunca sentiu',
+                cirurgias: 'Nunca fez',
+                lesoes: 'toda quebrada',
+                restricoesMedicas: 'Não possui',
+                habitosGeraisAlimentares: 'Come doce demais'
+            },
+            gastoEnergeticoDiario: '2000',
+            metabolismoBasal: '1500',
+            valorCaloricoPlano: '2500',
+            conclusoes: 'Linda linda'
+        },
+        medida: {
+            altura: '1,58',
+            pesoJejum: '48',
+            pesoObjetivo: '55',
+            imc: '20',
+            circunferencia: [
+                {
+                    bracoEsquerdo: '20',
+                    bracoDireito: '20',
+                    antebracoEsquerdo: '10',
+                    antebracoDireito: '10',
+                    abdomen: '60',
+                    cintura: '48',
+                    peitoral: '75',
+                    ombros: '90',
+                    coxaEsquerda: '80',
+                    coxaDireita: '80',
+                    panturrilhaEsquerda: '65',
+                    panturrilhaDireita: '65',
+                    quadril: '80',
+                    pescoco: '45',
+                },
+                {
+                    bracoEsquerdo: '20',
+                    bracoDireito: '20',
+                    antebracoEsquerdo: '10',
+                    antebracoDireito: '10',
+                    abdomen: '60',
+                    cintura: '48',
+                    peitoral: '75',
+                    ombros: '90',
+                    coxaEsquerda: '80',
+                    coxaDireita: '80',
+                    panturrilhaEsquerda: '65',
+                    panturrilhaDireita: '65',
+                    quadril: '80',
+                    pescoco: '45',
+                },
+                {
+                    bracoEsquerdo: '20',
+                    bracoDireito: '20',
+                    antebracoEsquerdo: '10',
+                    antebracoDireito: '10',
+                    abdomen: '60',
+                    cintura: '48',
+                    peitoral: '75',
+                    ombros: '90',
+                    coxaEsquerda: '80',
+                    coxaDireita: '80',
+                    panturrilhaEsquerda: '65',
+                    panturrilhaDireita: '65',
+                    quadril: '80',
+                    pescoco: '45',
+                },
+                {
+                    bracoEsquerdo: '20',
+                    bracoDireito: '20',
+                    antebracoEsquerdo: '10',
+                    antebracoDireito: '10',
+                    abdomen: '60',
+                    cintura: '48',
+                    peitoral: '75',
+                    ombros: '90',
+                    coxaEsquerda: '80',
+                    coxaDireita: '80',
+                    panturrilhaEsquerda: '65',
+                    panturrilhaDireita: '65',
+                    quadril: '80',
+                    pescoco: '45',
+                },
+                {
+                    bracoEsquerdo: '20',
+                    bracoDireito: '20',
+                    antebracoEsquerdo: '10',
+                    antebracoDireito: '10',
+                    abdomen: '60',
+                    cintura: '48',
+                    peitoral: '75',
+                    ombros: '90',
+                    coxaEsquerda: '80',
+                    coxaDireita: '80',
+                    panturrilhaEsquerda: '65',
+                    panturrilhaDireita: '65',
+                    quadril: '80',
+                    pescoco: '45',
+                }
+            ],
+            dobrasCutaneas: {
+                subscapular: 'Sei lá 1',
+                axilarMedia: 'Sei lá 2',
+                coxa: 'Sei lá 3',
+                tricipetal: 'Sei lá 4',
+                suprailiaca: 'Sei lá 5',
+                peitoral: 'Sei lá 6',
+                abdominal: 'Sei lá 7'
+            },
+        }
+    }
 
     console.log({dadosPaciente})
 
@@ -159,6 +174,144 @@ const EditarPaciente = () => {
 
     //ver como vou fazer com os medicamentos
     //Ver como vou fazer com as cincunferencias
+
+    function tratamentoDecimal(valor)  {
+        valor = String(valor);
+        valor = valor.replace(/,/g, '.');
+        
+        return valor;
+    }
+    
+    const preencheAtributoPaciente = (event) => {
+        let { name, value } = event.target;
+
+        if(name == 'gastoEnergeticoDiario' || name == 'metabolismoBasal' || name == 'valorCaloricoPlano')
+            value = tratamentoDecimal(value)
+
+        dadosPaciente.paciente[name] = value;
+    };
+
+    const preencheAtributoQuestionario = (event) => {
+        const { name, value } = event.target;
+        dadosPaciente.paciente.questionario[name] = value;
+    };
+
+    const preencheAtributoMedicamento = (event, indice) => {
+        const { name, value } = event.target;
+        
+        const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
+        medicamentoAtual[name] = value;
+    };
+
+    const preencheAtributoMedidasCorporais = (event) => {
+        let { name, value } = event.target;
+        value = tratamentoDecimal(value)
+
+        dadosPaciente.medida[name] = value;
+    };
+
+    const preencheAtributoCircunferencias = (event) => {
+        let { name, value } = event.target;
+        value = tratamentoDecimal(value)
+
+
+        dadosPaciente.medida.circunferencia[0][name] = value;
+    };
+
+    const preencheAtributoDobrasCutaneas = (event) => {
+        let { name, value } = event.target;
+        value = tratamentoDecimal(value)
+
+        dadosPaciente.medida.dobrasCutaneas[name] = value;
+    };
+
+
+    let indiceMedicamento = 0;
+
+    function adicionarMedicamento(event, index) {
+        event.preventDefault()
+
+        dadosPaciente.paciente.questionario.medicamentosIngeridos.push({
+            nome: '',
+            horario: '',
+            tipo: ''
+        })
+
+        let containerCampos = document.createElement('div')
+        containerCampos.classList.add('CadastroPaciente-campos-medicamento');
+        containerCampos.dataset.index = indiceMedicamento;
+        
+        containerCampos.innerHTML = `
+            <div class="CadastroPaciente-item-formulario-medicamento">
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio" for="nomeMedicamento">Nome do Medicamento</label>
+                <input class="CadastroPaciente-input CadastroPaciente-input-medicamento" type="text" id="nomeMedicamento" name="nome" required="required" maxlength="200"/>
+            </div>
+            <div class="CadastroPaciente-item-formulario-medicamento">
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio" for="horario">Horário</label>
+                <input class="CadastroPaciente-input CadastroPaciente-input-horario" type="time" id="horario" name="horario" required="required"/>
+            </div>
+            <div class="CadastroPaciente-item-formulario-medicamento">
+                <label class="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio">Tipo de Uso</label>
+                <select class="CadastroPaciente-input CadastroPaciente-input-select" id="tipo" name="tipo">
+                    <option value="" disabled="disabled" selected="selected">Selecione</option>
+                    <option value="Eventual">Eventual</option>
+                    <option value="Contínuo">Contínuo</option>
+                </select>
+            </div>
+        `
+        const inputNome = containerCampos.querySelector('.CadastroPaciente-input-medicamento');
+        inputNome.addEventListener('change', function(e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index)
+        })
+
+        const inputHorario = containerCampos.querySelector('.CadastroPaciente-input-horario');
+        inputHorario.addEventListener('change', function(e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index)
+        })
+
+        const inputTipo = containerCampos.querySelector('select');
+        inputTipo.addEventListener('change', function(e) {
+            preencheAtributoMedicamento(e, containerCampos.dataset.index)
+        })
+
+        document.getElementById('formMedicamento').appendChild(containerCampos);
+        indiceMedicamento++;
+    }
+    
+    function removerMedicamento(event) {
+        event.preventDefault()
+
+        dadosPaciente.paciente.questionario.medicamentosIngeridos.pop()
+        const formMedicamento = document.getElementById('formMedicamento');
+        const medicamentos = formMedicamento.querySelectorAll('.CadastroPaciente-campos-medicamento');
+
+        if (medicamentos.length > 0) {
+            formMedicamento.removeChild(medicamentos[medicamentos.length - 1]);
+        }
+
+        indiceMedicamento--;
+    }
+
+    function handleVoltar(e){
+        navigate('/home');
+    }
+
+
+    function cadastrarPaciente(event){
+        event.preventDefault();
+
+        console.log(dadosPaciente)
+
+        const url = 'http://localhost:3000/pacientes';
+
+        axios.post(url, dadosPaciente)
+          .then((response) => {
+            alert('Usuário Cadastrado com sucesso!')
+          }, (error) => {
+            alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
+            console.log(error.response.data)
+          });
+    };
 
     return(
         <div className="CadastroPaciente">
@@ -334,13 +487,36 @@ const EditarPaciente = () => {
                                 <label className="CadastroPaciente-label-campo">Medicamentos Ingeridos</label>
                                 <div id="formMedicamento">
                                 </div>
+
+                                {dadosPaciente.paciente.questionario.medicamentosIngeridos.map((questionario, index) => (
+                                    <div key={index}>
+                                        <div className="CadastroPaciente-item-formulario-medicamento">
+                                            <label className="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio" htmlFor="nomeMedicamento">Nome do Medicamento</label>
+                                            <input className="CadastroPaciente-input CadastroPaciente-input-medicamento" type="text" id="nomeMedicamento" name="nome" required="required" value={questionario.nome} maxLength="200"/>
+                                        </div>
+                                        <div className="CadastroPaciente-item-formulario-medicamento">
+                                            <label className="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio" htmlFor="horario">Horário</label>
+                                            <input className="CadastroPaciente-input CadastroPaciente-input-horario" type="time" id="horario" name="horario" value={questionario.horario} required="required"/>
+                                        </div>
+                                        <div className="CadastroPaciente-item-formulario-medicamento">
+                                            <label className="CadastroPaciente-label-campo CadastroPaciente-label-medicamento CadastroPaciente-campo-obrigatorio">Tipo de Uso</label>
+                                            <select className="CadastroPaciente-input CadastroPaciente-input-select" id="tipo" name="tipo" value={questionario.tipo}>
+                                                <option value="" disabled="disabled" selected="selected">Selecione</option>
+                                                <option value="Eventual">Eventual</option>
+                                                <option value="Contínuo">Contínuo</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                ))}
+
+
                                 <div className='CadastroPaciente-botoes-medicamento'>
                                     <Button title="Adicionar Medicamento" classeAdicional="CadastroPaciente-botao-opcao" onClick={e => adicionarMedicamento(e, indiceMedicamento)}/>
                                     <Button title="Remover Medicamento" classeAdicional="CadastroPaciente-botao-opcao" onClick={e => removerMedicamento(e)}/>
                                 </div>
                             </div>
                             <div className="CadastroPaciente-item-formulario">
-                                <label className="CadastroPaciente-label-campo" for="alergiasAlimentares">Alergias Alimentares</label>
+                                <label className="CadastroPaciente-label-campo" htmlFor="alergiasAlimentares">Alergias Alimentares</label>
                                 <textarea 
                                 rows="5" 
                                 className="CadastroPaciente-area-texto CadastroPaciente-input" 

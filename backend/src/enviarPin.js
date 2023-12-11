@@ -9,8 +9,6 @@ const transporter = nodemailer.createTransport({    // Configura o serviço de e
   },
 });
 
-const nodemailer = require('nodemailer');
-
 module.exports = async function recuperarPin() {
 
 const mensagemEmail = 

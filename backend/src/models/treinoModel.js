@@ -46,8 +46,7 @@ const treinoSchema = new mongoose.Schema(
                 exercicios: {
                     type: [{
                         nome: {
-                            type: mongoose.Schema.ObjectId,
-                            ref: 'Exercicio',
+                            type: String,
                             required: [true, "O exercício deve ter nome!"]
                         },
                         series: {

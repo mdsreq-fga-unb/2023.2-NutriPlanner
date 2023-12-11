@@ -70,15 +70,15 @@ const CadastroTreino = () =>{
         </div>
         <div class="CadastroTreino-item-formulario-exercicio">
             <label class="CadastroTreino-label-campo CadastroTreino-label-exercicio CadastroTreino-campo-obrigatorio" for="series">Séries</label>
-            <input class="CadastroTreino-input CadastroTreino-input-series" type="number" id="series" name="series" required="required" max="10" min="1" defaultValue="1"/>
+            <input class="CadastroTreino-input CadastroTreino-input-series" type="tel" id="series" name="series" required="required" max="10" min="1" defaultValue="1"/>
         </div>
         <div class="CadastroTreino-item-formulario-exercicio">
             <label class="CadastroTreino-label-campo CadastroTreino-label-exercicio CadastroTreino-campo-obrigatorio" for="repeticoes">Repetições</label>
-            <input class="CadastroTreino-input CadastroTreino-input-repeticoes" type="number" id="repeticoes" name="repeticoes" required="required" max="200" min="1" defaultValue="10"/>
+            <input class="CadastroTreino-input CadastroTreino-input-repeticoes" type="tel" id="repeticoes" name="repeticoes" required="required" max="200" min="1" defaultValue="10"/>
         </div>
         <div class="CadastroTreino-item-formulario-exercicio">
           <label class="CadastroTreino-label-campo CadastroTreino-label-exercicio CadastroTreino-campo-obrigatorio" for="carga">Carga (kg)</label>
-          <input class="CadastroTreino-input CadastroTreino-input-carga" type="number" id="carga" name="carga" required="required" max="200" min="1" defaultValue="10"/>
+          <input class="CadastroTreino-input CadastroTreino-input-carga" type="tel" id="carga" name="carga" required="required" max="200" min="1" defaultValue="10"/>
         </div>
         <div class="CadastroTreino-item-formulario-exercicio">
           <label class="CadastroTreino-label-campo CadastroTreino-label-exercicio CadastroTreino-campo-obrigatorio" for="carga">Técnica avançada</label>
@@ -133,7 +133,7 @@ const CadastroTreino = () =>{
   function cadastrarTreino(event){
     event.preventDefault();
 
-    const url = 'http://localhost:3000/treinos';
+    const url = 'http://localhost:3000/treinos/656fe262751bb37143d35513';
     console.log(dadosTreino)
 
     axios.post(url, dadosTreino)
@@ -146,19 +146,19 @@ const CadastroTreino = () =>{
   };
 
   const preencheAtributoTreino = (event) => {
-    console.log('Event:', event);
     let { name, value } = event.target;
-    dadosTreino.sessoes[name] = value;
+
+    dadosTreino.sessoes[0][name] = value;
 };
 
 
 const diasDaSemana = [
   'Domingo',
-  'Segunda-feira',
-  'Terça-feira',
-  'Quarta-feira',
-  'Quinta-feira',
-  'Sexta-feira',
+  'Segunda-Feira',
+  'Terça-Feira',
+  'Quarta-Feira',
+  'Quinta-Feira',
+  'Sexta-Feira',
   'Sábado',
 ];
 

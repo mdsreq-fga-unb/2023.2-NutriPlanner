@@ -35,6 +35,10 @@ function Login() {
         }
     }
 
+    function handleRecuperarPin(){
+        navigate('/recuperarPin');
+    }
+
     return (
         <div className="login-page">
             <div className="login-form-wrap">
@@ -59,8 +63,11 @@ function Login() {
                                         onClick={(e) => handleLogin(e)}>Entrar</button>
                                 </form>
                                 
+                                <a onClick={handleRecuperarPin}>Recuperar pin</a>
+
                                 <p>{error}</p>
                         </div>
+                        
                     </div>
                 ) : (
                     <div>

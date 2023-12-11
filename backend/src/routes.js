@@ -19,4 +19,22 @@ routes.post('/login', (req,res) =>{
 
 });
 
+routes.post('/recuperar-pin', async (req, res) => {
+    const { question, answer } = req.body;
+  
+    try {
+      const user = await users.findOne({ question, answer });
+      if (!user) {
+        return res.status(401).json({ message: "Resposta incorreta" });
+      } else {
+        await recuperarPin();
+      }
+  
+      return res.status(200).json({ message: "Pin de acesso enviado com sucesso" });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: "Erro ao recuperar o pin de acesso" });
+    }
+  });
+
 module.exports = routes;

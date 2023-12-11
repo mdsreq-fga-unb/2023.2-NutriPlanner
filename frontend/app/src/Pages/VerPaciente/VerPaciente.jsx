@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import moment from "moment";
 
-import "./style.css"
-
-import CardInfoPaciente from "../../Components/CardInfoPaciente";
+import "./style.css";
 import MenuButton from "../../components/Buttons/Menu/MenuButton";
 import Logo from "../../components/Logo/Logo";
-import Footer from '../../components/Footer/Footer'
+import Footer from '../../components/Footer/Footer';
 
-
-//Ícones -- Menu
+// Icons
 import dieta from '../../assets/icons/Adição Dieta.svg';
 import agendamento from '../../assets/icons/Agendamento.svg';
 import treino from '../../assets/icons/Treino.svg';
@@ -19,215 +17,43 @@ import adicaoPaciente from '../../assets/icons/Adição Paciente.svg';
 
 const VerPaciente = () => {
     const navigate = useNavigate();
-
-    function getPaciente(){
-
-        axios.get(``)
-            .then((res) => {
-                console.log(res)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    const [loading, setLoading] = useState(true);
+    const [dadosPaciente, setDadosPaciente] = useState(null);
 
     useEffect(() => {
-        getPaciente();
-    }, [])
+        const getPaciente = async (idPaciente) => {
+            try {
+                const response = await axios.get(`http://localhost:3000/pacientes/${idPaciente}`);
+                const { paciente, medida } = response.data.data;
+                setDadosPaciente({ paciente, medida });
+            } catch (error) {
+                const cardPacientes = document.getElementById('quantidadesPacientes');
+                cardPacientes.innerHTML = `<p class="Card-Pacientes-item">Não foi possível obter a quantidade de pacientes.</p>`;
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    // const dadosPaciente = {
-    //     paciente: {
-    //         nome: 'Maria Alice',
-    //         dtNascimento: '',
-    //         sexo: '',
-    //         email: '',
-    //         telefone: '',
-    //         endereco: '',
-    //         questionario: {
-    //             objetivosPaciente: '',
-    //             problemasSaudeIndividual: '',
-    //             problemasSaudeFamiliares: '',
-    //             medicamentosIngeridos: [],
-    //             alergiasAlimentares: '',
-    //             alteracoes: '',
-    //             cirurgias: '',
-    //             lesoes: '',
-    //             restricoesMedicas: '',
-    //             habitosGeraisAlimentares: ''
-    //         },
-    //         gastoEnergeticoDiario: '',
-    //         metabolismoBasal: '',
-    //         valorCaloricoPlano: '',
-    //         conclusoes: ''
-    //     },
-    //     medida: {
-    //         altura: '',
-    //         pesoJejum: '',
-    //         pesoObjetivo: '',
-            // imc:'',
-    //         circunferencia: [
-    //             {
-    //                 bracoEsquerdo: '',
-    //                 bracoDireito: '',
-    //                 antebracoEsquerdo: '',
-    //                 antebracoDireito: '',
-    //                 abdomen: '',
-    //                 cintura: '',
-    //                 peitoral: '',
-    //                 ombros: '',
-    //                 coxaEsquerda: '',
-    //                 coxaDireita: '',
-    //                 panturrilhaEsquerda: '',
-    //                 panturrilhaDireita: '',
-    //                 quadril: '',
-    //                 pescoco: '',
-    //             }
-    //         ],
-    //         dobrasCutaneas: {
-    //             subscapular: '',
-    //             axilarMedia: '',
-    //             coxa: '',
-    //             tricipetal: '',
-    //             suprailiaca: '',
-    //             peitoral: '',
-    //             abdominal: ''
-    //         },
-    //     }
-    // }
+        getPaciente('65768adfa5b4bcb0f69ee4ab');
+    }, []);
 
-    const dadosPaciente = {
-        paciente: {
-            nome: 'Maria Alice Bernardo da Costa Silva',
-            dtNascimento: '30/09/20/03',
-            sexo: 'Feminino',
-            email: 'marialice3003@gmail.com',
-            telefone: '(61)984662347',
-            endereco: 'Qd. 4, Lt. 24, Vila São Luiz 1 - Santo Antônio do Descoberto - GO',
-            questionario: {
-                objetivosPaciente: 'ficar com um bundão',
-                problemasSaudeIndividual: 'Não possui',
-                problemasSaudeFamiliares: 'Não possui',
-                medicamentosIngeridos: [], 
-                alergiasAlimentares: 'Não possui',
-                alteracoes: 'Nunca sentiu',
-                cirurgias: 'Nunca fez',
-                lesoes: 'toda quebrada',
-                restricoesMedicas: 'Não possui',
-                habitosGeraisAlimentares: 'Come doce demais'
-            },
-            gastoEnergeticoDiario: '2000',
-            metabolismoBasal: '1500',
-            valorCaloricoPlano: '2500',
-            conclusoes: 'Linda linda'
-        },
-        medida: {
-            altura: '1,58',
-            pesoJejum: '48',
-            pesoObjetivo: '55',
-            imc: '20',
-            circunferencia: [
-                {
-                    bracoEsquerdo: '20',
-                    bracoDireito: '20',
-                    antebracoEsquerdo: '10',
-                    antebracoDireito: '10',
-                    abdomen: '60',
-                    cintura: '48',
-                    peitoral: '75',
-                    ombros: '90',
-                    coxaEsquerda: '80',
-                    coxaDireita: '80',
-                    panturrilhaEsquerda: '65',
-                    panturrilhaDireita: '65',
-                    quadril: '80',
-                    pescoco: '45',
-                },
-                {
-                    bracoEsquerdo: '20',
-                    bracoDireito: '20',
-                    antebracoEsquerdo: '10',
-                    antebracoDireito: '10',
-                    abdomen: '60',
-                    cintura: '48',
-                    peitoral: '75',
-                    ombros: '90',
-                    coxaEsquerda: '80',
-                    coxaDireita: '80',
-                    panturrilhaEsquerda: '65',
-                    panturrilhaDireita: '65',
-                    quadril: '80',
-                    pescoco: '45',
-                },
-                {
-                    bracoEsquerdo: '20',
-                    bracoDireito: '20',
-                    antebracoEsquerdo: '10',
-                    antebracoDireito: '10',
-                    abdomen: '60',
-                    cintura: '48',
-                    peitoral: '75',
-                    ombros: '90',
-                    coxaEsquerda: '80',
-                    coxaDireita: '80',
-                    panturrilhaEsquerda: '65',
-                    panturrilhaDireita: '65',
-                    quadril: '80',
-                    pescoco: '45',
-                },
-                {
-                    bracoEsquerdo: '20',
-                    bracoDireito: '20',
-                    antebracoEsquerdo: '10',
-                    antebracoDireito: '10',
-                    abdomen: '60',
-                    cintura: '48',
-                    peitoral: '75',
-                    ombros: '90',
-                    coxaEsquerda: '80',
-                    coxaDireita: '80',
-                    panturrilhaEsquerda: '65',
-                    panturrilhaDireita: '65',
-                    quadril: '80',
-                    pescoco: '45',
-                },
-                {
-                    bracoEsquerdo: '20',
-                    bracoDireito: '20',
-                    antebracoEsquerdo: '10',
-                    antebracoDireito: '10',
-                    abdomen: '60',
-                    cintura: '48',
-                    peitoral: '75',
-                    ombros: '90',
-                    coxaEsquerda: '80',
-                    coxaDireita: '80',
-                    panturrilhaEsquerda: '65',
-                    panturrilhaDireita: '65',
-                    quadril: '80',
-                    pescoco: '45',
-                }
-            ],
-            dobrasCutaneas: {
-                subscapular: 'Sei lá 1',
-                axilarMedia: 'Sei lá 2',
-                coxa: 'Sei lá 3',
-                tricipetal: 'Sei lá 4',
-                suprailiaca: 'Sei lá 5',
-                peitoral: 'Sei lá 6',
-                abdominal: 'Sei lá 7'
-            },
-        }
-    }
-
-    function handleEditarPaciente(){
+    function handleEditarPaciente() {
         navigate('/editarPaciente');
     }
 
-    function handleVoltar(){
+    function handleVoltar() {
         navigate('/home');
     }
 
-    return(
+    if (loading) {
+        return <div>Carregando...</div>;
+    }
+
+    console.log(dadosPaciente)
+
+
+    return (
+        
         <div className="VerPaciente">
             <div className="VerPaciente-barraLateral">
                 <Logo />
@@ -235,288 +61,226 @@ const VerPaciente = () => {
                 <hr className="VerPaciente-menu-divisao" />
                 <nav className="VerPaciente-navegacao">
                     <a href="/" className='VerPaciente-item-menu'>
-                        <MenuButton title="Pacientes" icon={paciente} selecionado="true"/>
+                        <MenuButton title="Pacientes" icon={paciente} selecionado="true" />
                     </a>
                     <a href="/" className='VerPaciente-item-menu'>
                         <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente} />
                     </a>
                     <a href="/" className='VerPaciente-item-menu'>
-                        <MenuButton title="Criar Dieta" icon={dieta}/>
+                        <MenuButton title="Criar Dieta" icon={dieta} />
                     </a>
                     <a href="/" className='VerPaciente-item-menu'>
-                        <MenuButton title="Criar Plano de Treino" icon={treino}/>
+                        <MenuButton title="Criar Plano de Treino" icon={treino} />
                     </a>
                     <a href="/" className='VerPaciente-item-menu'>
                         <MenuButton title="Agendar Consulta" icon={agendamento} />
                     </a>
                 </nav>
             </div>
-            <div className="VerPaciente-areaLateral">
-                
-                {/* <button onClick={handleVoltar} className="VerPaciente-topBtn">Voltar</button> */}
 
+            <div className="VerPaciente-areaLateral">
                 <div>
                     <div className="VerPaciente-cabecalho">
                         <h1 className="VerPaciente-nomePaciente">{dadosPaciente.paciente.nome}</h1>
                         <button onClick={handleEditarPaciente} className="VerPaciente-topBtn">Editar dados</button>
                     </div>
-                    <hr/>
-
+                    <hr />
+                    {/* Render patient information */}
                     <h2 className="VerPaciente-h2">Dados Pessoais</h2>
                     <div className="VerPaciente-infoBox">
-
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Data de nascimento</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.dtNascimento}</p>
+                            <p className="VerPaciente-texto">{moment(dadosPaciente.paciente.dtNascimento).format('DD/MM/YYYY')}</p>
                         </div>
 
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Sexo</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.sexo}</p>
+                            <p className="VerPaciente-texto">{dadosPaciente.paciente.sexo}</p>
                         </div>
-                        
+
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Email</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.email}</p>
+                            <p className="VerPaciente-texto">{dadosPaciente.paciente.email}</p>
                         </div>
 
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Telefone</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.telefone}</p>
+                            <p className="VerPaciente-texto">{dadosPaciente.paciente.telefone}</p>
                         </div>
 
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Endereço </p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.endereco}</p>
+                            <p className="VerPaciente-texto">{dadosPaciente.paciente.endereco}</p>
                         </div>
                     </div>
 
                     <h2 className="VerPaciente-h2">Informações Médicas</h2>
-                    <div className="VerPaciente-infoBox">
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Objetivos do Paciente</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.objetivosPaciente}</p>
+                    <div className="VerPaciente-infoBox">                            
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Objetivos do Paciente</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.objetivosPaciente}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Problemas de Saúde Individual</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.problemasSaudeIndividual}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Problemas de Saúde Familiares</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.problemasSaudeFamiliares}</p>
+                            </div>
+                            {/* Fazer o Map de medicamentosIngeridos */}
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Medicamentos Ingeridos</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.medicamentosIngeridos.nome}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Alergias Alimentares</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.alergiasAlimentares}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Alterações de Saúde</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.alteracoes}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Cirurgias</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.cirurgias}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Lesões Físicas</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.lesoes}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Restrições Médicas</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.restricoesMedicas}</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Hábitos Gerais Alimentares</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.habitosGeraisAlimentares}</p>
+                            </div>
                         </div>
 
-                        
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Problemas de Saúde Individual</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.problemasSaudeIndividual}</p>
+                    <h2 className="VerPaciente-h2">Informações Nutricionais</h2>
+                        <div className="VerPaciente-infoBox">
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Gasto energético diário</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.gastoEnergeticoDiario} kcal</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Metabolismo basal</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.metabolismoBasal} kcal/dia</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Valor calórico do Plano Alimentar</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.valorCaloricoPlano} kcal</p>
+                            </div>
+
+                            <div className="VerPaciente-cardInterno-Infor">
+                                <p className="VerPaciente-textoLabel">Conclusões</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.paciente.conclusoes}</p>
+                            </div>
                         </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Problemas de Saúde Familiares</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.problemasSaudeFamiliares}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Medicamentos Ingeridos</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.medicamentosIngeridos}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Alergias Alimentares</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.alergiasAlimentares}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Alterações de Saúde</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.alteracoes}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Cirurgias</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.cirurgias}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Lesões Físicas</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.lesoes}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Restrições Médicas</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.restricoesMedicas}</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Hábitos Gerais e Alimentares</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.questionario.habitosGeraisAlimentares}</p>
-                        </div>
-
-                    </div>
-
-                    <h2 className="VerPaciente-h2">Informações Nurtricionais</h2>
-                    <div className="VerPaciente-infoBox">
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Gasto energético diário</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.gastoEnergeticoDiario} kcal</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Metabolismo basal</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.metabolismoBasal} kcal/dia</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Valor calórico do Plano Alimentar</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.valorCaloricoPlano} kcal</p>
-                        </div>
-
-                        <div className="VerPaciente-cardInterno-Infor">
-                            <p className="VerPaciente-textoLabel">Conclusões</p>
-                            <p className="VerPaciente-texto">: {dadosPaciente.paciente.conclusoes}</p>
-                        </div>
-
-                    </div>
 
                     <div className="VerPaciente-avaliacaoAtropometrica">
                         <h2 className="VerPaciente-h2">Avaliação Antropométrica</h2>
                         <div className="VerPaciente-infoBox">
-
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Peso atual em jejum</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.pesoJejum} kg</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.medida.pesoJejum} kg</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Peso Objetivo</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.pesoObjetivo} kg</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.medida.pesoObjetivo} kg</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Altura</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.altura} m</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.medida.altura} m</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">IMC</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.imc}</p>
+                                <p className="VerPaciente-texto">{dadosPaciente.medida.imc}</p>
                             </div>
 
                             <h3 className="VerPaciente-h3">Dobras Cutâneas</h3>
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Subcapsular</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.subscapular} mm </p>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.subscapular + 'mm'}</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Axilar-média</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.axilarMedia} mm </p>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.axilarMedia + 'mm'}</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Coxa</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.coxa} mm </p>
-                            </div>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.coxa + 'mm'}</p>
+                           </div>
 
-                            <div className="VerPaciente-cardInterno-Infor">
+                           <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Tricipetal</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.tricipetal} mm </p>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.tricipetal + 'mm'}</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Supra-ilíaca</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.suprailiaca} mm </p>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.suprailiaca + 'mm'}</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Peitoral</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.peitoral} mm </p>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.peitoral + 'mm'}</p>
                             </div>
 
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Abdominal</p>
-                                <p className="VerPaciente-texto">: {dadosPaciente.medida.dobrasCutaneas.abdominal} mm </p>
+                                <p className="VerPaciente-texto">{'Não informado' || dadosPaciente.medida.dobrasCutaneas.abdominal + 'mm'}</p>
                             </div>
-                            
+
                             <h3 className="VerPaciente-h3">Circunferências (Da mais recente à mais antiga)</h3>
+                            {dadosPaciente.medida.circunferencia.reverse().map((medida, index) => (
+                            <div  className="VerPaciente-carrosselArea">
                             <div className="VerPaciente-carrosselArea">
-                                {dadosPaciente.medida.circunferencia.reverse().map((medida, index)=>(
-                                    <div key={index} className="VerPaciente-circunferenciasCard">
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Braço esquerdo</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.bracoEsquerdo} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Braço direito</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.bracoDireito} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Antebraço esquerdo</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.antebracoEsquerdo} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Antebraço direito</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.antebracoDireito} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Abdômen</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.abdomen} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Cintura</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.cintura} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Peitoral</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.peitoral} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Ombros</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.ombros} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Coxa esquerda</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.coxaEsquerda} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Coxa direita</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.coxaDireita} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Panturrilha esquerda</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaEsquerda} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Panturrilha direita</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaDireita} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Quadril</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.quadril} cm </p>
-                                        </div>
-
-                                        <div className="VerPaciente-cardInterno-Infor">
-                                            <p className="VerPaciente-textoLabelCircunferencia">Pescoço</p>
-                                            <p className="VerPaciente-textoCircunferencia">: {medida.pescoco} cm </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>                        
+                                <div key={index} className="VerPaciente-circunferenciasCard">
+                                    {Object.entries(medida).map(([key, value]) => (
+                                        key != '_id' && value && (
+                                            <div key={key} className="VerPaciente-cardInterno-Infor">
+                                                <p className="VerPaciente-textoLabelCircunferencia">{key}</p>
+                                                <p className="VerPaciente-textoCircunferencia">{value} cm </p>
+                                            </div>
+                                        )
+                                    ))}
+                                </div>
+                            </div>                            
+                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
 
-                <Footer className="CadastroPaciente-rodape"/>
+                <Footer className="CadastroPaciente-rodape" />
             </div>
-
         </div>
-    )
+    );
 };
 
 export default VerPaciente
+
+// -- Dar um jeito de, se o vetor medicamentosIngeridos tiver vazio, mostrar a mensagem 'Não informado'.
+
+// -- Fazer o map com medicamentosIngeridos
+
+// -- Se ****sobrar tempo**** tirar o círculo verde de Circunferencias se não tiver nada no array.

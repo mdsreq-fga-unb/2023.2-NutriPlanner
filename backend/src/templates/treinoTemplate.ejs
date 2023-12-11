@@ -6,7 +6,7 @@
     </head>
     <body>
         <p>Data de Emissão: <%= treino.dtEmissao %></p>
-        <p>Paciente: <%= treino.nome %></p>
+        <p>Paciente: <%= paciente.nome %></p>
         
         <% treino.sessoes.forEach(function(sessao) { %>
             <h2>Treino <%= sessao.codigo %></h2>

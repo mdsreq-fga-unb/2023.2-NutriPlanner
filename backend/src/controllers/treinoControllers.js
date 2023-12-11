@@ -1,9 +1,11 @@
 const ejs = require('ejs');
 const puppeteer = require('puppeteer');
 const fs = require('fs').promises;
+const moment = require('moment')
 
 // Model de Treino
 const Treino = require('./../models/treinoModel');
+const Paciente = require('./../models/pacienteModel');
 
 // Cria treino
 exports.criaTreino = async (req, res) => {
@@ -67,7 +69,7 @@ exports.getTreino = async (req, res) => {
     }
 }
 
-async function generatePDF(data) {
+async function generatePDF(dataTreino, dataPaciente) {
     
     // CASO FOR FAZER COM HTML/CSS
     // TROCAR ESSE TRECHO ABAIXO
@@ -75,7 +77,7 @@ async function generatePDF(data) {
     
     const templatePath = `${__dirname}/../templates/treinoTemplate.ejs`;
     console.log(templatePath);
-    const htmlContent = await ejs.renderFile(templatePath, { treino: data });
+    const htmlContent = await ejs.renderFile(templatePath, { treino: dataTreino, paciente: dataPaciente});
     
     // ==========================
 
@@ -94,10 +96,14 @@ async function generatePDF(data) {
 
 exports.pdfTreino = async (req, res) => {
     try {
-        const treino = await Treino.findOne({ '_id': req.params.idTreino, 'idPaciente': req.params.idPaciente });
+        let treino = await Treino.findOne({ '_id': req.params.idTreino, 'idPaciente': req.params.idPaciente }).lean();
 
-        if (treino != null) {
-            const pdfContent = await generatePDF(treino);
+        const paciente = await Paciente.findOne({ '_id': req.params.idPaciente });
+
+        if (treino != null) {    
+            treino.dtEmissao = moment(treino.dtEmissao).format('DD/MM/YYYY');
+            
+            const pdfContent = await generatePDF(treino, paciente);
 
             res.setHeader('Content-Type', 'application/pdf');
             res.setHeader('Content-Disposition', 'attachment; filename=teste.pdf');

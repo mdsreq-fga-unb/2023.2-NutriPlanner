@@ -54,8 +54,8 @@ exports.agendarConsulta = async (req, res) => {
 
     const [paciente, data, horarioDisponivel] = await Promise.all([
       Paciente.findById(req.params.idPaciente, 'ativo nome email'),
-      new Date(req.body.data),
-      checarHorario(new Date(req.body.data))
+      new Date(req.body.dtConsulta),
+      checarHorario(new Date(req.body.dtConsulta))
     ]);
 
     const valPaciente = await validarPaciente(paciente);
@@ -68,13 +68,15 @@ exports.agendarConsulta = async (req, res) => {
 
     // Cria o evento iCalendar
     const event = {
+      productId: 'Leonardo de Lima/NutriPlanner',
       start: [data.getFullYear(), data.getMonth() + 1, data.getDate(), data.getHours(), data.getMinutes()],
       duration: { minutes: 50 },
       title: 'Consulta Nutricional',
       location: local,
       status: 'CONFIRMED',
       busyStatus: 'BUSY',
-      organizer: { name: 'Leonardo Lima', email: 'emailLeonardo@teste.com' },
+      organizer: { name: 'Leonardo de Lima', email: 'leopktibia@hotmail.com' },
+      attendees: [{ name: paciente.nome, email: paciente.email, rsvp: true, partstat: 'ACCEPTED', role: 'REQ-PARTICIPANT' }],
       method: 'REQUEST',
     }
 
@@ -94,20 +96,6 @@ exports.agendarConsulta = async (req, res) => {
     const uidLine = lines.find(line => line.startsWith('UID:'));
     const uid = uidLine ? uidLine.split(':')[1] : null;
 
-    // Configura o e-mail
-    let mailOptions = {
-      from: process.env.EMAIL,
-      to: paciente.email,
-      subject: 'Convite para Consulta Nutricional',
-      text: 'Por favor, veja o compromisso anexado.',
-      icalEvent: {
-        content: arqIcs
-      }
-    };
-
-    // Enviar e-mail
-    await transporter.sendMail(mailOptions);
-
     // Cadastra a consulta no banco de dados
     const consulta = await Consulta.create({
       idPaciente: paciente._id,
@@ -115,6 +103,33 @@ exports.agendarConsulta = async (req, res) => {
       uid: uid,
       local: local,
     });
+
+    // Configura o e-mail
+    let mailOptions = {
+      from: process.env.EMAIL,
+      to: paciente.email,
+      subject: `[Msg. Automática] Agendamento de Consulta Nutricional para ${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`,
+      html: `<div style="font-family: Arial, sans-serif; font-size: 14px;">
+        <p>Olá, ${paciente.nome}!</p>
+        <p>Por favor, veja o compromisso anexado.</p>
+        <ul>
+          <li>Data: ${data.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: 'numeric', month: 'numeric', year: 'numeric' })}</li>
+          <li>Horário: ${data.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: 'numeric', minute: 'numeric' })}</li>
+          <li>Local: ${local}</li>
+        </ul>
+        <p>Com carinho,</p> 
+        <p>    Leonardo de Lima.</p>
+        <br>
+        <p>Caso você queira que esta consulta conste na sua agenda, por favor, marque sim, caso contrário simplesmente ignore.</p>
+        <p>Esta é uma mensagem automática. Por favor, não responda.</p>
+      </div>`,
+      icalEvent: {
+        content: arqIcs
+      }
+    };
+
+    // Enviar e-mail
+    await transporter.sendMail(mailOptions);
 
     res.status(200).json({
       status: 'sucesso',
@@ -137,11 +152,7 @@ exports.agendarConsulta = async (req, res) => {
 exports.reagendarConsulta = async (req, res) => {
   try {
     // Validação dos dados
-    let local;
-
-    if (req.body.local) local = req.body.local;
-
-    const data = new Date(req.body.data)
+    const data = new Date(req.body.dtConsulta)
     const horarioDisponivel = checarHorario(data)
 
     if (!horarioDisponivel) {
@@ -151,14 +162,29 @@ exports.reagendarConsulta = async (req, res) => {
       });
     }
 
+    let updateFields = {};
+
+    if ((req.body.dtConsulta !== undefined && req.body.dtConsulta !== null)) {
+      updateFields = {
+        ...updateFields,
+        dtConsulta: req.body.dtConsulta
+      };
+    }
+
+    if (req.body.local !== undefined && req.body.local !== null) {
+      updateFields = {
+        ...updateFields,
+        local: req.body.local
+      };
+    }
+
     const consulta = await Consulta.findOneAndUpdate(
       {
         '_id': req.params.idConsulta,
         'idPaciente': req.params.idPaciente
       },
       {
-        dtConsulta: data,
-        local: local
+        $set: updateFields
       },
       {
         returnDocument: 'after',
@@ -177,14 +203,16 @@ exports.reagendarConsulta = async (req, res) => {
 
     // Cria o evento iCalendar
     const event = {
+      productId: 'Leonardo de Lima/NutriPlanner',
       start: [data.getFullYear(), data.getMonth() + 1, data.getDate(), data.getHours(), data.getMinutes()],
       duration: { minutes: 50 },
       title: 'Consulta Nutricional',
-      location: local,
+      location: consulta.local,
       status: 'CONFIRMED',
       busyStatus: 'BUSY',
-      organizer: { name: 'Leonardo Lima', email: 'emailLeonardo@teste.com' },
+      organizer: { name: 'Leonardo de Lima', email: 'leopktibia@hotmail.com' },
       method: 'REQUEST',
+      attendees: [{ name: paciente.nome, email: paciente.email, rsvp: true, partstat: 'ACCEPTED', role: 'REQ-PARTICIPANT' }],
       uid: consulta.uid,
     }
 
@@ -202,8 +230,21 @@ exports.reagendarConsulta = async (req, res) => {
     let mailOptions = {
       from: process.env.EMAIL,
       to: paciente.email,
-      subject: 'Reagendamento de Consulta Nutricional',
-      text: 'Por favor, veja o compromisso anexado.',
+      subject: `[Msg. Automática] Reagendamento de Consulta Nutricional para ${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`,
+      html: `<div style="font-family: Arial, sans-serif; font-size: 14px;">
+        <p>Olá, ${paciente.nome}!</p>
+        <p>Por favor, veja o compromisso anexado.</p>
+        <ul>
+          <li>Data: ${data.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', day: 'numeric', month: 'numeric', year: 'numeric' })}</li>
+          <li>Horário: ${data.toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo', hour: 'numeric', minute: 'numeric' })}</li>
+          <li>Local: ${consulta.local}</li>
+        </ul>
+        <p>Com carinho,</p> 
+        <p>    Leonardo de Lima.</p>
+        <br>
+        <p>Caso você queira que esta consulta conste na sua agenda, por favor, marque sim, caso contrário simplesmente ignore.</p>
+        <p>Esta é uma mensagem automática. Por favor, não responda.</p>
+      </div>`,
       icalEvent: {
         content: arqIcs
       }

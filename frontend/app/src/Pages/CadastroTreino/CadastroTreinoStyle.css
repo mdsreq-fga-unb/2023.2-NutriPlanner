@@ -225,9 +225,17 @@
     border-radius: 15px;
     border: 1px solid #000;
  }
+
+ .CadastroTreino-series{
+   line-height: 1.8rem;
+   border-radius: 15px;
+   border: 1px solid #000;
+   width: 1%;
+}
  
  .CadastroTreino-input-texto{
     font-size: 15px;
+    background-color: white;
  }
 
  .CadastroTreino-input-numero{

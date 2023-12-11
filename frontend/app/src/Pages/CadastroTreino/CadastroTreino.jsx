@@ -25,23 +25,15 @@ import voltar from '../../assets/icons/Voltar.svg';
 
 const CadastroTreino = () =>{
   const dadosTreino = {
-    idPaciente: '',
+    idPaciente: '656fe262751bb37143d35513',
     sessoes: [
       {
-        codigo: '',
+        codigo: 'AA',
         dia: '',
         regiaoFocal: '',
         duracaoAerobico: 0,
-        tempoDescanso: 30,
-        exercicios: [
-          {
-            nome: '',
-            series: 1,
-            repeticoes: 10,
-            carga: 0,
-            tecnicaAvancada: '',
-          },
-        ],
+        tempoDescanso: 0,
+        exercicios: [],
       },
     ],
   }
@@ -52,7 +44,7 @@ const CadastroTreino = () =>{
   const preencheAtributoExercicio = (event, indice) => {
     const { name, value } = event.target;
     
-    const exercicioAtual = dadosTreino.sessoes[indiceSessao].exercicios[indice]
+    const exercicioAtual = dadosTreino.sessoes[0].exercicios[indice]
     exercicioAtual[name] = value;
 };
 
@@ -61,8 +53,8 @@ const CadastroTreino = () =>{
 
     dadosTreino.sessoes[indiceSessao].exercicios.push({
       nome: '',
-      series: 1,
-      repeticoes: 10,
+      series: 0,
+      repeticoes: 0,
       carga: 0,
       tecnicaAvancada: '',
   })
@@ -90,7 +82,7 @@ const CadastroTreino = () =>{
         </div>
         <div class="CadastroTreino-item-formulario-exercicio">
           <label class="CadastroTreino-label-campo CadastroTreino-label-exercicio CadastroTreino-campo-obrigatorio" for="carga">Técnica avançada</label>
-          <input class="CadastroTreino-input CadastroTreino-input-tecavancada" type="text" id="tecavancada" name="tecavancada" required="required" max="200" min="1" defaultValue="10"/>
+          <input class="CadastroTreino-input CadastroTreino-input-tecavancada" type="text" id="tecavancada" name="tecnicaAvancada" required="required" max="200" min="1" defaultValue="10"/>
         </div>
 
     `;
@@ -136,7 +128,39 @@ const CadastroTreino = () =>{
     }
 
     indiceExercicio--;
-} 
+  } 
+
+  function cadastrarTreino(event){
+    event.preventDefault();
+
+    const url = 'http://localhost:3000/treinos';
+    console.log(dadosTreino)
+
+    axios.post(url, dadosTreino)
+      .then((response) => {
+        alert('Treino Cadastrado com sucesso!')
+      }, (error) => {
+        alert('Não foi possível adicionar o treino. Verifique os dados informados!')
+        console.log(error.response.data)
+      });
+  };
+
+  const preencheAtributoTreino = (event) => {
+    console.log('Event:', event);
+    let { name, value } = event.target;
+    dadosTreino.sessoes[name] = value;
+};
+
+
+const diasDaSemana = [
+  'Domingo',
+  'Segunda-feira',
+  'Terça-feira',
+  'Quarta-feira',
+  'Quinta-feira',
+  'Sexta-feira',
+  'Sábado',
+];
 
     return(     
         
@@ -155,7 +179,7 @@ const CadastroTreino = () =>{
                     <a href="/" className='CadastroPaciente-item-menu'>
                         <MenuButton title="Criar Dieta" icon={dieta}/>
                     </a>
-                    <a href="/" className='CadastroPaciente-item-menu'>
+                    <a href="/cadastroTreino" className='CadastroPaciente-item-menu'>
                         <MenuButton title="Criar Plano de Treino" icon={treino}/>
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>
@@ -190,7 +214,7 @@ const CadastroTreino = () =>{
                                       className="CadastroTreino-input CadastroTreino-input-texto" 
                                       type="text" 
                                       id="nome" 
-                                      name="nome"
+                                      name="regiaoFocal"
                                       onChange={e => preencheAtributoTreino(e)}
                                       required
                                       maxLength={100}
@@ -200,16 +224,20 @@ const CadastroTreino = () =>{
                         
                         <div className='CadastroTreino-campos-formulario CadastroTreino-container'>
                           <div className="CadastroTreino-item-formulario">
-                                        <label className="CadastroTreino-label-campo CadastroTreino-campo-obrigatorio" for="nome">Dia da semana</label>
-                                        <input 
-                                        className="CadastroTreino-input CadastroTreino-input-texto" 
-                                        type="text" 
-                                        id="nome" 
-                                        name="nome"
-                                        onChange={e => preencheAtributoTreino(e)}
-                                        required
-                                        maxLength={100}
-                                        />
+                              <label className="CadastroTreino-label-campo CadastroTreino-campo-obrigatorio" for="nome">Dia da semana</label>
+                                  <select className="CadastroTreino-input CadastroTreino-input-texto"
+                                  id="nome"
+                                  name="dia"
+                                  onChange={e => preencheAtributoTreino(e)}
+                                  required
+                                >
+                                  <option value="" disabled selected>Selecione o dia da semana</option>
+                                  {diasDaSemana.map((dia, index) => (
+                                    <option key={index} value={dia}>
+                                      {dia}
+                                    </option>
+                                  ))}
+                                </select>
                           </div>
                         </div>
 
@@ -220,7 +248,7 @@ const CadastroTreino = () =>{
                                         className="CadastroTreino-input CadastroTreino-input-numero" 
                                         type="text" 
                                         id="nome" 
-                                        name="nome"
+                                        name="duracaoAerobico"
                                         onChange={e => preencheAtributoTreino(e)}
                                         required
                                         maxLength={100}
@@ -234,26 +262,28 @@ const CadastroTreino = () =>{
                                         className="CadastroTreino-input CadastroTreino-input-numero" 
                                         type="text" 
                                         id="nome" 
-                                        name="nome"
+                                        name="tempoDescanso"
                                         onChange={e => preencheAtributoTreino(e)}
                                         required
                                         maxLength={100}
                                         />
                           </div>
                         </div>
+                        <div className='CadastroTreino-campos-formulario CadastroTreino-container'>
+                          <div className="CadastroTreino-exercicios">
+                            <label className="CadastroTreino-label-campo">Exercícios</label>
+                            <div id="formExercicio" >
+                            </div>
+                            <div className='CadastroTreino-botoes-exercicios'>
+                                <Button title="Adicionar Exercício" classeAdicional="CadastroTreino-botao-opcao" onClick={e => adicionarExercicio(e, indiceExercicio)}/>
+                                <Button title="Remover Exercício" classeAdicional="CadastroTreino-botao-opcao" onClick={e => removerExercicio(e)}/>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                    
-                      <div className="CadastroTreino-exercicios">
-                                <label className="CadastroTreino-label-campo">Exercícios</label>
-                                <div id="formExercicio" >
-                                </div>
-                                <div className='CadastroTreino-botoes-exercicios'>
-                                    <Button title="Adicionar Exercício" classeAdicional="CadastroTreino-botao-opcao" onClick={e => adicionarExercicio(e, indiceExercicio)}/>
-                                    <Button title="Remover Exercício" classeAdicional="CadastroTreino-botao-opcao" onClick={e => removerExercicio(e)}/>
-                                </div>
-                            </div>
     
-                    <Button title="Continuar" classeAdicional="CadastroPaciente-enviar" icon={salvar} onClick={e => cadastrarPaciente(e)}/>
+                    <Button title="Continuar" classeAdicional="CadastroPaciente-enviar" icon={salvar} onClick={e => cadastrarTreino(e)}/>
 
             </div>
             <Footer className="CadastroPaciente-rodape"/>

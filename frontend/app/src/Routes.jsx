@@ -7,6 +7,7 @@ import Login from "./Pages/Login/Login"
 import CadastroPaciente from "./Pages/CadastroPaciente/CadastroPaciente"
 import CadastroTreino from "./Pages/CadastroTreino/CadastroTreino"
 import { PrivateRoute } from "./PrivateRoute"
+import VerTreinos from './Pages/VerTreinos/VerTreinos'
 
 export default function AppRoutes() {
 	return (
@@ -16,6 +17,7 @@ export default function AppRoutes() {
 				<Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
 				<Route path="/cadastrarPaciente" element={<CadastroPaciente />} />
 				<Route path="/cadastroTreino" element={<CadastroTreino />} />
+				<Route path="/verTreinos" element={<VerTreinos />} />
 			</Routes>
 		</BrowserRouter>
 	)

@@ -68,3 +68,8 @@ button {
   flex: 1; 
   text-align: left; 
 }
+
+.detail-rodape{
+  text-align: right;
+  margin-right: 3%;
+}

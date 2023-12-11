@@ -44,7 +44,11 @@ const CadastroTreino = () =>{
   
 
   const handleChangeQuantidadeTreinos = (event) => {
-    const valor = parseInt(event.target.value, 10);
+    let valor = parseInt(event.target.value, 10);
+
+    // Limita o valor a 7
+    valor = Math.min(valor, 7);
+
     setQuantidadeTreinos(isNaN(valor) ? 1 : valor);
     setIndiceSessao(isNaN(valor) ? 0 : valor - 1);
   };

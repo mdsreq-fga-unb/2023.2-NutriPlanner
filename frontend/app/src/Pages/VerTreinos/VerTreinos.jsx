@@ -1,6 +1,7 @@
 import './VerTreinosStyle.css'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import moment from 'moment';
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
@@ -8,7 +9,6 @@ import MenuButton from '../../components/Buttons/Menu/MenuButton'
 import Button from '../../components/Buttons/Button'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-import Search from '../../components/Search/Search'
 
 //Ícones -- Menu
 import dieta from '../../assets/icons/Adição Dieta.svg';
@@ -24,6 +24,20 @@ import salvar from '../../assets/icons/Salvar.svg';
 import voltar from '../../assets/icons/Voltar.svg';
 
 const VerTreinos = () => {
+    const [treinos, setTreinos] = useState([]);
+
+    useEffect(() => {
+        const fetchTreinos = async () => {
+          try {
+            const response = await axios.get('http://localhost:3000/treinos/656fe262751bb37143d35513'); 
+            setTreinos(response.data.data);
+          } catch (error) {
+            console.error('Erro ao buscar treinos', error);
+          }
+        };
+        fetchTreinos();
+    }, []); 
+
   return (
     <div className="VerTreinos">
         <div className="VerTreinos-menu-lateral">
@@ -60,11 +74,17 @@ const VerTreinos = () => {
                     <hr className="VerTreinos-divisao-conteudo"></hr>
                     <Button title="Voltar" classeAdicional="VerTreinos-botao-voltar" icon={voltar}/>
                 </div>
-                <div className='card-treinos'>
-                    aaa
+                <div className='form-gera-treino'>
+                    {/* Mapeia os treinos e cria as divs card-treinos */}
+                    {treinos.map((treino, index) => (
+                        <div key={treino._id} className='card-treinos'>
+                            <p className='card-treinos-text'>{`Treino ${index + 1} | ${moment(treino.dtEmissao).format('DD/MM/YYYY')}`}</p>
+                            <p className='card-treinos-link'>Ver treino</p>
+                        </div>
+                    ))}
                 </div>
-            </div>
-      
+                </div>
+            <Footer className="VerTreinos-rodape"/>
     </div>
   );
 };

@@ -342,9 +342,24 @@
     border-color: #000000;
     border-width: 1px;
     width: 50%;
-    height: 30%;
+    height: 5%;
     position: relative;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+ }
+
+ .card-treinos-text{
+   margin-left: 2%;
+   text-align: left;
+   font-weight: bold;
+ }
+
+ .card-treinos-link{
+   margin-left: 2%;
+   text-align: left;
+   text-decoration:underline;
+   text-align: right;
+   margin-right: 2%;
+   cursor:pointer;
  }
 
  @media screen and (min-width: 450px){

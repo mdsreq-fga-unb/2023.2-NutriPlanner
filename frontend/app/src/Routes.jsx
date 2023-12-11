@@ -17,9 +17,9 @@ export default function AppRoutes() {
 				<Route path="/" element={<Login />} />
 				<Route path="/home" element={<PrivateRoute><Home /></PrivateRoute>} />
 				<Route path="/cadastrarPaciente" element={<CadastroPaciente />} />
-				<Route path="/cadastroTreino" element={<CadastroTreino />} />
-				<Route path="/verTreinos" element={<VerTreinos />} />
-				<Route path="/EditarTreinos" element={<EditarTreinos />} />
+				<Route path="/cadastroTreino" element={<PrivateRoute><CadastroTreino /></PrivateRoute>} />
+				<Route path="/verTreinos" element={<PrivateRoute><VerTreinos /></PrivateRoute>} />
+				<Route path="/editarTreinos" element={<PrivateRoute><EditarTreinos /></PrivateRoute>} />
 			</Routes>
 		</BrowserRouter>
 	)

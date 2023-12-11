@@ -1,6 +1,8 @@
 import './CadastroPaciente.css'
 import React from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
@@ -23,30 +25,33 @@ import salvar from '../../assets/icons/Salvar.svg';
 import voltar from '../../assets/icons/Voltar.svg';
 
 const CadastroPaciente = () =>{
+    const navigate = useNavigate();
+
+
     const dadosPaciente = {
         paciente: {
             nome: '',
             dtNascimento: '',
             sexo: '',
             email: '',
-            telefone: '',
-            endereco: '',
+            // telefone: '',
+            // endereco: '',
             questionario: {
                 objetivosPaciente: '',
-                problemasSaudeIndividual: '',
-                problemasSaudeFamiliares: '',
+                // problemasSaudeIndividual: '',
+                // problemasSaudeFamiliares: '',
                 medicamentosIngeridos: [],
-                alergiasAlimentares: '',
-                alteracoes: '',
-                cirurgias: '',
-                lesoes: '',
-                restricoesMedicas: '',
-                habitosGeraisAlimentares: ''
+                // alergiasAlimentares: '',
+                // alteracoes: '',
+                // cirurgias: '',
+                // lesoes: '',
+                // restricoesMedicas: '',
+                // habitosGeraisAlimentares: ''
             },
             gastoEnergeticoDiario: '',
             metabolismoBasal: '',
             valorCaloricoPlano: '',
-            conclusoes: ''
+            // conclusoes: ''
         },
         medida: {
             altura: '',
@@ -200,6 +205,10 @@ const CadastroPaciente = () =>{
         indiceMedicamento--;
     }
 
+    function handleVoltar(e){
+        navigate('/home');
+    }
+
 
     function cadastrarPaciente(event){
         event.preventDefault();
@@ -264,7 +273,7 @@ const CadastroPaciente = () =>{
                         </div>
                     </div>
                     <hr className="CadastroPaciente-divisao-conteudo"></hr>
-                    <Button title="Voltar" classeAdicional="CadastroPaciente-botao-voltar" icon={voltar}/>
+                    <Button title="Voltar" classeAdicional="CadastroPaciente-botao-voltar" onClick={(e) => handleVoltar(e)} icon={voltar}/>
                 </div>
     
                 <form className="CadastroPaciente-formulario">

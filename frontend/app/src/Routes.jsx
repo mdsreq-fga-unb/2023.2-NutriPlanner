@@ -8,6 +8,7 @@ import CadastroPaciente from "./Pages/CadastroPaciente/CadastroPaciente"
 import CadastroTreino from "./Pages/CadastroTreino/CadastroTreino"
 import { PrivateRoute } from "./PrivateRoute"
 import VerTreinos from './Pages/VerTreinos/VerTreinos'
+import EditarTreinos from './Pages/EditarTreinos/EditarTreinos'
 
 export default function AppRoutes() {
 	return (
@@ -18,6 +19,7 @@ export default function AppRoutes() {
 				<Route path="/cadastrarPaciente" element={<CadastroPaciente />} />
 				<Route path="/cadastroTreino" element={<CadastroTreino />} />
 				<Route path="/verTreinos" element={<VerTreinos />} />
+				<Route path="/EditarTreinos" element={<EditarTreinos />} />
 			</Routes>
 		</BrowserRouter>
 	)

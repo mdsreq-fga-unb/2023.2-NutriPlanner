@@ -1,8 +1,6 @@
-import './VerTreinosStyle.css'
+import './EditarTreinosStyle.css'
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import moment from 'moment';
-import { Link } from 'react-router-dom';
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
@@ -24,7 +22,7 @@ import sair from '../../assets/icons/Sair.svg';
 import salvar from '../../assets/icons/Salvar.svg';
 import voltar from '../../assets/icons/Voltar.svg';
 
-const VerTreinos = () => {
+const EditarTreinos = () => {
     const [treinos, setTreinos] = useState([]);
 
     useEffect(() => {
@@ -76,13 +74,7 @@ const VerTreinos = () => {
                     <Button title="Voltar" classeAdicional="VerTreinos-botao-voltar" icon={voltar}/>
                 </div>
                 <div className='form-gera-treino'>
-                    {/* Mapeia os treinos e cria as divs card-treinos */}
-                    {treinos.map((treino, index) => (
-                        <div key={treino._id} className='card-treinos'>
-                            <p className='card-treinos-text'>{`Treino ${index + 1} | ${moment(treino.dtEmissao).format('DD/MM/YYYY')}`}</p>
-                            <Link to={`/editarTreinos/${treino._id}`} className='card-treinos-link'>Ver treino</Link>
-                        </div>
-                    ))}
+
                 </div>
                 </div>
             <Footer className="VerTreinos-rodape"/>
@@ -91,4 +83,4 @@ const VerTreinos = () => {
 };
 
 
-export default VerTreinos;
+export default EditarTreinos;

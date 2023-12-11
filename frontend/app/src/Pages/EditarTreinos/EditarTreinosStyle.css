@@ -1,20 +1,30 @@
 /* Variáveis CSS */
+
+
 :root{
     --cinza: #D9D9D9;
     --cinza-claro: #ECF3F1;
     --verde: #68A797;
     --laranja: #F6A340;
- }
+  
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  }
+  
+  body {
+    margin: 0;
+  }
+ 
  
  /* Estilos do Layout */
- .VerTreinos {
-    font-family: 'Roboto', sans-serif;
+ 
+ .CadastroTreino {
     margin: 0px;
     display: grid;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos{
+    .CadastroTreino{
        grid-template-areas: 
           "aside"
           "main"
@@ -25,7 +35,7 @@
  }
  
  @media screen and (min-width: 768px){
-    .VerTreinos{
+    .CadastroTreino{
     grid-template-areas: 
           "aside main"
           "aside footer";
@@ -34,7 +44,7 @@
     }
  }
  
- .VerTreinos-menu-lateral{
+ .CadastroTreino-menu-lateral{
     background-color: #68A797;
     display: flex;
     flex-direction: column;
@@ -43,7 +53,7 @@
     padding-top: 4%;
  }
  
- .VerTreinos-conteudo {
+ .CadastroTreino-conteudo {
     grid-area: main;
     padding-left: 2%;
     width: 98%;
@@ -52,7 +62,7 @@
  }
  
  
- .VerTreinos-rodape{
+ .CadastroTreino-rodape{
     grid-area: footer;
  }
  
@@ -61,7 +71,7 @@
  
  
  /* Menu Lateral */
- .VerTreinos-menu-titulo {
+ .CadastroTreino-menu-titulo {
     color: #FFF;
     font-weight: bold;
     align-self: flex-start;
@@ -69,35 +79,35 @@
     margin-top: 4%;
  }
  
- .VerTreinos-menu-divisao {
+ .CadastroTreino-menu-divisao {
     color: white;
     width: 80%;
  }
  
- .VerTreinos-navegacao {
+ .CadastroTreino-navegacao {
     display: flex;
     flex-direction: column;
  }
  
- .VerTreinos-item-menu {
+ .CadastroTreino-item-menu {
     margin: 7% 0;
     text-decoration: none;
  }
  
  /* Cabeçalho */
  
- .VerTreinos-cabecalho{
+ .CadastroTreino-cabecalho{
     background-color: #FFF;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos-cabecalho{
+    .CadastroTreino-cabecalho{
        padding-top: 30px;
     }
  }
  
  @media screen and (min-width: 1024px){
-    .VerTreinos-cabecalho{
+    .CadastroTreino-cabecalho{
        padding-top: 0px;
        position: sticky;
        top: 0px;
@@ -105,151 +115,168 @@
     }
  }
  
- .VerTreinos-items-cabecalho {
+ .CadastroTreino-items-cabecalho {
     display: flex;
     padding-right: 4%;
     align-items: center;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos-items-cabecalho{
+    .CadastroTreino-items-cabecalho{
        flex-direction: column;
     }
  }
  
  @media screen and (min-width: 600px){
-    .VerTreinos-items-cabecalho {
+    .CadastroTreino-items-cabecalho {
        flex-direction: row;
        justify-content: space-between;
     }
  }
  
- .VerTreinos-botoes-cabecalho{
+ .CadastroTreino-botoes-cabecalho{
     display: flex;
     margin-right: 20px;
  }
  
- .VerTreinos-divisao-conteudo {
+ .CadastroTreino-divisao-conteudo {
     color: var(--cinza-claro);
  }
  
- .VerTreinos-botao-voltar{
+ .CadastroTreino-botao-voltar{
     margin-top: 20px;
  }
  
  
  /* Formulário */
  
- .VerTreinos-formulario{
+ .CadastroTreino-formulario{
     margin: 3% 0;
  }
  
- .VerTreinos-area-formulario{
+ .CadastroTreino-area-formulario{
     width: 85%;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos-area-formulario{
+    .CadastroTreino-area-formulario{
        margin: 5% 0;
     }
  }
  
  @media screen and (min-width: 600px){
-    .VerTreinos-area-formulario{
+    .CadastroTreino-area-formulario{
        margin: 3%;
     }
  }
  
- .VerTreinos-titulo-area{
+ .CadastroTreino-titulo-area{
     font-weight: bold;
     font-size: 1.3rem;
  }
  
- .VerTreinos-campos-formulario{
+ .CadastroTreino-campos-formulario{
     display: flex;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos-campos-formulario{
+    .CadastroTreino-campos-formulario{
        flex-direction: column;
     }
  }
  
  @media screen and (min-width: 768px){
-    .VerTreinos-campos-formulario{
+    .CadastroTreino-campos-formulario{
        flex-direction: row;
        justify-content: space-between;
     }
  }
  
- .VerTreinos-container{
-    padding-top: 2%;
+ .CadastroTreino-container{
+    padding-top: 1%;
     padding-right: 14%;
     padding-left: 2%;
     padding-bottom: 1%;
  }
  
- .VerTreinos-item-formulario{
+ .CadastroTreino-item-formulario{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px
  }
  
- .VerTreinos-label-campo{
+ .CadastroTreino-label-campo{
     font-weight: 600;
     margin-bottom: 15px;
  }
  
- .VerTreinos-aviso{
+ .CadastroTreino-aviso{
     color: red;
     font-size: 0.6rem;
  }
  
- .VerTreinos-campo-obrigatorio::after{
+ .CadastroTreino-campo-obrigatorio::after{
        content:" *";
        color: red;
  }
  
- .VerTreinos-input{
+ .CadastroTreino-input{
     line-height: 1.8rem;
     border-radius: 15px;
     border: 1px solid #000;
  }
+
+ .CadastroTreino-series{
+   line-height: 1.8rem;
+   border-radius: 15px;
+   border: 1px solid #000;
+   width: 1%;
+}
+
+.CadastroTreino-input-numero-treinos{
+   width: 5%;
+}
  
- .VerTreinos-input-texto{
+ .CadastroTreino-input-texto{
     font-size: 15px;
+    background-color: white;
  }
+
+ .CadastroTreino-input-numero{
+   font-size: 15px;
+   width: 30%;
+}
  
  @media screen and (min-width: 0px){
-    .VerTreinos-input-texto{
+    .CadastroTreino-input-texto{
        width: 100%;
     }
  }
  
  @media screen and (min-width: 1000px){
-    .VerTreinos-input-texto{
+    .CadastroTreino-input-texto{
        width: 150%;
     }
  }
  
  @media screen and (min-width: 1100px){
-    .VerTreinos-input-texto{
+    .CadastroTreino-input-texto{
        width: 180%;
     }
  }
  
- .VerTreinos-input-curto{
+ .CadastroTreino-input-curto{
     width: 140px;
  }
  
  
- .VerTreinos-input-select{
+ .CadastroTreino-input-select{
     width: 104px;
     height: 30px;
     text-indent: 6px;
  }
  
- .VerTreinos-area-texto{
+ .CadastroTreino-area-texto{
     width: 100%;
     font-size: 1.1rem;
     resize: none;
@@ -258,114 +285,88 @@
  
  /* Estilos da seção de Medicamentos */
  
- .VerTreinos-item-formulario-medicamento{
+ .CadastroTreino-item-formulario-medicamento{
     display: flex;
     flex-direction: column;
     margin-right: 20px;
  }
  
- .VerTreinos-medicamentos{
+ .CadastroTreino-medicamentos{
     margin-bottom: 20px
  }
  
- .VerTreinos-campos-medicamento{
+ .CadastroTreino-campos-exercicio{
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
  }
  
- .VerTreinos-label-medicamento{
+ .CadastroTreino-label-medicamento{
     font-size: 0.8rem;
     text-align: center;
  }
  
- .VerTreinos-input-medicamento{
+ .CadastroTreino-input-medicamento{
     width: 250px;
  }
  
- .VerTreinos-input-horario{
+ .CadastroTreino-input-horario{
     width: 90px;
  }
  
- .VerTreinos-botoes-medicamento{
+ .CadastroTreino-botoes-medicamento{
     display: flex;
     margin-top: 4%;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos-botoes-medicamento{
+    .CadastroTreino-botoes-medicamento{
        flex-direction: column;
     }
  }
  
  @media screen and (min-width: 450px){
-    .VerTreinos-botoes-medicamento{
+    .CadastroTreino-botoes-medicamento{
        flex-direction: row;
     }
  }
  
- .VerTreinos-botao-opcao {
+ .CadastroTreino-botao-opcao {
     width: 200px !important;
     margin-right: 3%;
+    margin-top: 1%;
  }
  
  @media screen and (min-width: 0px){
-    .VerTreinos-botao-opcao {
+    .CadastroTreino-botao-opcao {
        margin-bottom: 40px;
     }
  }
  
  @media screen and (min-width: 600px){
-    .VerTreinos-botao-opcao {
+    .CadastroTreino-botao-opcao {
        margin-bottom: 0px;
     }
  }
  
  /* Estilos dos botões */
  
- .VerTreinos-enviar{
+ .CadastroTreino-enviar{
     width: 135px !important;
     float: right;
     margin-right: 15%;
  }
  
- .VerTreinos-enviar:hover{
+ .CadastroTreino-enviar:hover{
     background-color: var(--laranja);
     transition: 0.5s;
  }
 
- .card-treinos{
-    margin-top: 5%;
-    background: var(--cinza-claro);
-    border-radius: 32px;
-    border-style: solid;
-    border-color: #000000;
-    border-width: 1px;
-    width: 50%;
-    height: 5%;
-    position: relative;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+ .form-gera-treino{
+   text-align: center;
+   margin-top: 4%;
  }
 
- .card-treinos-text{
-   margin-left: 2%;
-   text-align: left;
-   font-weight: bold;
+ .CadastroTreino-botoes-exercicios{
+   display: flex;
  }
-
- .card-treinos-link{
-   margin-left: 2%;
-   text-align: left;
-   text-decoration:underline;
-   text-align: right;
-   margin-right: 2%;
-   cursor:pointer;
-   color: #000;
- }
-
- @media screen and (min-width: 450px){
-    .card-treinos {
-        width: 80%;
-    }
- }
- 

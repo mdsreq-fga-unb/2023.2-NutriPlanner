@@ -71,3 +71,55 @@ exports.cadastroPaciente = async (req, res) => {
         });
     }
 };
+
+exports.buscaQuantidade = async (req, res) => {
+    try {
+        const quantidadeTotal = await Paciente.countDocuments();
+        const quantidadeAtivos = await Paciente.countDocuments({ativo: true});
+
+        return res.status(200).json({
+            status: "sucesso",
+            dados: { 
+                Total: quantidadeTotal,
+                Ativos: quantidadeAtivos,
+                Inativos: quantidadeTotal - quantidadeAtivos
+            }    
+        });
+    }
+    catch(err) {
+        return res.status(400).json({
+            status: "falha",
+            message: err
+        });
+    }
+}
+
+exports.buscaAniversariantes = async (req, res) => {
+    try{
+        const dataAtual = new Date();
+        const dataDaquiQuinzeDias = new Date(new Date().setDate(dataAtual.getDate() + 15));
+
+        const aniversariantes = await Paciente.find({
+            $expr: {
+                $and: [
+                    { $gte: [{ $dayOfMonth: "$dtNascimento" }, { $dayOfMonth: dataAtual }] },
+                    { $gte: [{ $month: "$dtNascimento" }, { $month: dataAtual }] },
+                    { $lte: [{ $dayOfMonth: "$dtNascimento" }, { $dayOfMonth: dataDaquiQuinzeDias }] },
+                    { $lte: [{ $month: "$dtNascimento" }, { $month: dataDaquiQuinzeDias }] },
+                ]
+            }
+        }).sort({ dtNascimento: 1});
+
+        return res.status(200).json({
+            status: "sucesso",
+            data: { 
+                aniversariantes: aniversariantes,
+            }    
+        });
+    }catch(err){
+        return res.status(400).json({
+            status: "falha",
+            message: err
+        })
+    }
+}

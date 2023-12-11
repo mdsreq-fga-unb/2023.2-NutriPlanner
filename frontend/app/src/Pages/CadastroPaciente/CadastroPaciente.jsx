@@ -52,6 +52,7 @@ const CadastroPaciente = () =>{
             altura: '',
             pesoJejum: '',
             pesoObjetivo: '',
+            imc: '',
             circunferencia: [
                 {
                     bracoEsquerdo: '',
@@ -93,34 +94,34 @@ const CadastroPaciente = () =>{
         let { name, value } = event.target;
 
         if(name == 'gastoEnergeticoDiario' || name == 'metabolismoBasal' || name == 'valorCaloricoPlano')
-            value = tratamentoDecimal(value)
+            value = tratamentoDecimal(value.trim())
 
         dadosPaciente.paciente[name] = value;
     };
 
     const preencheAtributoQuestionario = (event) => {
-        const { name, value } = event.target;
-        dadosPaciente.paciente.questionario[name] = value;
+        let { name, value } = event.target;
+
+        dadosPaciente.paciente.questionario[name] = value.trim();
     };
 
     const preencheAtributoMedicamento = (event, indice) => {
-        const { name, value } = event.target;
-        
+        let { name, value } = event.target;
         const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
-        medicamentoAtual[name] = value;
+
+        medicamentoAtual[name] = value.trim();
     };
 
     const preencheAtributoMedidasCorporais = (event) => {
         let { name, value } = event.target;
-        value = tratamentoDecimal(value)
+        value = tratamentoDecimal(value.trim())
 
         dadosPaciente.medida[name] = value;
     };
 
     const preencheAtributoCircunferencias = (event) => {
         let { name, value } = event.target;
-        value = tratamentoDecimal(value)
-
+        value = tratamentoDecimal(value).trim()
 
         dadosPaciente.medida.circunferencia[0][name] = value;
     };
@@ -129,7 +130,7 @@ const CadastroPaciente = () =>{
         let { name, value } = event.target;
         value = tratamentoDecimal(value)
 
-        dadosPaciente.medida.dobrasCutaneas[name] = value;
+        dadosPaciente.medida.dobrasCutaneas[name] = value.trim();
     };
 
 
@@ -203,17 +204,29 @@ const CadastroPaciente = () =>{
     function cadastrarPaciente(event){
         event.preventDefault();
 
-        console.log(dadosPaciente)
-
         const url = 'http://localhost:3000/pacientes';
 
         axios.post(url, dadosPaciente)
-          .then((response) => {
-            alert('Usuário Cadastrado com sucesso!')
-          }, (error) => {
-            alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
-            console.log(error.response.data)
-          });
+        .then((response) => {
+          alert('Paciente cadastrado com sucesso!')
+        }, (error) => {
+            let mensagemAlert = "";
+            
+            if (error.response && error.response.data && error.response.data.message && error.response.data.message.errors) {
+                
+                const erros = error.response.data.message.errors;
+  
+                Object.keys(erros).forEach(campo => {
+                    mensagemAlert += `${erros[campo].message}\n`;
+                });
+            } 
+            else 
+            {
+                mensagemAlert += "Não foi possível cadastrar o paciente, tente novamente mais tarde.";
+            }
+  
+            alert(mensagemAlert);
+        });   
     };
 
     return(     

@@ -232,6 +232,10 @@
    border: 1px solid #000;
    width: 1%;
 }
+
+.CadastroTreino-input-numero-treinos{
+   width: 5%;
+}
  
  .CadastroTreino-input-texto{
     font-size: 15px;
@@ -356,4 +360,13 @@
  .CadastroTreino-enviar:hover{
     background-color: var(--laranja);
     transition: 0.5s;
+ }
+
+ .form-gera-treino{
+   text-align: center;
+   margin-top: 4%;
+ }
+
+ .CadastroTreino-botoes-exercicios{
+   display: flex;
  }

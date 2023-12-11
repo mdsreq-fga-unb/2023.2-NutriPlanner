@@ -53,7 +53,6 @@ const VerPaciente = () => {
 
 
     return (
-        
         <div className="VerPaciente">
             <div className="VerPaciente-barraLateral">
                 <Logo />
@@ -270,9 +269,8 @@ const VerPaciente = () => {
                         </div>
                     </div>
                 </div>
-
-                <Footer className="CadastroPaciente-rodape" />
             </div>
+            <Footer className="VerPaciente-rodape" />
         </div>
     );
 };

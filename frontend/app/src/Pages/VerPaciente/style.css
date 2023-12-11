@@ -10,25 +10,40 @@ h1, h2, h3, p{
     margin: 0px;
 }
 
-.VerPaciente{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+.VerPaciente {
+    font-family: 'Roboto', sans-serif;
     margin: 0px;
+    display: grid;
 }
-
+ 
+@media screen and (min-width: 0px){
+    .VerPaciente{
+       grid-template-areas: 
+          "aside"
+          "main"
+          "footer";
+       grid-template-rows: 100%;
+       grid-template-columns: auto;
+    }
+}
+ 
+ @media screen and (min-width: 768px){
+    .VerPaciente{
+    grid-template-areas: 
+          "aside main"
+          "aside footer";
+       grid-template-rows: 100% 100%;
+       grid-template-columns: 25% 75%;
+    }
+ }
+ 
 .VerPaciente-barraLateral{
-    position: fixed;
-    background: #68A797;
-    width: 370px;
-    height: 100%;
+    background-color: #68A797;
     display: flex;
     flex-direction: column;
-    
     align-items: center;
-    padding-top: 14px;
-    /* justify-content: center; */
+    grid-area: aside;
+    padding-top: 4%;
 }
 
 .VerPaciente-menu-titulo {
@@ -55,8 +70,10 @@ h1, h2, h3, p{
 }
 
 .VerPaciente-areaLateral{
-    margin-left: 400px;
-    width: 71%;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    grid-area: main;
 }
 
 /* Área Esquerda */
@@ -75,6 +92,7 @@ h1, h2, h3, p{
     background-color: #68A797;
     border-radius: 20px;
     border: none;
+    margin-right: 5%;
 
     color: #ffffff;
     font-weight: bold;
@@ -89,7 +107,6 @@ h1, h2, h3, p{
 /* Informações do Paciente */
 
 .VerPaciente-nomePaciente, .VerPaciente-h2, .VerPaciente-h3, .VerPaciente-textoLabel, .VerPaciente-texto{
-    font-family: 'Roboto', sans-serif;
     color: #1D1D1F;
 }
 
@@ -112,6 +129,7 @@ h1, h2, h3, p{
     font-size: 22px;
     font-weight: 500;
     margin-bottom: 2%;
+    text-decoration: underline;
 }
 
 .VerPaciente-h3{
@@ -184,16 +202,18 @@ h1, h2, h3, p{
 }
 
 .VerPaciente-textoLabelCircunferencia{
-    font-family: 'Poppins', sans-serif;
     color: #FFF;
 }
 
 .VerPaciente-textoCircunferencia{
-    font-family: 'Poppins', sans-serif;
     color: #363636;
 }
 
 .VerPaciente-dobrasCutaneas{
     display: flex;
     flex-direction: row;
+}
+
+.VerPaciente-rodape{
+    grid-area: footer;
 }

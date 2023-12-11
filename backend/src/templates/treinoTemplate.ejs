@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Treino</title>
+    </head>
+    <body>
+        <p>Data de Emissão: <%= treino.dtEmissao %></p>
+        <p>Paciente: <%= treino.nome %></p>
+        
+        <% treino.sessoes.forEach(function(sessao) { %>
+            <h2>Treino <%= sessao.codigo %></h2>
+            <p>Dia da semana: <%= sessao.dia %></p>
+            <p>Regiao focal: <%= sessao.regiaoFocal %></p>
+            <p>Duração aeróbico: <%= sessao.duracaoAerobico %> minutos</p>
+            <p>Descanso entre as séries: <%= sessao.tempoDescanso %> segundos</p>
+            
+            <h3>Exercícios</h3>
+            
+            <% sessao.exercicios.forEach(function(exercicio) { %>
+                <p>Nome do Exercício: <%= exercicio.nome %></p>
+                <p>Series: <%= exercicio.series %></p>
+                <p>Repetições: <%= exercicio.repeticoes %></p>
+                <p>Carga: <%= exercicio.carga %> kg</p>
+                <p>Técnica Avançada: <%= exercicio.tecnicaAvancada %></p>
+            <% }); %>
+        <% }); %>
+    </body>
+</html>

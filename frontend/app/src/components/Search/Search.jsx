@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SearchStyle.css';
-import userImage from "./../../assets/icons/Person.svg"
 
 const Search = () => {
   const [termoBusca, setTermoBusca] = useState('');
   const [pacientes, setPacientes] = useState([]);
   const [pacienteSelecionado, setPacienteSelecionado] = useState(null);
 
+  let resultado, pacientez = ''
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,18 +39,18 @@ const Search = () => {
 
   const handleSelectChange = (e) => {
     const pacienteId = e.target.value;
-    const pacienteSelecionado = pacientes.find((paciente) => paciente._id === pacienteId);
-    setPacienteSelecionado(pacienteSelecionado);
+    pacientez = pacientes.find((paciente) => paciente._id === pacienteId);
   };
 
-  
+  function retornaPaciente() {
+    console.log(pacientez)
+  }
 
   return (
     <div className="search-container">
       <select
         className="input-search"
         id="pacientes"
-        value={pacienteSelecionado ? pacienteSelecionado._id : ''}
         onChange={handleSelectChange}
       >
         <option value="" disabled>
@@ -62,15 +62,7 @@ const Search = () => {
           </option>
         ))}
       </select>
-      {pacienteSelecionado && (
-        <div className="paciente-info">
-          <img src={userImage} alt="Imagem do Paciente" />
-          <div className="paciente-info-text">
-            <h3>{pacienteSelecionado.nome}</h3>
-            <p>{calcularIdade(pacienteSelecionado.dtNascimento)} anos</p>
-          </div>
-        </div>
-      )}
+      <button onClick={retornaPaciente}>aaaa</button>
     </div>
   );
 };

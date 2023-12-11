@@ -1,0 +1,219 @@
+/* Variáveis CSS */
+:root{
+   --cinza: #D9D9D9;
+   --cinza-claro: #ECF3F1;
+   --verde: #68A797;
+   --laranja: #F6A340;
+}
+
+h1, h2, h3, p{
+    margin: 0px;
+}
+
+.VerPaciente {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    display: grid;
+}
+ 
+@media screen and (min-width: 0px){
+    .VerPaciente{
+       grid-template-areas: 
+          "aside"
+          "main"
+          "footer";
+       grid-template-rows: 100%;
+       grid-template-columns: auto;
+    }
+}
+ 
+ @media screen and (min-width: 768px){
+    .VerPaciente{
+    grid-template-areas: 
+          "aside main"
+          "aside footer";
+       grid-template-rows: 100% 100%;
+       grid-template-columns: 25% 75%;
+    }
+ }
+ 
+.VerPaciente-barraLateral{
+    background-color: #68A797;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: aside;
+    padding-top: 4%;
+}
+
+.VerPaciente-menu-titulo {
+    color: #FFF;
+    font-weight: bold;
+    align-self: flex-start;
+    padding-left: 13%;
+    margin-top: 4%;
+}
+
+.VerPaciente-menu-divisao {
+    color: white;
+    width: 80%;
+}
+
+.VerPaciente-navegacao {
+    display: flex;
+    flex-direction: column;
+}
+
+.VerPaciente-item-menu {
+    margin: 7% 0;
+    text-decoration: none;
+}
+
+.VerPaciente-areaLateral{
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    grid-area: main;
+}
+
+/* Área Esquerda */
+
+.VerPaciente-cabecalho{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.VerPaciente-topBtn{
+    height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #68A797;
+    border-radius: 20px;
+    border: none;
+    margin-right: 5%;
+
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.VerPaciente-topBtn:hover{
+    background-color: #F6A340;
+    transition: 0.5s;
+}
+
+/* Informações do Paciente */
+
+.VerPaciente-nomePaciente, .VerPaciente-h2, .VerPaciente-h3, .VerPaciente-textoLabel, .VerPaciente-texto{
+    color: #1D1D1F;
+}
+
+.VerPaciente-textoLabel{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.VerPaciente-texto{
+    width: 70%;
+}
+
+
+.VerPaciente-nomePaciente{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.VerPaciente-h2{
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 2%;
+    text-decoration: underline;
+}
+
+.VerPaciente-h3{
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 2%;
+}
+
+.VerPaciente-textoLabel{
+    color: #768392;
+
+}
+
+.VerPaciente-texto{
+    font-size: 16px;
+}
+
+.VerPaciente-infoBox{
+    display: flex;
+    flex-direction: column;
+    /* background-color: #68A797; */
+    padding-left: 2%;
+    margin-bottom: 20px;
+}
+
+.VerPaciente-cardInterno-Infor{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2%;
+}
+
+.VerPaciente-infoMedica{
+    display: flex;
+    flex-direction: column;
+    padding-left: 2%;
+    margin-bottom: 20px;
+}
+
+.VerPaciente-infoNutricionais{
+    display: flex;
+    flex-direction: row;
+}
+
+.VerPaciente-avaliacaoAtropometrica{
+
+}
+
+.VerPaciente-infoAvaliacao{
+    display: flex;
+    flex-direction: row;
+}
+
+.VerPaciente-carrosselArea{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.VerPaciente-circunferenciasCard{
+    display: flex;
+    flex-direction: column;
+    background-color: #68A797;
+    border-radius: 20px;
+    padding: 15px;
+    width: 250px;
+    margin: 10px;
+    white-space: nowrap; 
+  display: inline-block;
+}
+
+.VerPaciente-textoLabelCircunferencia{
+    color: #FFF;
+}
+
+.VerPaciente-textoCircunferencia{
+    color: #363636;
+}
+
+.VerPaciente-dobrasCutaneas{
+    display: flex;
+    flex-direction: row;
+}
+
+.VerPaciente-rodape{
+    grid-area: footer;
+}

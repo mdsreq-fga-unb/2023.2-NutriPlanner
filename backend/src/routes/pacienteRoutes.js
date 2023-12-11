@@ -6,6 +6,7 @@ const pacientes = require('./../controllers/pacienteController');
 const routes = express.Router();
 
 routes.route('/').post(pacientes.checkEmail, pacientes.checkTelefone, pacientes.cadastroPaciente);
+routes.route('/:pacienteId').get(pacientes.getPaciente).patch(pacientes.updatePaciente);
 
 routes.route('/buscaQuantidades').get(pacientes.buscaQuantidade);
 

@@ -71,6 +71,91 @@ exports.cadastroPaciente = async (req, res) => {
     }
 };
 
+// Método GET
+
+exports.getPaciente = async (req, res) => {
+    const pacienteId = req.params.pacienteId;
+    try{
+        const paciente = await Paciente.findById(pacienteId);
+
+        if(!paciente) {
+            return res.status(404).json({
+                status: "falha",
+                message: "Paciente não encontrado"
+            });
+        }
+        const medida = await Medida.findOne({idPaciente: paciente._id});
+
+        if(!medida){
+            return res.status(404).json({
+                status: "falha",
+                message: "Medida não encontrada para este paciente"
+            });
+        }
+
+        return res.status(200).json({
+            status: "sucesso",
+            data:{
+                paciente: paciente,
+                medida: medida
+            }
+        });
+    }
+    catch(err){
+        return res.status(500).json({
+            status: "falha",
+            message: err.message
+        })
+    }
+}
+
+
+// Método UPDATE - PATCH
+
+exports.updatePaciente = async (req, res) => {
+    const pacienteId = req.params.pacienteId;
+
+    try{
+        const encontrarPaciente = await Paciente.findById(pacienteId);
+
+        if(!encontrarPaciente){
+            return res.status(404).json({
+                status: "falha",
+                message: "Paciente não encontrado"
+            });
+        }
+
+        await Paciente.findByIdAndUpdate(pacienteId, req.body.paciente, {new: true});
+
+        const medida = await Medida.findOne({idPaciente: pacienteId});
+
+        if(!medida){
+            return res.status(404).json({
+                status: "falha",
+                message: "Medida não encontrada para este paciente"
+            });
+        }
+
+        // Atualizar medida
+        const atualizarMedida = {
+            ...req.body.medida,
+            imc: (req.body.medida.pesoJejum / (req.body.medida.altura ** 2)).toFixed(2)
+        };
+
+        await Medida.findByIdAndUpdate(medida._id, atualizarMedida, {new: true})
+
+        return res.status(200).json({
+            status: "sucesso",
+            message: "Paciente e medida atualizados com sucesso"
+        });
+    }
+    catch(err){
+        return res.status(400).json({
+            status: "falha",
+            message: err.message
+        });
+    }
+}
 exports.buscaQuantidade = async (req, res) => {
     try {
         const quantidadeTotal = await Paciente.countDocuments();

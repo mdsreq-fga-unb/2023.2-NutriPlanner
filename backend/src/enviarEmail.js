@@ -23,6 +23,7 @@ module.exports = async function enviaEmail(){
         { $eq: [{ $dayOfMonth: "$dtNascimento" }, dataAtual.getDate()] },
       ],
     },
+    ativo: true
   });
 
   // Envia um e-mail para cada cliente

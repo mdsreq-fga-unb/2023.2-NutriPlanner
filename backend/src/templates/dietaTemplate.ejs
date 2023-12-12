@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dieta</title>
+    </head>
+    <body>
+        <p>Data de Emissão: <%= dieta.dtEmissao %></p>
+        <p>Paciente: <%= paciente.nome %></p>
+        
+        <% dieta.planoAlimentar.forEach(function(planoAlimentar) { %>
+            <h2>Consumo de liquidos <%= planoAlimentar.consumoLiquidos %></h2>
+            <p>Litros: <%= planoAlimentar.litros %></p>
+            <p>Vegetais sugeridos: <%= planoAlimentar.vegetaisSugeridos %></p>
+            <p>Suplementos: <%= planoAlimentar.suplementos %></p>
+
+            <h3>Refeições</h3>
+            
+            <% planoAlimentar.refeicoes.forEach(function(refeicoes) { %>
+                <p>nome: <%= refeicoes.nome %></p>
+                <p>Refeição: <%= refeicoes.refeicao %></p>
+            <% }); %>
+        <% }); %>
+    </body>
+</html>

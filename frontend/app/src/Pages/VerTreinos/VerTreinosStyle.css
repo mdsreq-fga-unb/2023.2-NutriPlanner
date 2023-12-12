@@ -369,3 +369,23 @@
     }
  }
  
+
+.form-gera-agendamento {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ 
+ .date-picker-container {
+   width: 48%; 
+ }
+ 
+ .time-picker-container {
+   width: 48%; 
+   margin-top: 2%;
+ }
+
+ .form-date-time{
+   margin-top: 5%;
+ }
+ 

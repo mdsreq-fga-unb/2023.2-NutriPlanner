@@ -5,6 +5,7 @@ const app = express();
 const dotenv = require("dotenv");
 
 const pacienteRoutes = require("./routes/pacienteRoutes.js");
+const consultaRoutes = require("./routes/consultaRoutes.js");
 const treinoRoutes = require('./routes/treinoRoutes.js');
 
 dotenv.config();
@@ -29,4 +30,5 @@ app.listen(port, () => {
 require("./db/connection.js");
 
 app.use('/pacientes', pacienteRoutes);
+app.use('/consultas', consultaRoutes);
 app.use('/treinos', treinoRoutes);

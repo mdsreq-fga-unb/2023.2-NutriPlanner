@@ -6,14 +6,19 @@
    --laranja: #F6A340;
 }
 
-h1, h2, h3, p{
+.VerPaciente-hs-p{
     margin: 0px;
 }
+
 
 .VerPaciente {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
     display: grid;
+    
+    p{
+        margin: 0px;
+    }
 }
  
 @media screen and (min-width: 0px){

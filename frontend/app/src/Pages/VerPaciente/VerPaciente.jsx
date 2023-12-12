@@ -79,12 +79,12 @@ const VerPaciente = () => {
             <div className="VerPaciente-areaLateral">
                 <div>
                     <div className="VerPaciente-cabecalho">
-                        <h1 className="VerPaciente-nomePaciente">{dadosPaciente.paciente.nome}</h1>
+                        <h1 className="VerPaciente-nomePaciente VerPaciente-hs-p">{dadosPaciente.paciente.nome}</h1>
                         <button onClick={handleEditarPaciente} className="VerPaciente-topBtn">Editar dados</button>
                     </div>
                     <hr />
                     {/* Render patient information */}
-                    <h2 className="VerPaciente-h2">Dados Pessoais</h2>
+                    <h2 className="VerPaciente-h2 VerPaciente-hs-p">Dados Pessoais</h2>
                     <div className="VerPaciente-infoBox">
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Data de nascimento</p>
@@ -112,7 +112,7 @@ const VerPaciente = () => {
                         </div>
                     </div>
 
-                    <h2 className="VerPaciente-h2">Informações Médicas</h2>
+                    <h2 className="VerPaciente-h2 VerPaciente-hs-p">Informações Médicas</h2>
                     <div className="VerPaciente-infoBox">                            
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Objetivos do Paciente</p>
@@ -186,7 +186,7 @@ const VerPaciente = () => {
                             </div>
                         </div>
 
-                    <h2 className="VerPaciente-h2">Informações Nutricionais</h2>
+                    <h2 className="VerPaciente-h2 VerPaciente-hs-p">Informações Nutricionais</h2>
                         <div className="VerPaciente-infoBox">
 
                             <div className="VerPaciente-cardInterno-Infor">
@@ -211,7 +211,7 @@ const VerPaciente = () => {
                         </div>
 
                         <div className="VerPaciente-avaliacaoAtropometrica">
-                        <h2 className="VerPaciente-h2">Avaliação Antropométrica</h2>
+                        <h2 className="VerPaciente-h2 VerPaciente-hs-p">Avaliação Antropométrica</h2>
                         <div className="VerPaciente-infoBox">
 
                         <div className="VerPaciente-cardInterno-Infor">
@@ -234,7 +234,7 @@ const VerPaciente = () => {
                             <p className="VerPaciente-texto">{ dadosPaciente.medida.imc}</p>
                         </div>
 
-                        <h3 className="VerPaciente-h3">Dobras Cutâneas</h3>
+                        <h3 className="VerPaciente-h3 VerPaciente-hs-p">Dobras Cutâneas</h3>
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">Subcapsular</p>
                             <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.subscapular + 'mm'}</p>
@@ -270,7 +270,7 @@ const VerPaciente = () => {
                             <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.dobrasCutaneas.abdominal + 'mm'}</p>
                         </div>
 
-                        <h3 className="VerPaciente-h3">Circunferências (Da mais recente à mais antiga)</h3>
+                        <h3 className="VerPaciente-h3 VerPaciente-hs-p">Circunferências (Da mais recente à mais antiga)</h3>
                         <div className="VerPaciente-carrosselArea">
                         
                             {dadosPaciente.medida.circunferencia.reverse().map((medida, index)=>(

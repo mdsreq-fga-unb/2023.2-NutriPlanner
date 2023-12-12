@@ -28,7 +28,7 @@ const EditarTreinos = () => {
     useEffect(() => {
         const fetchTreinos = async () => {
           try {
-            const response = await axios.get('https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/treinos/656fe262751bb37143d35513'); 
+            const response = await axios.get('https://nutriplanner-back.vercel.app/treinos/656fe262751bb37143d35513'); 
             setTreinos(response.data.data);
           } catch (error) {
             console.error('Erro ao buscar treinos', error);

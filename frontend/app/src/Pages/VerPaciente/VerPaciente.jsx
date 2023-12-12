@@ -25,7 +25,7 @@ const VerPaciente = () => {
     useEffect(() => {
         const getPaciente = async (idPaciente) => {
             try {
-                const response = await axios.get(`https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/pacientes/${idPaciente}`);
+                const response = await axios.get(`https://nutriplanner-back.vercel.app/pacientes/${idPaciente}`);
                 const { paciente, medida } = response.data.data;
                 setDadosPaciente({ paciente, medida });
             } catch (error) {

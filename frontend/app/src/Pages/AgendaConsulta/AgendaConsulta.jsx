@@ -40,7 +40,7 @@ const AgendaConsulta = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/pacientes/${termoBusca}`);
+          const response = await axios.get(`https://nutriplanner-back.vercel.app/pacientes/${termoBusca}`);
           setPacientes(response.data.data);
         } catch (error) {
           console.error('Erro ao buscar pacientes:', error.message);
@@ -76,7 +76,7 @@ const AgendaConsulta = () => {
     
           const data = new Date(selectedDate);
     
-          const response = await axios.post(`https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/consultas/65727ab7d551d27e780eda5b`, {
+          const response = await axios.post(`https://nutriplanner-back.vercel.app/consultas/65727ab7d551d27e780eda5b`, {
             dtConsulta: data,
             local: selectedLocation,
           });

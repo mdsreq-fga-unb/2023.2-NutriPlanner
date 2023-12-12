@@ -213,7 +213,7 @@ const CadastroPaciente = () =>{
     function cadastrarPaciente(event){
         event.preventDefault();
 
-        const url = 'https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/pacientes';
+        const url = 'https://nutriplanner-back.vercel.app/pacientes';
 
         axios.post(url, dadosPaciente)
         .then((response) => {

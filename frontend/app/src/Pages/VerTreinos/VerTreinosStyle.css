@@ -1,0 +1,391 @@
+/* Variáveis CSS */
+:root{
+    --cinza: #D9D9D9;
+    --cinza-claro: #ECF3F1;
+    --verde: #68A797;
+    --laranja: #F6A340;
+ }
+ 
+ /* Estilos do Layout */
+ .VerTreinos {
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    display: grid;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos{
+       grid-template-areas: 
+          "aside"
+          "main"
+          "footer";
+       grid-template-rows: 100%;
+       grid-template-columns: auto;
+    }
+ }
+ 
+ @media screen and (min-width: 768px){
+    .VerTreinos{
+    grid-template-areas: 
+          "aside main"
+          "aside footer";
+       grid-template-rows: 100% 100%;
+       grid-template-columns: 25% 75%;
+    }
+ }
+ 
+ .VerTreinos-menu-lateral{
+    background-color: #68A797;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: aside;
+    padding-top: 4%;
+ }
+ 
+ .VerTreinos-conteudo {
+    grid-area: main;
+    padding-left: 2%;
+    width: 98%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+ }
+ 
+ 
+ .VerTreinos-rodape{
+    grid-area: footer;
+ }
+ 
+ 
+ /* Estilos das seções */
+ 
+ 
+ /* Menu Lateral */
+ .VerTreinos-menu-titulo {
+    color: #FFF;
+    font-weight: bold;
+    align-self: flex-start;
+    padding-left: 13%;
+    margin-top: 4%;
+ }
+ 
+ .VerTreinos-menu-divisao {
+    color: white;
+    width: 80%;
+ }
+ 
+ .VerTreinos-navegacao {
+    display: flex;
+    flex-direction: column;
+ }
+ 
+ .VerTreinos-item-menu {
+    margin: 7% 0;
+    text-decoration: none;
+ }
+ 
+ /* Cabeçalho */
+ 
+ .VerTreinos-cabecalho{
+    background-color: #FFF;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-cabecalho{
+       padding-top: 30px;
+    }
+ }
+ 
+ @media screen and (min-width: 1024px){
+    .VerTreinos-cabecalho{
+       padding-top: 0px;
+       position: sticky;
+       top: 0px;
+       z-index: 100;
+    }
+ }
+ 
+ .VerTreinos-items-cabecalho {
+    display: flex;
+    padding-right: 4%;
+    align-items: center;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-items-cabecalho{
+       flex-direction: column;
+    }
+ }
+ 
+ @media screen and (min-width: 600px){
+    .VerTreinos-items-cabecalho {
+       flex-direction: row;
+       justify-content: space-between;
+    }
+ }
+ 
+ .VerTreinos-botoes-cabecalho{
+    display: flex;
+    margin-right: 20px;
+ }
+ 
+ .VerTreinos-divisao-conteudo {
+    color: var(--cinza-claro);
+ }
+ 
+ .VerTreinos-botao-voltar{
+    margin-top: 20px;
+ }
+ 
+ 
+ /* Formulário */
+ 
+ .VerTreinos-formulario{
+    margin: 3% 0;
+ }
+ 
+ .VerTreinos-area-formulario{
+    width: 85%;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-area-formulario{
+       margin: 5% 0;
+    }
+ }
+ 
+ @media screen and (min-width: 600px){
+    .VerTreinos-area-formulario{
+       margin: 3%;
+    }
+ }
+ 
+ .VerTreinos-titulo-area{
+    font-weight: bold;
+    font-size: 1.3rem;
+ }
+ 
+ .VerTreinos-campos-formulario{
+    display: flex;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-campos-formulario{
+       flex-direction: column;
+    }
+ }
+ 
+ @media screen and (min-width: 768px){
+    .VerTreinos-campos-formulario{
+       flex-direction: row;
+       justify-content: space-between;
+    }
+ }
+ 
+ .VerTreinos-container{
+    padding-top: 2%;
+    padding-right: 14%;
+    padding-left: 2%;
+    padding-bottom: 1%;
+ }
+ 
+ .VerTreinos-item-formulario{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px
+ }
+ 
+ .VerTreinos-label-campo{
+    font-weight: 600;
+    margin-bottom: 15px;
+ }
+ 
+ .VerTreinos-aviso{
+    color: red;
+    font-size: 0.6rem;
+ }
+ 
+ .VerTreinos-campo-obrigatorio::after{
+       content:" *";
+       color: red;
+ }
+ 
+ .VerTreinos-input{
+    line-height: 1.8rem;
+    border-radius: 15px;
+    border: 1px solid #000;
+ }
+ 
+ .VerTreinos-input-texto{
+    font-size: 15px;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-input-texto{
+       width: 100%;
+    }
+ }
+ 
+ @media screen and (min-width: 1000px){
+    .VerTreinos-input-texto{
+       width: 150%;
+    }
+ }
+ 
+ @media screen and (min-width: 1100px){
+    .VerTreinos-input-texto{
+       width: 180%;
+    }
+ }
+ 
+ .VerTreinos-input-curto{
+    width: 140px;
+ }
+ 
+ 
+ .VerTreinos-input-select{
+    width: 104px;
+    height: 30px;
+    text-indent: 6px;
+ }
+ 
+ .VerTreinos-area-texto{
+    width: 100%;
+    font-size: 1.1rem;
+    resize: none;
+ }
+ 
+ 
+ /* Estilos da seção de Medicamentos */
+ 
+ .VerTreinos-item-formulario-medicamento{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+ }
+ 
+ .VerTreinos-medicamentos{
+    margin-bottom: 20px
+ }
+ 
+ .VerTreinos-campos-medicamento{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+ }
+ 
+ .VerTreinos-label-medicamento{
+    font-size: 0.8rem;
+    text-align: center;
+ }
+ 
+ .VerTreinos-input-medicamento{
+    width: 250px;
+ }
+ 
+ .VerTreinos-input-horario{
+    width: 90px;
+ }
+ 
+ .VerTreinos-botoes-medicamento{
+    display: flex;
+    margin-top: 4%;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-botoes-medicamento{
+       flex-direction: column;
+    }
+ }
+ 
+ @media screen and (min-width: 450px){
+    .VerTreinos-botoes-medicamento{
+       flex-direction: row;
+    }
+ }
+ 
+ .VerTreinos-botao-opcao {
+    width: 200px !important;
+    margin-right: 3%;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .VerTreinos-botao-opcao {
+       margin-bottom: 40px;
+    }
+ }
+ 
+ @media screen and (min-width: 600px){
+    .VerTreinos-botao-opcao {
+       margin-bottom: 0px;
+    }
+ }
+ 
+ /* Estilos dos botões */
+ 
+ .VerTreinos-enviar{
+    width: 135px !important;
+    float: right;
+    margin-right: 15%;
+ }
+ 
+ .VerTreinos-enviar:hover{
+    background-color: var(--laranja);
+    transition: 0.5s;
+ }
+
+ .card-treinos{
+    margin-top: 5%;
+    background: var(--cinza-claro);
+    border-radius: 32px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    width: 50%;
+    height: 5%;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+ }
+
+ .card-treinos-text{
+   margin-left: 2%;
+   text-align: left;
+   font-weight: bold;
+ }
+
+ .card-treinos-link{
+   margin-left: 2%;
+   text-align: left;
+   text-decoration:underline;
+   text-align: right;
+   margin-right: 2%;
+   cursor:pointer;
+   color: #000;
+ }
+
+ @media screen and (min-width: 450px){
+    .card-treinos {
+        width: 80%;
+    }
+ }
+ 
+
+.form-gera-agendamento {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+ 
+ .date-picker-container {
+   width: 48%; 
+ }
+ 
+ .time-picker-container {
+   width: 48%; 
+   margin-top: 2%;
+ }
+
+ .form-date-time{
+   margin-top: 5%;
+ }
+ 

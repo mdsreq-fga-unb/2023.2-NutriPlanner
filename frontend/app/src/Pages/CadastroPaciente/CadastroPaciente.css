@@ -1,0 +1,341 @@
+/* Variáveis CSS */
+:root{
+   --branco: #FFF;
+   --cinza: #D9D9D9;
+   --cinza-claro: #ECF3F1;
+   --verde: #68A797;
+   --laranja: #F6A340;
+}
+
+/* Estilos do Layout */
+.CadastroPaciente {
+   font-family: 'Roboto', sans-serif;
+   margin: 0px;
+   display: grid;
+   
+   a{
+      text-decoration: none;
+   }
+}
+
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente{
+      grid-template-areas: 
+         "aside"
+         "main"
+         "footer";
+      grid-template-rows: 100%;
+      grid-template-columns: auto;
+   }
+}
+
+@media screen and (min-width: 768px){
+   .CadastroPaciente{
+   grid-template-areas: 
+         "aside main"
+         "aside footer";
+      grid-template-rows: 100% 100%;
+      grid-template-columns: 25% 75%;
+   }
+}
+
+.CadastroPaciente-menu-lateral{
+   background-color: #68A797;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   grid-area: aside;
+   padding-top: 4%;
+}
+
+.CadastroPaciente-conteudo {
+   grid-area: main;
+   padding-left: 2%;
+   width: 98%;
+   padding-top: 2%;
+   padding-bottom: 2%;
+}
+
+
+.CadastroPaciente-rodape{
+   grid-area: footer;
+}
+
+
+/* Estilos das seções */
+
+
+/* Menu Lateral */
+.CadastroPaciente-menu-titulo {
+   color: #FFF;
+   font-weight: bold;
+   align-self: flex-start;
+   padding-left: 13%;
+   margin-top: 4%;
+}
+
+.CadastroPaciente-menu-divisao {
+   color: white;
+   width: 80%;
+}
+
+.CadastroPaciente-navegacao {
+   display: flex;
+   flex-direction: column;
+}
+
+.CadastroPaciente-item-menu {
+   margin: 7% 0;
+   text-decoration: none;
+}
+
+/* Cabeçalho */
+
+.CadastroPaciente-cabecalho{
+   background-color: #FFF;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-cabecalho{
+      padding-top: 30px;
+   }
+}
+
+@media screen and (min-width: 1024px){
+   .CadastroPaciente-cabecalho{
+      padding-top: 0px;
+      position: sticky;
+      top: 0px;
+      z-index: 100;
+   }
+}
+
+.CadastroPaciente-items-cabecalho {
+   display: flex;
+   padding-right: 4%;
+   align-items: center;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-items-cabecalho{
+      flex-direction: column;
+   }
+}
+
+@media screen and (min-width: 600px){
+   .CadastroPaciente-items-cabecalho {
+      flex-direction: row;
+      justify-content: space-between;
+   }
+}
+
+.CadastroPaciente-botoes-cabecalho{
+   display: flex;
+   margin-right: 20px;
+}
+
+.CadastroPaciente-divisao-conteudo {
+   color: var(--cinza-claro);
+}
+
+.CadastroPaciente-botao-voltar{
+   margin-top: 20px;
+}
+
+
+/* Formulário */
+
+.CadastroPaciente-formulario{
+   margin: 3% 0;
+}
+
+.CadastroPaciente-area-formulario{
+   width: 85%;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-area-formulario{
+      margin: 5% 0;
+   }
+}
+
+@media screen and (min-width: 600px){
+   .CadastroPaciente-area-formulario{
+      margin: 3%;
+   }
+}
+
+.CadastroPaciente-titulo-area{
+   font-weight: bold;
+   font-size: 1.3rem;
+}
+
+.CadastroPaciente-campos-formulario{
+   display: flex;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-campos-formulario{
+      flex-direction: column;
+   }
+}
+
+@media screen and (min-width: 768px){
+   .CadastroPaciente-campos-formulario{
+      flex-direction: row;
+      justify-content: space-between;
+   }
+}
+
+.CadastroPaciente-container{
+   padding-top: 2%;
+   padding-right: 14%;
+   padding-left: 2%;
+   padding-bottom: 1%;
+}
+
+.CadastroPaciente-item-formulario{
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px
+}
+
+.CadastroPaciente-label-campo{
+   font-weight: 600;
+   margin-bottom: 15px;
+}
+
+.CadastroPaciente-aviso{
+   color: red;
+   font-size: 0.6rem;
+}
+
+.CadastroPaciente-campo-obrigatorio::after{
+      content:" *";
+      color: red;
+}
+
+.CadastroPaciente-input{
+   line-height: 1.8rem;
+   border-radius: 15px;
+   border: 1px solid #000;
+}
+
+.CadastroPaciente-input-texto{
+   font-size: 15px;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-input-texto{
+      width: 100%;
+   }
+}
+
+@media screen and (min-width: 1000px){
+   .CadastroPaciente-input-texto{
+      width: 150%;
+   }
+}
+
+@media screen and (min-width: 1100px){
+   .CadastroPaciente-input-texto{
+      width: 180%;
+   }
+}
+
+.CadastroPaciente-input-curto{
+   width: 140px;
+}
+
+
+.CadastroPaciente-input-select{
+   width: 104px;
+   height: 30px;
+   text-indent: 6px;
+}
+
+.CadastroPaciente-area-texto{
+   width: 100%;
+   font-size: 1.1rem;
+   resize: none;
+}
+
+
+/* Estilos da seção de Medicamentos */
+
+.CadastroPaciente-item-formulario-medicamento{
+   display: flex;
+   flex-direction: column;
+   margin-right: 20px;
+}
+
+.CadastroPaciente-medicamentos{
+   margin-bottom: 20px
+}
+
+.CadastroPaciente-campos-medicamento{
+   margin-top: 20px;
+   margin-bottom: 20px;
+   display: flex;
+}
+
+.CadastroPaciente-label-medicamento{
+   font-size: 0.8rem;
+   text-align: center;
+}
+
+.CadastroPaciente-input-medicamento{
+   width: 250px;
+}
+
+.CadastroPaciente-input-horario{
+   width: 90px;
+}
+
+.CadastroPaciente-botoes-medicamento{
+   display: flex;
+   margin-top: 4%;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-botoes-medicamento{
+      flex-direction: column;
+   }
+}
+
+@media screen and (min-width: 450px){
+   .CadastroPaciente-botoes-medicamento{
+      flex-direction: row;
+   }
+}
+
+.CadastroPaciente-botao-opcao {
+   width: 200px !important;
+   margin-right: 3%;
+}
+
+@media screen and (min-width: 0px){
+   .CadastroPaciente-botao-opcao {
+      margin-bottom: 40px;
+   }
+}
+
+@media screen and (min-width: 600px){
+   .CadastroPaciente-botao-opcao {
+      margin-bottom: 0px;
+   }
+}
+
+/* Estilos dos botões */
+
+.CadastroPaciente-enviar{
+   width: 135px !important;
+   float: right;
+   margin-right: 15%;
+}
+
+.CadastroPaciente-enviar:hover{
+   background-color: var(--laranja);
+   transition: 0.5s;
+}

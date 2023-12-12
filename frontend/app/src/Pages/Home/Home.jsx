@@ -1,5 +1,6 @@
 import './Home.css'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import moment from 'moment'
 
@@ -80,10 +81,14 @@ function buscaAniversariantes(){
                         <span class='Aniversariante-texto'>${aniversariantes[i].nome}</span>
                         <span class='Aniversariante-texto'>Aniversário: ${dataFormatada}</span>
                         <span class='Aniversariante-texto'>Fará ${idadePaciente} anos!</span>
-                        <a class='Aniversariante-link' href="">Ver dados do Paciente</a>
-                     </div>
+                        <a class='Aniversariante-link' href=""}>Ver dados do Paciente</a>                 
+                    </div>
                     `
-            
+
+                // Set a new value to the href attribute
+                cardAniversario.querySelector('.Aniversariante-link').href = `/verPaciente/${aniversariantes[i]._id}`;
+
+                    
                 areaAniversarios.appendChild(cardAniversario);
             }
         }
@@ -110,8 +115,30 @@ function buscaAniversariantes(){
 };
 
 const Home = () =>{
-    buscaQuantidadePacientes();
-    buscaAniversariantes();
+    const [termoBusca, setTermoBusca] = useState('');
+    const [pacientes, setPacientes] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get(`http://localhost:3000/pacientes/${termoBusca}`);
+            setPacientes(response.data.data);
+          } catch (error) {
+            console.error('Erro ao buscar pacientes:', error.message);
+          }
+        };
+
+        buscaQuantidadePacientes();
+        buscaAniversariantes();
+        fetchData();
+      }, [termoBusca]);
+
+    const handleSelectChange = (e) => {
+        const pacienteId = e.target.value;
+        const paciente = pacientes.find((paciente) => paciente._id === pacienteId);
+        navigate(`/verPaciente/${paciente._id}`);
+    };
 
     return(     
         <div className="Home">
@@ -153,6 +180,22 @@ const Home = () =>{
                     </div>
                     <hr className="Home-divisao-conteudo"></hr>
                 </div>
+                <div className="search-container">
+                        <select
+                            className="input-search"
+                            id="pacientes"
+                            onChange={handleSelectChange}
+                        >
+                            <option value="" disabled selected="selected">
+                            Ver dados de um paciente
+                            </option>
+                            {pacientes.map((paciente) => (
+                            <option key={paciente._id} value={paciente._id}>
+                                {paciente.nome}
+                            </option>
+                            ))}
+                        </select>
+                    </div>
                 <div className="Home-cards">
                     <div className="Home-card">
                         <div className="Home-card-cabecalho">

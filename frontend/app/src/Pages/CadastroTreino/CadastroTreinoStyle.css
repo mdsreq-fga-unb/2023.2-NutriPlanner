@@ -1,0 +1,372 @@
+/* Variáveis CSS */
+
+
+:root{
+    --cinza: #D9D9D9;
+    --cinza-claro: #ECF3F1;
+    --verde: #68A797;
+    --laranja: #F6A340;
+  
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  }
+  
+  body {
+    margin: 0;
+  }
+ 
+ 
+ /* Estilos do Layout */
+ 
+ .CadastroTreino {
+    margin: 0px;
+    display: grid;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino{
+       grid-template-areas: 
+          "aside"
+          "main"
+          "footer";
+       grid-template-rows: 100%;
+       grid-template-columns: auto;
+    }
+ }
+ 
+ @media screen and (min-width: 768px){
+    .CadastroTreino{
+    grid-template-areas: 
+          "aside main"
+          "aside footer";
+       grid-template-rows: 100% 100%;
+       grid-template-columns: 25% 75%;
+    }
+ }
+ 
+ .CadastroTreino-menu-lateral{
+    background-color: #68A797;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-area: aside;
+    padding-top: 4%;
+ }
+ 
+ .CadastroTreino-conteudo {
+    grid-area: main;
+    padding-left: 2%;
+    width: 98%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+ }
+ 
+ 
+ .CadastroTreino-rodape{
+    grid-area: footer;
+ }
+ 
+ 
+ /* Estilos das seções */
+ 
+ 
+ /* Menu Lateral */
+ .CadastroTreino-menu-titulo {
+    color: #FFF;
+    font-weight: bold;
+    align-self: flex-start;
+    padding-left: 13%;
+    margin-top: 4%;
+ }
+ 
+ .CadastroTreino-menu-divisao {
+    color: white;
+    width: 80%;
+ }
+ 
+ .CadastroTreino-navegacao {
+    display: flex;
+    flex-direction: column;
+ }
+ 
+ .CadastroTreino-item-menu {
+    margin: 7% 0;
+    text-decoration: none;
+ }
+ 
+ /* Cabeçalho */
+ 
+ .CadastroTreino-cabecalho{
+    background-color: #FFF;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-cabecalho{
+       padding-top: 30px;
+    }
+ }
+ 
+ @media screen and (min-width: 1024px){
+    .CadastroTreino-cabecalho{
+       padding-top: 0px;
+       position: sticky;
+       top: 0px;
+       z-index: 100;
+    }
+ }
+ 
+ .CadastroTreino-items-cabecalho {
+    display: flex;
+    padding-right: 4%;
+    align-items: center;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-items-cabecalho{
+       flex-direction: column;
+    }
+ }
+ 
+ @media screen and (min-width: 600px){
+    .CadastroTreino-items-cabecalho {
+       flex-direction: row;
+       justify-content: space-between;
+    }
+ }
+ 
+ .CadastroTreino-botoes-cabecalho{
+    display: flex;
+    margin-right: 20px;
+ }
+ 
+ .CadastroTreino-divisao-conteudo {
+    color: var(--cinza-claro);
+ }
+ 
+ .CadastroTreino-botao-voltar{
+    margin-top: 20px;
+ }
+ 
+ 
+ /* Formulário */
+ 
+ .CadastroTreino-formulario{
+    margin: 3% 0;
+ }
+ 
+ .CadastroTreino-area-formulario{
+    width: 85%;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-area-formulario{
+       margin: 5% 0;
+    }
+ }
+ 
+ @media screen and (min-width: 600px){
+    .CadastroTreino-area-formulario{
+       margin: 3%;
+    }
+ }
+ 
+ .CadastroTreino-titulo-area{
+    font-weight: bold;
+    font-size: 1.3rem;
+ }
+ 
+ .CadastroTreino-campos-formulario{
+    display: flex;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-campos-formulario{
+       flex-direction: column;
+    }
+ }
+ 
+ @media screen and (min-width: 768px){
+    .CadastroTreino-campos-formulario{
+       flex-direction: row;
+       justify-content: space-between;
+    }
+ }
+ 
+ .CadastroTreino-container{
+    padding-top: 1%;
+    padding-right: 14%;
+    padding-left: 2%;
+    padding-bottom: 1%;
+ }
+ 
+ .CadastroTreino-item-formulario{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px
+ }
+ 
+ .CadastroTreino-label-campo{
+    font-weight: 600;
+    margin-bottom: 15px;
+ }
+ 
+ .CadastroTreino-aviso{
+    color: red;
+    font-size: 0.6rem;
+ }
+ 
+ .CadastroTreino-campo-obrigatorio::after{
+       content:" *";
+       color: red;
+ }
+ 
+ .CadastroTreino-input{
+    line-height: 1.8rem;
+    border-radius: 15px;
+    border: 1px solid #000;
+ }
+
+ .CadastroTreino-series{
+   line-height: 1.8rem;
+   border-radius: 15px;
+   border: 1px solid #000;
+   width: 1%;
+}
+
+.CadastroTreino-input-numero-treinos{
+   width: 5%;
+}
+ 
+ .CadastroTreino-input-texto{
+    font-size: 15px;
+    background-color: white;
+ }
+
+ .CadastroTreino-input-numero{
+   font-size: 15px;
+   width: 30%;
+}
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-input-texto{
+       width: 100%;
+    }
+ }
+ 
+ @media screen and (min-width: 1000px){
+    .CadastroTreino-input-texto{
+       width: 150%;
+    }
+ }
+ 
+ @media screen and (min-width: 1100px){
+    .CadastroTreino-input-texto{
+       width: 180%;
+    }
+ }
+ 
+ .CadastroTreino-input-curto{
+    width: 140px;
+ }
+ 
+ 
+ .CadastroTreino-input-select{
+    width: 104px;
+    height: 30px;
+    text-indent: 6px;
+ }
+ 
+ .CadastroTreino-area-texto{
+    width: 100%;
+    font-size: 1.1rem;
+    resize: none;
+ }
+ 
+ 
+ /* Estilos da seção de Medicamentos */
+ 
+ .CadastroTreino-item-formulario-medicamento{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+ }
+ 
+ .CadastroTreino-medicamentos{
+    margin-bottom: 20px
+ }
+ 
+ .CadastroTreino-campos-exercicio{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+ }
+ 
+ .CadastroTreino-label-medicamento{
+    font-size: 0.8rem;
+    text-align: center;
+ }
+ 
+ .CadastroTreino-input-medicamento{
+    width: 250px;
+ }
+ 
+ .CadastroTreino-input-horario{
+    width: 90px;
+ }
+ 
+ .CadastroTreino-botoes-medicamento{
+    display: flex;
+    margin-top: 4%;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-botoes-medicamento{
+       flex-direction: column;
+    }
+ }
+ 
+ @media screen and (min-width: 450px){
+    .CadastroTreino-botoes-medicamento{
+       flex-direction: row;
+    }
+ }
+ 
+ .CadastroTreino-botao-opcao {
+    width: 200px !important;
+    margin-right: 3%;
+    margin-top: 1%;
+ }
+ 
+ @media screen and (min-width: 0px){
+    .CadastroTreino-botao-opcao {
+       margin-bottom: 40px;
+    }
+ }
+ 
+ @media screen and (min-width: 600px){
+    .CadastroTreino-botao-opcao {
+       margin-bottom: 0px;
+    }
+ }
+ 
+ /* Estilos dos botões */
+ 
+ .CadastroTreino-enviar{
+    width: 135px !important;
+    float: right;
+    margin-right: 15%;
+ }
+ 
+ .CadastroTreino-enviar:hover{
+    background-color: var(--laranja);
+    transition: 0.5s;
+ }
+
+ .form-gera-treino{
+   text-align: center;
+   margin-top: 4%;
+ }
+
+ .CadastroTreino-botoes-exercicios{
+   display: flex;
+ }

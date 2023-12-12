@@ -21,7 +21,6 @@ const pacienteSchema = new mongoose.Schema({
     dtNascimento: {
         type: Date,
         required: [true, 'O paciente deve conter uma data de nascimento!'],
-        default: ''
     },
     sexo: {
         type: String,
@@ -36,13 +35,13 @@ const pacienteSchema = new mongoose.Schema({
     },
     telefone: {
         type: String,
-        default: '',
+        default: 'Não informado.',
         trim: true,
         maxLength: 15
     },
     endereco: {
         type: String,
-        default: '',
+        default: 'Não informado.',
         trim: true,
         maxLength: 200
     },
@@ -121,26 +120,26 @@ const pacienteSchema = new mongoose.Schema({
             type: String,
             maxLength: 1000,
             trim: true,
-            default: ''
+            default: 'Não informados'
         }
     },
     gastoEnergeticoDiario: {
         type: Number,
-        required: [true, 'Medida deve conter gasto energetico diario!'],
+        required: [true, 'O paciente deve conter gasto energetico diario!'],
     },
     metabolismoBasal: {
         type: Number,
-        required: [true, 'Medida deve conter metabolismo basal!'],
+        required: [true, 'O paciente deve conter metabolismo basal!'],
     },
     valorCaloricoPlano: {
         type: Number,
-        required: [true, 'Medida deve conter valor calorico do plano alimentar!'],
+        required: [true, 'O paciente deve conter valor calorico do plano alimentar!'],
     },
     conclusoes: {
         type: String,
         maxLength: 1500,
         trim: true,
-        default: ''
+        default: 'Não informadas.'
     }
 });
 

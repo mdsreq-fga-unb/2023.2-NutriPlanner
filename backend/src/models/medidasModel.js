@@ -14,17 +14,17 @@ const medidasSchema = new mongoose.Schema({
     },
     altura: { // em metro
         type: Number,
-        required: [true, 'Medida deve conter altura!'],
+        required: [true, 'O paciente deve conter altura!'],
     },
     pesoJejum: {
         type: Number,
-        required: [true, 'Medida deve conter peso em jejum!'],
+        required: [true, 'O paciente deve conter peso em jejum!'],
     },
     pesoObjetivo: {
         type: Number,
-        required: [true, 'Medida deve conter peso de objetivo!'],
+        required: [true, 'O paciente deve conter peso objetivo!'],
     },
-    imc: {
+    imc: { 
         type: Number,
         default: 0
     },

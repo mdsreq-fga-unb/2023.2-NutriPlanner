@@ -48,6 +48,8 @@ nav:
       - User Story Mapping: docs_separados/usm.md
       - Verificação e Validação - GL: docs_separados/verival_gl.md
       - BDD: docs_separados/bdd.md
+    - Unidade 4:
+      - Casos de Uso: docs_separados/casos_uso.md
     - Referências: referencias/referencias.md
     - Vídeos: videos/videos.md
   - Reuniões: 

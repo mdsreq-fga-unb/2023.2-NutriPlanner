@@ -188,7 +188,10 @@
     padding-right: 20px;
     margin-left: 10px;
     margin-right: 10px;
-    width: 500px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -225,4 +228,28 @@
 
 .CriarDieta-btnCadastrar:hover{
     background-color: #F6A340;
+}
+
+.CriarDieta-areaRefeicoes{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.CriarDieta-alimentosRefeicao{
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    width: 270px;
+    margin: 5px 0px 10px 0px;
+}
+
+.CriarDieta-cardAlimento{
+    color: #1D1D1F;
 }

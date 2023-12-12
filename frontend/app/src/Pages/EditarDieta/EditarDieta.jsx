@@ -22,9 +22,7 @@ import sair from '../../assets/icons/Sair.svg';
 import salvar from '../../assets/icons/Salvar.svg';
 import voltar from '../../assets/icons/Voltar.svg';
 
-import './style.css'
-
-const CriarDieta = () =>{
+const EditarDieta = () =>{
     const navigate = useNavigate();
 
     const [dieta, setDieta] = useState({
@@ -228,7 +226,7 @@ const CriarDieta = () =>{
         navigate('/verPaciente')
     }
     
-    function handleCadastrarDieta(){
+    function handleAtualizarDieta(){
         console.log(dieta)
 
 
@@ -278,7 +276,7 @@ const CriarDieta = () =>{
                 <div className="CadastroPaciente-conteudo">
                     <div className="CadastroPaciente-cabecalho">
                         <div className='CadastroPaciente-items-cabecalho'>
-                            <Header title="Criar Dieta" caminhoImagem={adicaoPaciente} />
+                            <Header title="Editar Dieta" caminhoImagem={adicaoPaciente} />
                             <div className='CadastroPaciente-botoes-cabecalho'>
                             </div>
                         </div>
@@ -326,7 +324,7 @@ const CriarDieta = () =>{
                             type="text" 
                             id="chaAgua" 
                             name="chaAgua"
-                            value={chaAgua}
+                            value={dieta.consumoChaAgua}
                             onChange={e => adicionaChaAgua(e)}
                             required
                             />
@@ -409,7 +407,7 @@ const CriarDieta = () =>{
                                 <div key={indexRefeicao} className='CriarDieta-cardRefeicao'>
                                     <p className='CriarDieta-tituloRefeicao'>Refeição {indexRefeicao + 1}</p>
 
-                                    { refeicao.alimento.map((alimento, indexAlimento) => (
+                                    { dieta.refeicoes[indexRefeicao].alimento.map((alimento, indexAlimento) => (
                                         <div className='CriarDieta-alimentosRefeicao' key={indexAlimento}>
                                             <div> 
                                                 <button className='CriarDieta-excluiItem' onClick={() => removeAlimento(indexAlimento)}>x</button>
@@ -441,7 +439,7 @@ const CriarDieta = () =>{
                                 type="text" 
                                 id="nomeSuplemento" 
                                 name="nomeSuplemento"
-                                value={suplemento.nome}
+                                value={dieta.suplementacao.nome}
                                 onChange={e => setSuplemento({...suplemento, nome: e.target.value})}
                                 />
                             <label className="CriarDieta-tituloSimples" htmlFor="qtddSuplemento">Quantidade:</label>
@@ -450,7 +448,7 @@ const CriarDieta = () =>{
                                 type="text" 
                                 id="qtddSuplemento" 
                                 name="qtddSuplemento"
-                                value={suplemento.quantidade}
+                                value={dieta.suplementacao.quantidade}
                                 onChange={e => setSuplemento({...suplemento, quantidade: e.target.value})}
                                 />
                         </div>
@@ -483,7 +481,7 @@ const CriarDieta = () =>{
 
 
                     <div className='CriarDieta-areaBtnCadastrar'>
-                        <button className='CriarDieta-btnCadastrar' onClick={handleCadastrarDieta}>Cadastrar Dieta</button>
+                        <button className='CriarDieta-btnCadastrar' onClick={handleAtualizarDieta}>Atualizar Dieta</button>
                     </div>
                 </div>
                 <Footer className="CadastroPaciente-rodape"/>
@@ -492,6 +490,6 @@ const CriarDieta = () =>{
     )    
 };
 
-export default CriarDieta
+export default EditarDieta
 
 // Alterar critério de aceitação de lista de suplementação

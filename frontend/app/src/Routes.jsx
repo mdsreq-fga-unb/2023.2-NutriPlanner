@@ -8,6 +8,8 @@ import CadastroPaciente from "./Pages/CadastroPaciente/CadastroPaciente"
 import { PrivateRoute } from "./PrivateRoute"
 import VerPaciente from "./Pages/VerPaciente/VerPaciente"
 import CriarDieta from "./Pages/CriarDieta/CriarDieta"
+import VerDieta from "./Pages/VerDieta/VerDieta"
+import EditarDieta from "./Pages/EditarDieta/EditarDieta"
 
 export default function AppRoutes() {
 	return (
@@ -20,6 +22,8 @@ export default function AppRoutes() {
 
 
 				<Route path="/criarDieta" element={<PrivateRoute><CriarDieta/></PrivateRoute>}/>
+				<Route path="/verDieta" element={<PrivateRoute><VerDieta/></PrivateRoute>}/>
+				<Route path="/editarDieta" element={<PrivateRoute><EditarDieta/></PrivateRoute>}/>
 			</Routes>
 		</BrowserRouter>
 	)

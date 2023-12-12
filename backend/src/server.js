@@ -18,5 +18,6 @@ app.listen(port, () => {
 });
 
 require("./db/connection.js");
+require("./script.js")
 
 app.use('/pacientes', pacienteRoutes);

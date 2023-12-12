@@ -1,6 +1,8 @@
 import './CadastroPaciente.css'
 import React from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
+
 
 //Componentes
 import Logo from '../../components/Logo/Logo'
@@ -23,35 +25,39 @@ import salvar from '../../assets/icons/Salvar.svg';
 import voltar from '../../assets/icons/Voltar.svg';
 
 const CadastroPaciente = () =>{
+    const navigate = useNavigate();
+
+
     const dadosPaciente = {
         paciente: {
             nome: '',
             dtNascimento: '',
             sexo: '',
             email: '',
-            telefone: '',
-            endereco: '',
+            // telefone: '',
+            // endereco: '',
             questionario: {
                 objetivosPaciente: '',
-                problemasSaudeIndividual: '',
-                problemasSaudeFamiliares: '',
+                // problemasSaudeIndividual: '',
+                // problemasSaudeFamiliares: '',
                 medicamentosIngeridos: [],
-                alergiasAlimentares: '',
-                alteracoes: '',
-                cirurgias: '',
-                lesoes: '',
-                restricoesMedicas: '',
-                habitosGeraisAlimentares: ''
+                // alergiasAlimentares: '',
+                // alteracoes: '',
+                // cirurgias: '',
+                // lesoes: '',
+                // restricoesMedicas: '',
+                // habitosGeraisAlimentares: ''
             },
             gastoEnergeticoDiario: '',
             metabolismoBasal: '',
             valorCaloricoPlano: '',
-            conclusoes: ''
+            // conclusoes: ''
         },
         medida: {
             altura: '',
             pesoJejum: '',
             pesoObjetivo: '',
+            imc: '',
             circunferencia: [
                 {
                     bracoEsquerdo: '',
@@ -93,34 +99,34 @@ const CadastroPaciente = () =>{
         let { name, value } = event.target;
 
         if(name == 'gastoEnergeticoDiario' || name == 'metabolismoBasal' || name == 'valorCaloricoPlano')
-            value = tratamentoDecimal(value)
+            value = tratamentoDecimal(value.trim())
 
         dadosPaciente.paciente[name] = value;
     };
 
     const preencheAtributoQuestionario = (event) => {
-        const { name, value } = event.target;
-        dadosPaciente.paciente.questionario[name] = value;
+        let { name, value } = event.target;
+
+        dadosPaciente.paciente.questionario[name] = value.trim();
     };
 
     const preencheAtributoMedicamento = (event, indice) => {
-        const { name, value } = event.target;
-        
+        let { name, value } = event.target;
         const medicamentoAtual = dadosPaciente.paciente.questionario.medicamentosIngeridos[indice]
-        medicamentoAtual[name] = value;
+
+        medicamentoAtual[name] = value.trim();
     };
 
     const preencheAtributoMedidasCorporais = (event) => {
         let { name, value } = event.target;
-        value = tratamentoDecimal(value)
+        value = tratamentoDecimal(value.trim())
 
         dadosPaciente.medida[name] = value;
     };
 
     const preencheAtributoCircunferencias = (event) => {
         let { name, value } = event.target;
-        value = tratamentoDecimal(value)
-
+        value = tratamentoDecimal(value).trim()
 
         dadosPaciente.medida.circunferencia[0][name] = value;
     };
@@ -129,7 +135,7 @@ const CadastroPaciente = () =>{
         let { name, value } = event.target;
         value = tratamentoDecimal(value)
 
-        dadosPaciente.medida.dobrasCutaneas[name] = value;
+        dadosPaciente.medida.dobrasCutaneas[name] = value.trim();
     };
 
 
@@ -199,21 +205,37 @@ const CadastroPaciente = () =>{
         indiceMedicamento--;
     }
 
+    function handleVoltar(e){
+        navigate('/home');
+    }
+
 
     function cadastrarPaciente(event){
         event.preventDefault();
 
-        console.log(dadosPaciente)
-
         const url = 'http://localhost:3000/pacientes';
 
         axios.post(url, dadosPaciente)
-          .then((response) => {
-            alert('Usuário Cadastrado com sucesso!')
-          }, (error) => {
-            alert('Não foi possível cadastrar o usuário. Verifique os dados informados!')
-            console.log(error.response.data)
-          });
+        .then((response) => {
+          alert('Paciente cadastrado com sucesso!')
+        }, (error) => {
+            let mensagemAlert = "";
+            
+            if (error.response && error.response.data && error.response.data.message && error.response.data.message.errors) {
+                
+                const erros = error.response.data.message.errors;
+  
+                Object.keys(erros).forEach(campo => {
+                    mensagemAlert += `${erros[campo].message}\n`;
+                });
+            } 
+            else 
+            {
+                mensagemAlert += "Não foi possível cadastrar o paciente, tente novamente mais tarde.";
+            }
+  
+            alert(mensagemAlert);
+        });   
     };
 
     return(     
@@ -223,10 +245,10 @@ const CadastroPaciente = () =>{
                 <span className="CadastroPaciente-menu-titulo">MENU</span>
                 <hr className="CadastroPaciente-menu-divisao" />
                 <nav className="CadastroPaciente-navegacao">
-                    <a href="/" className='CadastroPaciente-item-menu'>
+                    <a href="/home" className='CadastroPaciente-item-menu'>
                         <MenuButton title="Pacientes" icon={paciente}/>
                     </a>
-                    <a href="/" className='CadastroPaciente-item-menu'>
+                    <a href="/cadastrarPaciente" className='CadastroPaciente-item-menu'>
                         <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente}selecionado="true" />
                     </a>
                     <a href="/" className='CadastroPaciente-item-menu'>
@@ -251,7 +273,7 @@ const CadastroPaciente = () =>{
                         </div>
                     </div>
                     <hr className="CadastroPaciente-divisao-conteudo"></hr>
-                    <Button title="Voltar" classeAdicional="CadastroPaciente-botao-voltar" icon={voltar}/>
+                    <Button title="Voltar" classeAdicional="CadastroPaciente-botao-voltar" onClick={(e) => handleVoltar(e)} icon={voltar}/>
                 </div>
     
                 <form className="CadastroPaciente-formulario">

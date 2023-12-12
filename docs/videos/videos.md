@@ -20,6 +20,8 @@ Após a finalização de cada missão referente a matéria de Requisitos de Soft
 
  - [Link para reunião de alinhamento](https://drive.google.com/file/d/1ToT1Zbhcx6vXpCWrcFd0Md-RElb-S-bx/view?usp=sharing)
 
+ - [Link para validação do MVP](https://youtu.be/PJOiaNqA_kM)
+
 ##  Histórico de Versão:
 
 | **Data** | **Versão** | **Descrição** | **Autor** |
@@ -29,3 +31,4 @@ Após a finalização de cada missão referente a matéria de Requisitos de Soft
 | 25/10/2023 | 1.2 | Adição da formatação e link referente a missão 02 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 22/11/2023 | 1.3 | Adição da formatação e link referente a missão 03 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
 | 22/11/2023 | 1.4 | Adição da formatação e link referente a reunião com cliente |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 23/11/2023 | 1.5 | Adição da formatação e link referente a validação com cliente e missão 04 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |

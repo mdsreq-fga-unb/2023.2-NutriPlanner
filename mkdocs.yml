@@ -49,6 +49,7 @@ nav:
       - VeriVal - PBB - GL: docs_separados/verival_gl.md
       - BDD: docs_separados/bdd.md
     - Unidade 4:
+      - Lições Aprendidas: licoes_aprendidas/licoes_04.md
       - Casos de Uso: docs_separados/casos_uso.md
       - VeriVal - UC - GL: docs_separados/verival_UC_gl.md
     - Referências: referencias/referencias.md

@@ -25,4 +25,5 @@
 | **Data** | **Versão** | **Descrição** | **Autor** |
 | :--------: | :--------: | :--------:  | :--------: | 
 | 23/09/2023 | 1.0 | Criação do Documento  | [Mateus Fidelis](https://github.com/MatsFidelis)  |
-| 28/09/2023 | 1.1 | Adição da formatação e fala referente a missão 01 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |
+| 23/09/2023 | 1.1 | Criação das lições aprendidas  | [Lucas](https://github.com/LucasSpinosa)  |
+| 28/09/2023 | 1.2 | Adição da formatação e fala referente a missão 01 |  [Mateus Fidelis](https://github.com/MatsFidelis)  |

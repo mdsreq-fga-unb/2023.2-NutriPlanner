@@ -34,24 +34,28 @@ const CadastroPaciente = () =>{
             dtNascimento: '',
             sexo: '',
             email: '',
-            // telefone: '',
-            // endereco: '',
+            telefone: '',
+            endereco: '',
             questionario: {
                 objetivosPaciente: '',
-                // problemasSaudeIndividual: '',
-                // problemasSaudeFamiliares: '',
-                medicamentosIngeridos: [],
-                // alergiasAlimentares: '',
-                // alteracoes: '',
-                // cirurgias: '',
-                // lesoes: '',
-                // restricoesMedicas: '',
-                // habitosGeraisAlimentares: ''
+                problemasSaudeIndividual: '',
+                problemasSaudeFamiliares: '',
+                medicamentosIngeridos: [{
+                    nome: '',
+                    horario: '',
+                    tipo: '',
+                }],
+                alergiasAlimentares: '',
+                alteracoes: '',
+                cirurgias: '',
+                lesoes: '',
+                restricoesMedicas: '',
+                habitosGeraisAlimentares: ''
             },
             gastoEnergeticoDiario: '',
             metabolismoBasal: '',
             valorCaloricoPlano: '',
-            // conclusoes: ''
+            conclusoes: ''
         },
         medida: {
             altura: '',

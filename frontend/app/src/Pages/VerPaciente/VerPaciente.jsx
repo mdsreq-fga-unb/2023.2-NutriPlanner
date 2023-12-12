@@ -131,6 +131,27 @@ const VerPaciente = () => {
                             {/* Fazer o Map de medicamentosIngeridos */}
                             <div className="VerPaciente-cardInterno-Infor">
                                 <p className="VerPaciente-textoLabel">Medicamentos Ingeridos</p>
+
+                                <div>
+                                    {<></> ? dadosPaciente.paciente.questionario.medicamentosIngeridos.map((med, index) => (
+                                        <div key={index} className="VerPaciente-medicamentoCard">
+                                            <div className="VerPaciente-nomeMedArea">
+                                                <p>Nome:</p>
+                                                <p>{med.nome}</p>
+                                            </div>
+                                            <div className="VerPaciente-nomeMedArea">
+                                                <p>Horário:</p>
+                                                <p>{med.horario}</p>
+                                            </div>
+                                            <div className="VerPaciente-nomeMedArea">
+                                                <p>Tipo de uso:</p>
+                                                <p>{med.tipo}</p>
+                                            </div>
+
+                                        </div>
+                                    )) : <p>Não possui</p>}
+                                    
+                                </div>
                                 <p className="VerPaciente-texto">{dadosPaciente.paciente.questionario.medicamentosIngeridos.nome}</p>
                             </div>
 
@@ -210,7 +231,7 @@ const VerPaciente = () => {
 
                         <div className="VerPaciente-cardInterno-Infor">
                             <p className="VerPaciente-textoLabel">IMC</p>
-                            <p className="VerPaciente-texto">{"Não informado" || dadosPaciente.medida.imc}</p>
+                            <p className="VerPaciente-texto">{ dadosPaciente.medida.imc}</p>
                         </div>
 
                         <h3 className="VerPaciente-h3">Dobras Cutâneas</h3>
@@ -257,72 +278,72 @@ const VerPaciente = () => {
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Braço esquerdo</p>
-                                    <p className="VerPaciente-textoCircunferencia">{"Não informado" ||medida.bracoEsquerdo + 'cm'}</p>
+                                    <p className="VerPaciente-textoCircunferencia">{medida.bracoEsquerdo ? medida.bracoEsquerdo + 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Braço direito</p>
-                                    <p className="VerPaciente-textoCircunferencia">{"Não informado" || medida.bracoDireito+ 'cm'}</p>
+                                    <p className="VerPaciente-textoCircunferencia">{ medida.bracoDireito ? medida.bracoDireito+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Antebraço esquerdo</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.antebracoEsquerdo} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.antebracoEsquerdo ? medida.antebracoEsquerdo+"cm" : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Antebraço direito</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.antebracoDireito} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.antebracoDireito ? medida.antebracoDireito+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Abdômen</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.abdomen} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.abdomen ? medida.abdomen+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Cintura</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.cintura} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.cintura ? medida.cintura+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Peitoral</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.peitoral} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.peitoral ? medida.peitoral+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Ombros</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.ombros} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.ombros ? medida.ombros+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Coxa esquerda</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.coxaEsquerda} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.coxaEsquerda ? medida.coxaEsquerda+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Coxa direita</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.coxaDireita} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> { medida.coxaDireita ? medida.coxaDireita+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Panturrilha esquerda</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaEsquerda} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.panturrilhaEsquerda ? medida.panturrilhaEsquerda+ 'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Panturrilha direita</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.panturrilhaDireita} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.panturrilhaDireita ? medida.panturrilhaDireita+'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Quadril</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.quadril} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.quadril ? medida.quadril+'cm' : "Não informado"}</p>
                                 </div>
 
                                 <div className="VerPaciente-cardInterno-Infor">
                                     <p className="VerPaciente-textoLabelCircunferencia">Pescoço</p>
-                                    <p className="VerPaciente-textoCircunferencia">: {medida.pescoco} cm </p>
+                                    <p className="VerPaciente-textoCircunferencia"> {medida.pescoco ?  medida.pescoco+'cm' : "Não informado"}</p>
                                 </div>
                             </div>
                             ))}

@@ -217,3 +217,14 @@ h1, h2, h3, p{
 .VerPaciente-rodape{
     grid-area: footer;
 }
+
+.VerPaciente-medicamentoCard{
+    display: flex;
+    flex-direction: row;
+}
+
+.VerPaciente-nomeMedArea{
+    display: flex;
+    flex-direction: row;
+    margin: 5px 10px;
+}

@@ -2,6 +2,7 @@
     display:flex;
     margin-top: 3%;
     margin-right: 2%;
+    flex-direction: column;
   }
   
   .input-search {
@@ -25,13 +26,3 @@
     font-family: "Poppins-Bold", sans-serif;
     font-size: 2.2vh;
   }
-  
-button {
-    margin-left: 10px;
-    padding: 10px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-}

@@ -25,7 +25,6 @@ const Search = () => {
   const handleSelectChange = (e) => {
     const pacienteId = e.target.value;
     pacienteResultado = pacientes.find((paciente) => paciente._id === pacienteId);
-    
     return pacienteResultado;
   };
 
@@ -36,7 +35,7 @@ const Search = () => {
         id="pacientes"
         onChange={handleSelectChange}
       >
-        <option value="" disabled>
+        <option value="" disabled selected="selected">
           Selecione um paciente
         </option>
         {pacientes.map((paciente) => (

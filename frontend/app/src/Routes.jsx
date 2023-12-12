@@ -7,6 +7,7 @@ import Login from "./Pages/Login/Login"
 import CadastroPaciente from "./Pages/CadastroPaciente/CadastroPaciente"
 import { PrivateRoute } from "./PrivateRoute"
 import VerPaciente from "./Pages/VerPaciente/VerPaciente"
+import CriarDieta from "./Pages/CriarDieta/CriarDieta"
 
 export default function AppRoutes() {
 	return (
@@ -17,6 +18,8 @@ export default function AppRoutes() {
 				<Route path="/cadastrarPaciente" element={<PrivateRoute><CadastroPaciente /></PrivateRoute>} />
 				<Route path="/verPaciente/:id" element={<PrivateRoute><VerPaciente/></PrivateRoute>} />
 
+
+				<Route path="/criarDieta" element={<PrivateRoute><CriarDieta/></PrivateRoute>}/>
 			</Routes>
 		</BrowserRouter>
 	)

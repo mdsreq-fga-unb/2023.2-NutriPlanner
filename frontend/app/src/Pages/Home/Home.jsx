@@ -80,10 +80,14 @@ function buscaAniversariantes(){
                         <span class='Aniversariante-texto'>${aniversariantes[i].nome}</span>
                         <span class='Aniversariante-texto'>Aniversário: ${dataFormatada}</span>
                         <span class='Aniversariante-texto'>Fará ${idadePaciente} anos!</span>
-                        <a class='Aniversariante-link' href="">Ver dados do Paciente</a>
-                     </div>
+                        <a class='Aniversariante-link' href=""}>Ver dados do Paciente</a>                 
+                    </div>
                     `
-            
+
+                // Set a new value to the href attribute
+                cardAniversario.querySelector('.Aniversariante-link').href = `/verPaciente/${aniversariantes[i]._id}`;
+
+                    
                 areaAniversarios.appendChild(cardAniversario);
             }
         }

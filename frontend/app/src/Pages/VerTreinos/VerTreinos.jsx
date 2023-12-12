@@ -1,5 +1,6 @@
 import './VerTreinosStyle.css'
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import moment from 'moment';
 import { Link } from 'react-router-dom';
@@ -26,17 +27,18 @@ import voltar from '../../assets/icons/Voltar.svg';
 
 const VerTreinos = () => {
     const [treinos, setTreinos] = useState([]);
+    const { id } = useParams();
 
     useEffect(() => {
-        const fetchTreinos = async () => {
+        const fetchTreinos = async (idPaciente) => {
           try {
-            const response = await axios.get('http://localhost:3000/treinos/656fe262751bb37143d35513'); 
+            const response = await axios.get(`http://localhost:3000/treinos/${id}`); 
             setTreinos(response.data.data);
           } catch (error) {
             console.error('Erro ao buscar treinos', error);
           }
         };
-        fetchTreinos();
+        fetchTreinos(id);
     }, []); 
 
   return (
@@ -80,7 +82,7 @@ const VerTreinos = () => {
                     {treinos.map((treino, index) => (
                         <div key={treino._id} className='card-treinos'>
                             <p className='card-treinos-text'>{`Treino ${index + 1} | ${moment(treino.dtEmissao).format('DD/MM/YYYY')}`}</p>
-                            <Link to={`/editarTreinos/${treino._id}`} className='card-treinos-link'>Ver treino</Link>
+                            <Link to={`/editarTreinos/${treino._id}`} className='card-treinos-link'>Editar treino</Link>
                         </div>
                     ))}
                 </div>

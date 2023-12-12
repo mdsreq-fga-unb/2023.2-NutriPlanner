@@ -17,7 +17,7 @@ function Login() {
         console.log(pin);
 
         try{
-            const response = await axios.post('http://localhost:3000/login', 
+            const response = await axios.post('https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/login', 
                 JSON.stringify({pin}),
                 {
                     headers:{ 'Content-Type': 'application/json'}

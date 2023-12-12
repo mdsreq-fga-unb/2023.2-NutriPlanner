@@ -237,7 +237,7 @@ const CadastroTreino = () =>{
   function cadastrarTreino(event){
     event.preventDefault();
 
-    const url = 'http://localhost:3000/treinos/656fe262751bb37143d35513';
+    const url = 'https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/treinos/656fe262751bb37143d35513';
     console.log(dadosTreino)
 
     axios.post(url, dadosTreino)

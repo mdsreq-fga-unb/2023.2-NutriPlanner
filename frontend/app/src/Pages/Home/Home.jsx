@@ -28,7 +28,7 @@ import consultas from '../../assets/icons/Consultas.svg';
 import bolo from '../../assets/icons/Bolo de Aniversário.svg';
 
 function buscaQuantidadePacientes(){
-    const url = 'http://localhost:3000/pacientes/buscaQuantidades';
+    const url = 'https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/pacientes/buscaQuantidades';
 
     
     axios.get(url)
@@ -52,7 +52,7 @@ function buscaQuantidadePacientes(){
 };
 
 function buscaAniversariantes(){
-    const url = 'http://localhost:3000/pacientes/buscaAniversarios';
+    const url = 'https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/pacientes/buscaAniversarios';
 
     axios.get(url)
     .then((response) => {
@@ -122,7 +122,7 @@ const Home = () =>{
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get(`http://localhost:3000/pacientes/${termoBusca}`);
+            const response = await axios.get(`https://nutriplanner-back-cld1jn00u-arthur-grandao-de-mellos-projects.vercel.app/pacientes/${termoBusca}`);
             setPacientes(response.data.data);
           } catch (error) {
             console.error('Erro ao buscar pacientes:', error.message);

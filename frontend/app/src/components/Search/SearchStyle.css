@@ -1,13 +1,5 @@
-.search-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
   .search-container {
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
+    display:flex;
     margin-top: 3%;
     margin-right: 2%;
   }
@@ -18,9 +10,9 @@
     border-style: solid;
     border-color: var(--grey);
     border-width: 1px;
-    width: 40%;
-    height: 8vh;
-    position: relative;
+    width: 80%;
+    height: 40px;
+    max-width: fit-content;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     padding-left: 1%;
     align-self: center;
@@ -34,42 +26,12 @@
     font-size: 2.2vh;
   }
   
-  button {
+button {
+    margin-left: 10px;
     padding: 10px;
     background-color: var(--primary);
     color: white;
     border: none;
     cursor: pointer;
-  }
-  
-  .paciente-info {
-    display: flex; 
-    align-items: center; 
-    background-color: var(--primary);
-    width: 40%;
-    height: 19vh;
-    background: var(--secundary); 
-    border-radius: 16px;
-    border: '10px #506175 solid';
-    padding-left: 3%;
-    margin-top: 3%; 
-    text-align: center; 
-  }
-  
-  .paciente-info img {
-    width: 20%; 
-    padding: 2%;
-    border-radius: 50%; 
-    margin-right: 5%; 
-    background-color: var(--grey);
-  }
-  
-  .paciente-info-text {
-    flex: 1; 
-    text-align: left; 
-  }
-  
-  .detail-rodape{
-    text-align: right;
-    margin-right: 3%;
-  }
+    border-radius: 15px;
+}

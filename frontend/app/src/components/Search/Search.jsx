@@ -7,7 +7,7 @@ const Search = () => {
   const [pacientes, setPacientes] = useState([]);
   const [pacienteSelecionado, setPacienteSelecionado] = useState(null);
 
-  let resultado, pacientez = ''
+  let pacienteResultado = ''
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,29 +22,12 @@ const Search = () => {
     fetchData();
   }, [termoBusca]);
 
-  const calcularIdade = (dataNascimento) => {
-    const hoje = new Date();
-    const dataNasc = new Date(dataNascimento);
-    let idade = hoje.getFullYear() - dataNasc.getFullYear();
-
-    const mesAtual = hoje.getMonth();
-    const mesNasc = dataNasc.getMonth();
-
-    if (mesAtual < mesNasc || (mesAtual === mesNasc && hoje.getDate() < dataNasc.getDate())) {
-      idade--;
-    }
-
-    return idade;
-  };
-
   const handleSelectChange = (e) => {
     const pacienteId = e.target.value;
-    pacientez = pacientes.find((paciente) => paciente._id === pacienteId);
+    pacienteResultado = pacientes.find((paciente) => paciente._id === pacienteId);
+    
+    return pacienteResultado;
   };
-
-  function retornaPaciente() {
-    console.log(pacientez)
-  }
 
   return (
     <div className="search-container">
@@ -62,7 +45,6 @@ const Search = () => {
           </option>
         ))}
       </select>
-      <button onClick={retornaPaciente}>aaaa</button>
     </div>
   );
 };

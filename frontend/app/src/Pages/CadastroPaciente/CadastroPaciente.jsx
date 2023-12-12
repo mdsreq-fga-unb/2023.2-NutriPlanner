@@ -269,7 +269,9 @@ const CadastroPaciente = () =>{
                         <Header title="Cadastrar Paciente" caminhoImagem={adicaoPaciente} />
                         <div className='CadastroPaciente-botoes-cabecalho'>
                             <Button title="Ajuda" classeAdicional="CadastroPaciente-botoes-cabecalho" icon={ajuda} />
-                            <Button title="Sair" classeAdicional="CadastroPaciente-botoes-cabecalho" icon={sair}/>
+                            <a href="/">
+                                <Button title="Sair" classeAdicional="CadastroPaciente-botoes-cabecalho" icon={sair}/>
+                            </a>
                         </div>
                     </div>
                     <hr className="CadastroPaciente-divisao-conteudo"></hr>

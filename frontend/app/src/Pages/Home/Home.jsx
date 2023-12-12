@@ -143,7 +143,7 @@ const Home = () =>{
     return(     
         <div className="Home">
             <div className="Home-menu-lateral">
-                <Logo />
+                <Logo link="/home"/>
                 <span className="Home-menu-titulo">MENU</span>
                 <hr className="Home-menu-divisao" />
                 <nav className="Home-navegacao">

@@ -12,7 +12,12 @@
    font-family: 'Roboto', sans-serif;
    margin: 0px;
    display: grid;
+   
+   a{
+      text-decoration: none;
+   }
 }
+
 
 @media screen and (min-width: 0px){
    .CadastroPaciente{

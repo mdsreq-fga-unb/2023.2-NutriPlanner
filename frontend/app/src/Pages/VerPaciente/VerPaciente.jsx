@@ -58,10 +58,10 @@ const VerPaciente = () => {
                 <span className="VerPaciente-menu-titulo">MENU</span>
                 <hr className="VerPaciente-menu-divisao" />
                 <nav className="VerPaciente-navegacao">
-                    <a href="/" className='VerPaciente-item-menu'>
+                    <a href="/home" className='VerPaciente-item-menu'>
                         <MenuButton title="Pacientes" icon={paciente} selecionado="true" />
                     </a>
-                    <a href="/" className='VerPaciente-item-menu'>
+                    <a href="/cadastrarPaciente" className='VerPaciente-item-menu'>
                         <MenuButton title="Cadastrar Paciente" icon={adicaoPaciente} />
                     </a>
                     <a href="/" className='VerPaciente-item-menu'>

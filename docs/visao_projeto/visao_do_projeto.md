@@ -27,9 +27,9 @@
 | Fase 1 | **REQUIREMENTS** <br> Atividades de Elicitação, descoberta e Declaração com técnica de Documento de visão de Produto | Visão de Produto e Projeto ; Declaração do Problema | 11/09/23 | 22/09/23 |
 | Fase 1 | **REQUIREMENTS** <br> Atividades de Elicitação e descoberta com técnica envolvendo Entrevista e Análise de Tarefas | Lista de Necessidades ; Lista de Requisitos Funcionais ; Lista de Requisitos Não-funcionais | 02/10/23 | 13/10/23 |
 | Fase 1 | **REQUIREMENTS** <br> Atividades de Elicitação, descoberta, verificação e validação com técnicas envolvendo Entrevista, SAFe  |  Resultados INVEST ; Resultados do Checklist ; Backlog SAFe ; Proposta de MVP  | 16/10/23 | 27/10/23 |
-| Fase 2 | **USER DESIGN** <br> Atividades de Representação com técnicas envolvendo protipagem |  Protótipo de alta Fidelidade  | 30/10/23 | 10/11/23 |
+| Fase 2 | **USER DESIGN** <br> Atividades de Representação com técnicas envolvendo protipagem | [Protótipo de alta Fidelidade](https://www.figma.com/file/SdSUndWHyHGKgN72tfiNib/Protótipo-de-alta-fidelidade?type=design&node-id=0-1&mode=design&t=X4kspsvCG9bh51MR-0) | 30/10/23 | 10/11/23 |
 | Fase 3 | **CONSTRUCTION** <br> Atividades de Verificação e Validadação com técnicas envolvendo Checklists de Verificação e Validação e Feedback com o usuário |  Checklist DoR e DoD ; Critérios de Aceitação das US ; Configurações iniciais do projeto (preparo do ambiente de desenvolvimento)  | 13/11/23 | 24/11/23 |
-| Fase 4 | **USER DESIGN** <br> Atividades de Verificação e Validação com técnicas envolvendo BDD e checklist DoR e DoD |  Protótipo de alta Fidelidade  | 24/11/23 | 26/11/23 |
+| Fase 4 | **USER DESIGN** <br> Atividades de Verificação e Validação com técnicas envolvendo BDD e checklist DoR e DoD | [Protótipo de alta Fidelidade](https://www.figma.com/file/SdSUndWHyHGKgN72tfiNib/Protótipo-de-alta-fidelidade?type=design&node-id=0-1&mode=design&t=X4kspsvCG9bh51MR-0) | 24/11/23 | 26/11/23 |
 | Fase 5 | **CONSTRUCTION** <br> Atividades de Verificação e Validadação com técnicas envolvendo Checklists de Verificaçãoe Validação e Feedback com o usuário |  Checklist DoR e DoD ; Critérios de Aceitação das US ; Desenvolvimento das US | 27/11/23 | 05/12/23 |
 | Fase 6 | **CUTOVER** <br> Verificação e Validação com o usuário | Teste de Usabilidade | 05/12/23 | 14/12/23 |
 

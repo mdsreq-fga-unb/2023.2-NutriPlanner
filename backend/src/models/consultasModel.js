@@ -17,7 +17,7 @@ const consultaSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    local: {
+    local: { 
         type: String,
         required: true,
         enum: ['Consultório', 'Online'],

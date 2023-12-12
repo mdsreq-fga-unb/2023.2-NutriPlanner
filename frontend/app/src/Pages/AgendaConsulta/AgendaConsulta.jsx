@@ -104,7 +104,7 @@ const AgendaConsulta = () => {
                 </a>
                 <a href="/cadastroTreino" className='VerTreinos-item-menu'>
                     <MenuButton title="Criar Plano de Treino" icon={treino} />
-                </a>
+                </a> 
                 <a href="/agendaConsulta" className='VerTreinos-item-menu'>
                     <MenuButton title="Agendar Consulta" icon={agendamento} />
                 </a>

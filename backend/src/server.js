@@ -8,6 +8,14 @@ const pacienteRoutes = require("./routes/pacienteRoutes.js");
 const treinoRoutes = require('./routes/treinoRoutes.js');
 
 dotenv.config();
+
+// forma de ler JSON
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
+ 
 app.use(express.json());
 app.use(cors());
 app.use(routes);

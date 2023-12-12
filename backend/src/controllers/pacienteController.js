@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const diacritic = require('diacritic');
 
 // Modelo de Paciente
 const Paciente = require('./../models/pacienteModel');
@@ -70,6 +71,137 @@ exports.cadastroPaciente = async (req, res) => {
         });
     }
 };
+
+// Buscar pacientes
+
+exports.buscarPacientes = async (req, res) => {
+    try {
+        let nomeBusca;
+        
+        if(req.params.nome === undefined) nomeBusca = ""; 
+        else nomeBusca = diacritic.clean(req.params.nome.replace(/-/g, ' ')).toLowerCase();
+
+        const data = await Paciente.find({}, 'nome dtNascimento ativo').sort({ nome: 1 });
+
+        const result = data.filter(paciente => diacritic.clean(paciente.nome).toLowerCase().includes(nomeBusca));
+
+        return res.status(200).json({
+            status: "sucesso",
+            data: result
+        });
+    } catch (err) {
+        return res.status(400).json({
+            status: "falha",
+            message: err.message
+        });
+    }
+}
+
+// Método GET
+
+exports.getPaciente = async (req, res) => {
+    const pacienteId = req.params.pacienteId;
+    try{
+        const paciente = await Paciente.findById(pacienteId);
+
+        if(!paciente) {
+            return res.status(404).json({
+                status: "falha",
+                message: "Paciente não encontrado"
+            });
+        }
+        const medida = await Medida.findOne({idPaciente: paciente._id});
+
+        if(!medida){
+            return res.status(404).json({
+                status: "falha",
+                message: "Medida não encontrada para este paciente"
+            });
+        }
+
+        return res.status(200).json({
+            status: "sucesso",
+            data:{
+                paciente: paciente,
+                medida: medida
+            }
+        });
+    }
+    catch(err){
+        return res.status(500).json({
+            status: "falha",
+            message: err.message
+        })
+    }
+}
+
+
+// Método UPDATE - PATCH
+
+exports.updatePaciente = async (req, res) => {
+    const pacienteId = req.params.pacienteId;
+
+    try{
+        const encontrarPaciente = await Paciente.findById(pacienteId);
+
+        if(!encontrarPaciente){
+            return res.status(404).json({
+                status: "falha",
+                message: "Paciente não encontrado"
+            });
+        }
+
+        await Paciente.findByIdAndUpdate(pacienteId, req.body.paciente, {new: true});
+
+        const medida = await Medida.findOne({idPaciente: pacienteId});
+
+        if(!medida){
+            return res.status(404).json({
+                status: "falha",
+                message: "Medida não encontrada para este paciente"
+            });
+        }
+
+        // Atualizar medida
+        const atualizarMedida = {
+            ...req.body.medida,
+            imc: (req.body.medida.pesoJejum / (req.body.medida.altura ** 2)).toFixed(2)
+        };
+
+        await Medida.findByIdAndUpdate(medida._id, atualizarMedida, {new: true})
+
+        return res.status(200).json({
+            status: "sucesso",
+            message: "Paciente e medida atualizados com sucesso"
+        });
+    }
+    catch(err){}
+}
+    
+// Buscar pacientes
+
+exports.buscarPacientes = async (req, res) => {
+    try {
+        let nomeBusca;
+        
+        if(req.params.nome === undefined) nomeBusca = ""; 
+        else nomeBusca = diacritic.clean(req.params.nome.replace(/-/g, ' ')).toLowerCase();
+
+        const data = await Paciente.find({}, 'nome dtNascimento ativo').sort({ nome: 1 });
+
+        const result = data.filter(paciente => diacritic.clean(paciente.nome).toLowerCase().includes(nomeBusca));
+
+        return res.status(200).json({
+            status: "sucesso",
+            data: result
+        });
+    } catch (err) {
+        return res.status(400).json({
+            status: "falha",
+            message: err.message
+        });
+    }
+}
 
 // Método GET
 
